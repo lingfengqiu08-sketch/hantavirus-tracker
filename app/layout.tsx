@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { SITE_NAME, SITE_URL, canonical } from "@/lib/seo";
 import { getOutbreak } from "@/lib/outbreak";
 
@@ -61,6 +62,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <GoogleAnalytics />
         <header className="border-b">
           <nav className="mx-auto flex max-w-5xl flex-col gap-3 p-4 text-sm sm:flex-row sm:items-center sm:justify-between">
             <Link href="/" className="font-semibold tracking-tight">
