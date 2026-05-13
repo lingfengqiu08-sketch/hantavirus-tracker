@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Script from "next/script";
 import { usePathname } from "next/navigation";
 
@@ -15,8 +15,14 @@ declare global {
 
 export function GoogleAnalytics() {
   const pathname = usePathname();
+  const hasMounted = useRef(false);
 
   useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+
     if (!pathname || typeof window.gtag !== "function") return;
 
     window.gtag("config", GA_MEASUREMENT_ID, {
@@ -35,7 +41,7 @@ export function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
+          gtag('config', '${GA_MEASUREMENT_ID}');
         `}
       </Script>
     </>
