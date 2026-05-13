@@ -35,6 +35,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  verification: {
+    other: {
+      "msvalidate.01": "F0579576AB55E316B917500C2D411048",
+    },
+  },
   robots: {
     index: true,
     follow: true,
