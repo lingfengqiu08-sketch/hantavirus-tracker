@@ -45,7 +45,9 @@
     "repatriated": 122,
     "monitoring": 122,
     "crewOnboard": 25,
-    "note": "Repatriated and crew-onboard counts are tracker operational counts based on public reporting and WHO/ECDC statements. Case totals use the WHO 12 May 2026 briefing."
+    "estimatedFields": ["repatriated", "monitoring", "crewOnboard"],
+    "sourceIds": ["src-who-don-2026-05-04", "src-who-speech-2026-05-12", "src-ecdc-outbreak-2026-05-11"],
+    "note": "Case totals use the WHO 12 May 2026 briefing. Repatriated, monitoring, and crew-onboard numbers are tracker operational estimates derived from public WHO/ECDC updates and should be treated as approximate until country-level authorities publish final monitoring totals."
   },
   "timeline": [
     { "date": "2026-04-06", "title": "Earliest reported illness onset", "detail": "WHO later reported illness onset among cases occurred between 6 and 28 April 2026.", "sources": ["src-who-don-2026-05-04"] },
@@ -62,11 +64,17 @@
     { "id": "src-who-don-2026-05-08", "name": "Hantavirus cluster linked to cruise ship travel, Multi-country", "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON600", "publisher": "World Health Organization", "date": "2026-05-08" },
     { "id": "src-who-don-2026-05-04", "name": "Hantavirus cluster linked to cruise ship travel, Multi-country", "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599", "publisher": "World Health Organization", "date": "2026-05-04" },
     { "id": "src-who-factsheet-2026-05-06", "name": "Hantavirus fact sheet", "url": "https://www.who.int/news-room/fact-sheets/detail/hantavirus", "publisher": "World Health Organization", "date": "2026-05-06" },
-    { "id": "src-ecdc-outbreak-2026-05-11", "name": "Andes hantavirus outbreak in cruise ship, 11 May 2026", "url": "https://www.ecdc.europa.eu/en/infectious-disease-topics/hantavirus-infection/surveillance-and-updates/andes-hantavirus-outbreak", "publisher": "European Centre for Disease Prevention and Control", "date": "2026-05-11" },
+    { "id": "src-ecdc-outbreak-2026-05-11", "name": "Andes hantavirus outbreak in cruise ship, 12 May 2026", "url": "https://www.ecdc.europa.eu/en/infectious-disease-topics/hantavirus-infection/surveillance-and-updates/andes-hantavirus-outbreak", "publisher": "European Centre for Disease Prevention and Control", "date": "2026-05-12" },
     { "id": "src-ecdc-press-2026-05-11", "name": "Andes hantavirus outbreak: ECDC continues working on the frontline to support EU Member States", "url": "https://www.ecdc.europa.eu/en/news-events/andes-hantavirus-outbreak-ecdc-continues-working-frontline-support-eu-member-states", "publisher": "European Centre for Disease Prevention and Control", "date": "2026-05-11" },
     { "id": "src-ecdc-facts", "name": "Factsheet on orthohantavirus infections", "url": "https://www.ecdc.europa.eu/en/hantavirus-infection/facts", "publisher": "European Centre for Disease Prevention and Control", "date": "2026-05-06" },
     { "id": "src-cdc-hantavirus", "name": "About Hantavirus", "url": "https://www.cdc.gov/hantavirus/", "publisher": "Centers for Disease Control and Prevention", "date": "2024-05-13" },
     { "id": "src-cdc-andes", "name": "About Andes Virus", "url": "https://www.cdc.gov/hantavirus/about/andesvirus.html", "publisher": "Centers for Disease Control and Prevention", "date": "2026-05-07" },
-    { "id": "src-cdc-hondius-2026-05-06", "name": "Statement on the M/V Hondius Cruise Ship", "url": "https://www.cdc.gov/media/releases/2026-hantavirus-confirmed-cruise-ship.html", "publisher": "Centers for Disease Control and Prevention", "date": "2026-05-06" }
+    { "id": "src-cdc-hondius-2026-05-06", "name": "Statement on the M/V Hondius Cruise Ship", "url": "https://www.cdc.gov/media/releases/2026-hantavirus-confirmed-cruise-ship.html", "publisher": "Centers for Disease Control and Prevention", "date": "2026-05-06" },
+    { "id": "src-cdc-prevention", "name": "Hantavirus Prevention", "url": "https://www.cdc.gov/hantavirus/prevention/index.html", "publisher": "Centers for Disease Control and Prevention", "date": "2024-05-13" },
+    { "id": "src-cdc-clinical-overview", "name": "Clinical Overview of Hantavirus", "url": "https://www.cdc.gov/hantavirus/hcp/clinical-overview/index.html", "publisher": "Centers for Disease Control and Prevention", "date": "2024-05-13" },
+    { "id": "src-ukhsa-cruise-2026-05-12", "name": "What you need to know about the hantavirus outbreak linked to the Dutch cruise ship", "url": "https://ukhsa.blog.gov.uk/2026/05/12/what-you-need-to-know-about-the-hantavirus-outbreak-linked-to-the-dutch-cruise-ship/", "publisher": "UK Health Security Agency", "date": "2026-05-12" },
+    { "id": "src-govuk-ukhsa-update-2026-05-12", "name": "UKHSA update on the hantavirus cruise ship outbreak", "url": "https://www.gov.uk/government/news/ukhsa-update-on-the-hantavirus-cruise-ship-outbreak", "publisher": "UK Health Security Agency", "date": "2026-05-12" },
+    { "id": "src-govuk-hantaviruses", "name": "Hantaviruses", "url": "https://www.gov.uk/guidance/hantaviruses", "publisher": "Public Health England", "date": "2008-09-11" },
+    { "id": "src-nhs-hantavirus", "name": "Hantavirus", "url": "https://www.nhs.uk/conditions/hantavirus/", "publisher": "NHS", "date": "2026-05-12" }
   ]
 }

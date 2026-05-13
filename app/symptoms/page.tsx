@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQ } from "@/components/faq";
 import { SourceList } from "@/components/source-list";
+import { UpdateBanner } from "@/components/update-banner";
 import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
@@ -142,6 +143,12 @@ export default function SymptomsPage() {
           Below is a structured summary of signs, timeline, and what MV Hondius contacts should
           do during the 42-day monitoring period.
         </p>
+        <UpdateBanner
+          lastUpdated={data.lastUpdated}
+          lastVerifiedAt={data.lastVerifiedAt}
+          sourceName={data.sourceName}
+          sourceUrl={data.sourceUrl}
+        />
       </header>
 
       <section id="early" className="space-y-3">
@@ -259,6 +266,16 @@ export default function SymptomsPage() {
           <li>
             <Link className="underline underline-offset-4" href="/what-is-hantavirus">
               What is hantavirus
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/incubation">
+              Hantavirus incubation period
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/hps">
+              Hantavirus pulmonary syndrome
             </Link>
           </li>
         </ul>

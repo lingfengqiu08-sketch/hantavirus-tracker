@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FAQ } from "@/components/faq";
 import { SourceList } from "@/components/source-list";
+import { UpdateBanner } from "@/components/update-banner";
 import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
@@ -138,6 +139,12 @@ export default function WhatIsHantavirusPage() {
           explainer: what they are, how they spread, the two main syndromes, and why the MV
           Hondius Andes virus cluster is being monitored across multiple countries.
         </p>
+        <UpdateBanner
+          lastUpdated={data.lastUpdated}
+          lastVerifiedAt={data.lastVerifiedAt}
+          sourceName={data.sourceName}
+          sourceUrl={data.sourceUrl}
+        />
       </header>
 
       <section id="definition" className="space-y-3">
@@ -284,6 +291,16 @@ export default function WhatIsHantavirusPage() {
           <li>
             <Link className="underline underline-offset-4" href="/cruise/mv-hondius">
               MV Hondius cruise outbreak details
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/transmission">
+              How hantavirus spreads
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/andes-virus">
+              Andes virus explained
             </Link>
           </li>
         </ul>

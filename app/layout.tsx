@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_NAME, SITE_URL, canonical } from "@/lib/seo";
+import { getOutbreak } from "@/lib/outbreak";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const data = getOutbreak();
+  const lastVerifiedDate = new Date(data.lastVerifiedAt).toISOString().slice(0, 10);
+
   return (
     <html
       lang="en"
@@ -58,11 +62,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <header className="border-b">
-          <nav className="mx-auto flex max-w-5xl items-center justify-between p-4 text-sm">
+          <nav className="mx-auto flex max-w-5xl flex-col gap-3 p-4 text-sm sm:flex-row sm:items-center sm:justify-between">
             <Link href="/" className="font-semibold tracking-tight">
               Hantavirus Tracker
             </Link>
-            <ul className="flex items-center gap-4 text-muted-foreground">
+            <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-muted-foreground sm:justify-end">
               <li>
                 <Link href="/cruise/mv-hondius" className="hover:text-foreground">
                   MV Hondius
@@ -71,6 +75,16 @@ export default function RootLayout({
               <li>
                 <Link href="/symptoms" className="hover:text-foreground">
                   Symptoms
+                </Link>
+              </li>
+              <li>
+                <Link href="/transmission" className="hover:text-foreground">
+                  Transmission
+                </Link>
+              </li>
+              <li>
+                <Link href="/treatment" className="hover:text-foreground">
+                  Treatment
                 </Link>
               </li>
               <li>
@@ -94,9 +108,10 @@ export default function RootLayout({
               diagnostic resource. For medical emergencies contact local services.
             </p>
             <p className="mt-2">
-              © {new Date().getFullYear()} {SITE_NAME}. Data last verified {" "}
+              © {new Date().getFullYear()} {SITE_NAME}. Data last verified{" "}
+              <strong className="font-medium text-foreground">{lastVerifiedDate}</strong>.{" "}
               <Link href="/methodology" className="underline underline-offset-2">
-                see methodology
+                See methodology
               </Link>
               .
             </p>

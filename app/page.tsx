@@ -51,6 +51,20 @@ const faq = [
   },
 ];
 
+const guides = [
+  { href: "/symptoms", title: "Symptoms", description: "Early signs, respiratory warning signs, and monitoring guidance." },
+  { href: "/hps", title: "HPS", description: "Hantavirus pulmonary syndrome stages and survival factors." },
+  { href: "/transmission", title: "Transmission", description: "Rodent exposure, airborne dust, and rare Andes virus close-contact spread." },
+  { href: "/treatment", title: "Treatment", description: "Supportive care, vaccine status, and when exposed contacts should seek care." },
+  { href: "/death-rate", title: "Death Rate", description: "Mortality context, MV Hondius deaths, and survival factors." },
+  { href: "/incubation", title: "Incubation", description: "General HPS timing and the Andes virus 4-42 day window." },
+  { href: "/test", title: "Testing", description: "PCR, serology, diagnosis timing, and MV Hondius testing context." },
+  { href: "/rodents", title: "Rodents", description: "Mice, rats, deer mice, and how rodent exposure happens." },
+  { href: "/prevention", title: "Prevention", description: "Rodent cleanup, home risk reduction, and Andes virus precautions." },
+  { href: "/andes-virus", title: "Andes Virus", description: "The person-to-person hantavirus strain linked to MV Hondius." },
+  { href: "/cases/uk", title: "UK Cases", description: "UKHSA monitoring, Arrowe Park, and public risk context." },
+];
+
 export default function HomePage() {
   const data = getOutbreak();
 
@@ -168,6 +182,14 @@ export default function HomePage() {
           updates; not real-time AIS data.
         </p>
         <OutbreakMapLoader points={mapPoints} />
+        <ol className="grid gap-2 text-sm text-muted-foreground md:grid-cols-2">
+          {data.ship.route.map((node) => (
+            <li key={`${node.date}-${node.location}`} className="rounded-md border p-3">
+              <strong className="text-foreground">{node.date}</strong> — {node.location}:{" "}
+              {node.event}
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section id="ship" className="space-y-3">
@@ -232,12 +254,24 @@ export default function HomePage() {
       <section id="timeline" className="space-y-3">
         <h2 className="text-xl font-semibold">Key Timeline</h2>
         <h3 className="text-base font-medium">From First Symptoms to Repatriation</h3>
-        <Timeline items={data.timeline.slice(0, 7)} />
+        <Timeline items={data.timeline} />
       </section>
 
       <section id="faq" className="space-y-3">
         <h2 className="text-xl font-semibold">Frequently Asked Questions</h2>
         <FAQ items={faq} />
+      </section>
+
+      <section id="guides" className="space-y-3">
+        <h2 className="text-xl font-semibold">Hantavirus Guides</h2>
+        <div className="grid gap-3 md:grid-cols-2">
+          {guides.map((guide) => (
+            <Link key={guide.href} href={guide.href} className="rounded-lg border p-4 hover:bg-muted/40">
+              <h3 className="font-medium">{guide.title}</h3>
+              <p className="mt-1 text-sm leading-6 text-muted-foreground">{guide.description}</p>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section id="methodology" className="space-y-3">

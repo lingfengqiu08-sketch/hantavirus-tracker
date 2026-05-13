@@ -38,6 +38,8 @@ export type PassengerStatus = {
   repatriated: number;
   monitoring: number;
   crewOnboard: number;
+  estimatedFields?: Array<"repatriated" | "monitoring" | "crewOnboard">;
+  sourceIds?: string[];
   note: string;
 };
 
