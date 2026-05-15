@@ -3,7 +3,9 @@ import type { NextConfig } from "next";
 const canonicalHost = "hantavirustracker.fyi";
 const alternateHosts = [
   "www.hantavirustracker.fyi",
+  "hantavirus-tracker-steel.vercel.app",
   "hantavirus-tracker-xiaofengs-projects-39245be3.vercel.app",
+  "hantavirus-tracker-git-main-xiaofengs-projects-39245be3.vercel.app",
   "hantavirus-tracker-o8ps8p6u8-xiaofengs-projects-39245be3.vercel.app",
 ];
 
