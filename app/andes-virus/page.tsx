@@ -50,7 +50,7 @@ export default function AndesVirusPage() {
   const sources = getSourcesByIds([
     "src-cdc-andes",
     "src-who-don-2026-05-08",
-    "src-ecdc-outbreak-2026-05-11",
+    "src-ecdc-outbreak-2026-05-14",
     "src-ukhsa-cruise-2026-05-12",
   ]);
 
@@ -132,7 +132,7 @@ export default function AndesVirusPage() {
               <p>
                 WHO reported that confirmed MV Hondius cases were identified as Andes virus. The
                 tracker currently records {data.confirmed} confirmed cases, {data.probable} probable
-                cases, and {data.deaths} deaths.
+                cases, {data.inconclusive} inconclusive case, and {data.deaths} deaths.
               </p>
               <p>
                 Because symptoms can appear up to 42 days after exposure, contacts are monitored

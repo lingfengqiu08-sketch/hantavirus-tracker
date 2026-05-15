@@ -25,7 +25,12 @@ export const metadata: Metadata = {
   description:
     "Track the 2026 MV Hondius Andes virus outbreak with case counts, deaths, route map, passenger status, timeline, methodology, and official sources.",
   applicationName: SITE_NAME,
-  alternates: { canonical: canonical("/") },
+  alternates: {
+    canonical: canonical("/"),
+    types: {
+      "application/rss+xml": `${SITE_URL}/feed.xml`,
+    },
+  },
   openGraph: {
     siteName: SITE_NAME,
     type: "website",
@@ -95,8 +100,18 @@ export default function RootLayout({
                 </Link>
               </li>
               <li>
+                <Link href="/cases" className="hover:text-foreground">
+                  Cases
+                </Link>
+              </li>
+              <li>
                 <Link href="/methodology" className="hover:text-foreground">
                   Methodology
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-foreground">
+                  About
                 </Link>
               </li>
             </ul>
@@ -117,6 +132,26 @@ export default function RootLayout({
               </Link>
               .
             </p>
+            <nav className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+              <Link href="/about" className="underline underline-offset-2">
+                About
+              </Link>
+              <Link href="/editorial-policy" className="underline underline-offset-2">
+                Editorial policy
+              </Link>
+              <Link href="/medical-disclaimer" className="underline underline-offset-2">
+                Medical disclaimer
+              </Link>
+              <Link href="/corrections" className="underline underline-offset-2">
+                Corrections
+              </Link>
+              <Link href="/privacy" className="underline underline-offset-2">
+                Privacy
+              </Link>
+              <Link href="/updates" className="underline underline-offset-2">
+                Updates
+              </Link>
+            </nav>
           </div>
         </footer>
       </body>

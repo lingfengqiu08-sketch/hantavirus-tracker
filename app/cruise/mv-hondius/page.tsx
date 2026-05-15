@@ -7,7 +7,7 @@ import { SourceList } from "@/components/source-list";
 import { PassengerStatusBoard } from "@/components/passenger-status-board";
 import { UpdateBanner } from "@/components/update-banner";
 import ShipRouteMapLoader from "@/components/maps/ship-route-map-loader";
-import { getOutbreak } from "@/lib/outbreak";
+import { getOutbreak, getTotalCases } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ const faq = [
   {
     question: "How many people were infected on MV Hondius?",
     answer:
-      "As of the latest tracker verification on 13 May 2026, 11 cases have been reported: 9 confirmed Andes virus infections and 2 probable cases.",
+      "As of the ECDC 14 May 2026 update, 11 total cases have been reported: 8 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
   },
   {
     question: "How many MV Hondius deaths have been reported?",
@@ -58,6 +58,7 @@ const faq = [
 
 export default function MvHondiusPage() {
   const data = getOutbreak();
+  const totalCases = getTotalCases(data);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -156,10 +157,11 @@ export default function MvHondiusPage() {
       <section id="snapshot" className="space-y-3">
         <h2 className="text-xl font-semibold">Outbreak Snapshot</h2>
         <h3 className="text-base font-medium">Current Case Count</h3>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          <KpiCard label="Total" value={data.confirmed + data.probable + data.suspected} description="Confirmed + probable + suspected" />
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+          <KpiCard label="Total" value={totalCases} description="Confirmed + probable + inconclusive + suspected" />
           <KpiCard label="Confirmed" value={data.confirmed} description="Lab-confirmed Andes virus" tone="amber" />
           <KpiCard label="Probable" value={data.probable} description="Symptomatic, epi-linked" />
+          <KpiCard label="Inconclusive" value={data.inconclusive} description="Pending final classification" />
           <KpiCard label="Deaths" value={data.deaths} description="Cluster-linked deaths" tone="red" />
         </div>
         <h3 className="text-base font-medium">Monitoring Period</h3>
@@ -226,6 +228,13 @@ export default function MvHondiusPage() {
             </dd>
           </div>
           <div className="rounded-md border p-3">
+            <dt className="font-semibold text-foreground">Inconclusive case</dt>
+            <dd>
+              Reported case where available public-health updates have not assigned a final
+              confirmed or probable classification.
+            </dd>
+          </div>
+          <div className="rounded-md border p-3">
             <dt className="font-semibold text-foreground">Suspected case</dt>
             <dd>
               Person with exposure history aboard MV Hondius and fever plus respiratory,
@@ -244,8 +253,9 @@ export default function MvHondiusPage() {
         <h2 className="text-xl font-semibold">Methodology and Sources</h2>
         <h3 className="text-base font-medium">Manual Updates Twice Daily</h3>
         <p className="text-sm text-muted-foreground">
-          This page is manually updated. Counts use the most recent WHO briefing as the primary
-          source; ECDC and CDC are used for cross-verification and route detail. See{" "}
+          This page is manually updated. Counts use the latest official source by date; WHO
+          briefings anchor the outbreak narrative, while ECDC daily updates are used for the
+          latest status split. CDC is used for clinical and transmission context. See{" "}
           <Link className="underline underline-offset-4" href="/methodology">
             methodology
           </Link>
@@ -266,6 +276,16 @@ export default function MvHondiusPage() {
           <li>
             <Link className="underline underline-offset-4" href="/symptoms">
               Hantavirus symptoms guide
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/timeline">
+              MV Hondius outbreak timeline
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/travel-advice">
+              Travel advice and monitoring
             </Link>
           </li>
           <li>

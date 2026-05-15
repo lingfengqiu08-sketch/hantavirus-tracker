@@ -26,7 +26,7 @@ const faq = [
   {
     question: "How many MV Hondius deaths have been reported?",
     answer:
-      "The current tracker dataset reports 3 deaths linked to the MV Hondius cluster, using the WHO 12 May 2026 briefing as the primary source.",
+      "The current tracker dataset reports 3 deaths linked to the MV Hondius cluster, using the latest official WHO and ECDC updates.",
   },
   {
     question: "Does every hantavirus have the same death rate?",
@@ -125,7 +125,8 @@ export default function DeathRatePage() {
             <>
               <p>
                 The current dataset reports {data.deaths} deaths, {data.confirmed} confirmed
-                infections, and {data.probable} probable cases in the MV Hondius-linked cluster.
+                infections, {data.probable} probable cases, and {data.inconclusive} inconclusive
+                case in the MV Hondius-linked cluster.
               </p>
               <p>
                 Because additional cases can appear during the monitoring window, this count should

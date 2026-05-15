@@ -9,6 +9,7 @@ export function PassengerStatusBoard({ status }: PassengerStatusBoardProps) {
   const rows: Array<[string, number, keyof PassengerStatus | undefined]> = [
     ["Confirmed", status.confirmed, undefined],
     ["Probable", status.probable, undefined],
+    ["Inconclusive", status.inconclusive, undefined],
     ["Deaths", status.deaths, undefined],
     ["Repatriated", status.repatriated, "repatriated"],
     ["Under monitoring", status.monitoring, "monitoring"],

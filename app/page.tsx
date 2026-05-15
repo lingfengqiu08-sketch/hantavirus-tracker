@@ -6,7 +6,7 @@ import { FAQ } from "@/components/faq";
 import { SourceList } from "@/components/source-list";
 import { UpdateBanner } from "@/components/update-banner";
 import OutbreakMapLoader from "@/components/maps/outbreak-map-loader";
-import { getOutbreak } from "@/lib/outbreak";
+import { getOutbreak, getTotalCases } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ const faq = [
   {
     question: "How many MV Hondius hantavirus cases are confirmed?",
     answer:
-      "As of the 12 May 2026 WHO briefing, 9 confirmed Andes virus infections and 2 probable cases have been reported, for an 11-case headline total.",
+      "As of the ECDC 14 May 2026 update, 11 total cases have been reported: 8 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
   },
   {
     question: "How many deaths have been reported?",
@@ -62,11 +62,19 @@ const guides = [
   { href: "/rodents", title: "Rodents", description: "Mice, rats, deer mice, and how rodent exposure happens." },
   { href: "/prevention", title: "Prevention", description: "Rodent cleanup, home risk reduction, and Andes virus precautions." },
   { href: "/andes-virus", title: "Andes Virus", description: "The person-to-person hantavirus strain linked to MV Hondius." },
+  { href: "/types", title: "Types", description: "Andes, Sin Nombre, Seoul, Puumala, HPS, and HFRS explained." },
+  { href: "/origin", title: "Origin", description: "Where hantavirus comes from and what is known about MV Hondius exposure." },
+  { href: "/cases", title: "Cases", description: "Current MV Hondius case split and country-context pages." },
+  { href: "/timeline", title: "Timeline", description: "Source-linked chronology of the MV Hondius outbreak and public-health response." },
+  { href: "/case-definitions", title: "Case Definitions", description: "Confirmed, probable, inconclusive, suspected, and death classifications." },
+  { href: "/travel-advice", title: "Travel Advice", description: "Monitoring and exposure guidance for MV Hondius-linked readers." },
+  { href: "/updates", title: "Updates", description: "Source-linked tracker update log and public data feeds." },
   { href: "/cases/uk", title: "UK Cases", description: "UKHSA monitoring, Arrowe Park, and public risk context." },
 ];
 
 export default function HomePage() {
   const data = getOutbreak();
+  const totalCases = getTotalCases(data);
 
   const mapPoints = data.ship.route.map((node, idx) => ({
     id: `route-${idx}`,
@@ -120,8 +128,10 @@ export default function HomePage() {
         measurementTechnique:
           "Manual extraction from WHO, ECDC, and CDC public updates",
         variableMeasured: [
+          { "@type": "PropertyValue", name: "totalCases", value: totalCases },
           { "@type": "PropertyValue", name: "confirmed", value: data.confirmed },
           { "@type": "PropertyValue", name: "probable", value: data.probable },
+          { "@type": "PropertyValue", name: "inconclusive", value: data.inconclusive },
           { "@type": "PropertyValue", name: "suspected", value: data.suspected },
           { "@type": "PropertyValue", name: "deaths", value: data.deaths },
           {
@@ -165,11 +175,13 @@ export default function HomePage() {
       <section id="snapshot" className="space-y-3">
         <h2 className="text-xl font-semibold">Current Outbreak Snapshot</h2>
         <p className="text-sm text-muted-foreground">
-          Cases, deaths and monitoring window. Counts use the 12 May 2026 WHO briefing.
+          Cases, deaths and monitoring window. Counts use the latest official update by date,
+          with ECDC 14 May 2026 as the current status split.
         </p>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
           <KpiCard label="Confirmed" value={data.confirmed} description="Lab-confirmed Andes virus cases" tone="amber" />
           <KpiCard label="Probable" value={data.probable} description="Symptomatic, epidemiologically linked" />
+          <KpiCard label="Inconclusive" value={data.inconclusive} description="Pending final laboratory classification" />
           <KpiCard label="Deaths" value={data.deaths} description="Confirmed/probable deaths in the cluster" tone="red" />
           <KpiCard label="Monitoring window" value={`${data.monitoringPeriodDays} days`} description={`Ends ${data.monitoringEndsAt}`} tone="green" />
         </div>
@@ -214,9 +226,10 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold">What We Know So Far</h2>
         <div className="space-y-3 text-sm leading-6 text-muted-foreground">
           <p>
-            <strong className="text-foreground">Confirmed count.</strong> WHO reported on 12 May
-            2026 that the cluster involves 11 cases: 9 confirmed Andes virus infections and 2
-            probable cases, with 3 deaths.
+            <strong className="text-foreground">Current count.</strong> ECDC reported on 14 May
+            2026 that the cluster involves {totalCases} total cases: {data.confirmed} confirmed
+            Andes virus infections, {data.probable} probable cases, {data.inconclusive} inconclusive
+            case, {data.suspected} suspected cases, and {data.deaths} deaths.
           </p>
           <p>
             <strong className="text-foreground">Why Andes virus matters.</strong> Andes virus is
@@ -278,8 +291,8 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold">Methodology</h2>
         <p className="text-sm text-muted-foreground">
           This tracker is manually updated twice per day from official sources. Counts use WHO
-          briefings as the primary source; ECDC and CDC are used for cross-verification and
-          route details. Secondary media is used only to corroborate route and individual
+          briefings and ECDC daily updates as primary sources; CDC is used for clinical and
+          transmission context. Secondary media is used only to corroborate route and individual
           information that is already publicly disclosed.{" "}
           <Link className="underline underline-offset-4" href="/methodology">
             Read the full methodology →

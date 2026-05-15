@@ -1,6 +1,6 @@
 import outbreakData from "@/data/outbreak.json";
 
-export type CaseStatus = "confirmed" | "probable" | "suspected";
+export type CaseStatus = "confirmed" | "probable" | "suspected" | "inconclusive";
 
 export type OutbreakCase = {
   id: string;
@@ -34,6 +34,7 @@ export type Ship = {
 export type PassengerStatus = {
   confirmed: number;
   probable: number;
+  inconclusive: number;
   deaths: number;
   repatriated: number;
   monitoring: number;
@@ -66,6 +67,7 @@ export type OutbreakData = {
   confirmed: number;
   probable: number;
   suspected: number;
+  inconclusive: number;
   deaths: number;
   monitoringPeriodDays: number;
   monitoringEndsAt: string;
@@ -81,6 +83,10 @@ export const outbreak = outbreakData as OutbreakData;
 
 export function getOutbreak(): OutbreakData {
   return outbreak;
+}
+
+export function getTotalCases(data: OutbreakData = outbreak): number {
+  return data.confirmed + data.probable + data.suspected + data.inconclusive;
 }
 
 export function getSourcesByIds(ids: string[]): Source[] {

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "2026-05-15-ecdc-14-may-status-split",
+    "date": "2026-05-15",
+    "title": "Tracker updated to ECDC 14 May status split",
+    "summary": "Current count remains 11 total MV Hondius-linked cases and 3 deaths. Status split updated to 8 confirmed, 2 probable, 1 inconclusive, and 0 suspected cases based on the ECDC 14 May 2026 update.",
+    "sourceIds": ["src-ecdc-outbreak-2026-05-14"]
+  },
+  {
+    "id": "2026-05-12-who-11-cases-3-deaths",
+    "date": "2026-05-12",
+    "title": "WHO reports 11 cases and 3 deaths",
+    "summary": "WHO reported 11 cases among passengers or crew, including 9 confirmed Andes virus infections, 2 probable cases, and 3 deaths.",
+    "sourceIds": ["src-who-speech-2026-05-12"]
+  },
+  {
+    "id": "2026-05-08-who-identifies-andes-virus",
+    "date": "2026-05-08",
+    "title": "WHO identifies Andes virus in confirmed cases",
+    "summary": "WHO reported eight total cases, including six confirmed and two probable cases, with confirmed cases identified as Andes virus.",
+    "sourceIds": ["src-who-don-2026-05-08"]
+  }
+]

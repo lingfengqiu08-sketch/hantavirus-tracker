@@ -53,13 +53,12 @@ export default function MethodologyPage() {
             shown in the page banner.
           </li>
           <li>
-            Headline counts use the most recent WHO briefing as the primary source. ECDC and
-            CDC updates are used for cross-verification and additional detail (e.g. route or
-            individual nationality where publicly disclosed).
+            Headline counts use the latest official source by publication date. WHO and ECDC are
+            primary outbreak sources; CDC is used for clinical and transmission context.
           </li>
           <li>
-            If a count differs between sources, we publish the WHO figure and note the
-            discrepancy.
+            If official counts differ, we publish the latest official status split and keep older
+            source wording in the timeline where useful.
           </li>
         </ul>
       </section>
@@ -100,6 +99,13 @@ export default function MethodologyPage() {
             </dd>
           </div>
           <div className="rounded-md border p-3">
+            <dt className="font-semibold text-foreground">Inconclusive case</dt>
+            <dd>
+              A reported case where public-health updates have not assigned a final confirmed or
+              probable classification.
+            </dd>
+          </div>
+          <div className="rounded-md border p-3">
             <dt className="font-semibold text-foreground">Suspected case</dt>
             <dd>
               Person with exposure history aboard MV Hondius and fever plus respiratory,
@@ -129,7 +135,19 @@ export default function MethodologyPage() {
           <a className="underline underline-offset-4" href="/data/outbreak.json">
             /data/outbreak.json
           </a>
-          . Reuse is welcome with attribution.
+          . Reuse is welcome with attribution. A CSV export is also available at{" "}
+          <a className="underline underline-offset-4" href="/data/outbreak.csv">
+            /data/outbreak.csv
+          </a>
+          . Update history is available at{" "}
+          <a className="underline underline-offset-4" href="/data/updates.json">
+            /data/updates.json
+          </a>{" "}
+          and{" "}
+          <a className="underline underline-offset-4" href="/feed.xml">
+            /feed.xml
+          </a>
+          .
         </p>
       </section>
 
@@ -158,6 +176,16 @@ export default function MethodologyPage() {
           <li>
             <Link className="underline underline-offset-4" href="/cruise/mv-hondius">
               MV Hondius outbreak page
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/case-definitions">
+              Case definitions
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/updates">
+              Update log
             </Link>
           </li>
         </ul>
