@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@/components/google-analytics";
+import { LogoMark } from "@/components/site-logo";
 import { SITE_NAME, SITE_URL, canonical } from "@/lib/seo";
 import { getOutbreak } from "@/lib/outbreak";
 
@@ -70,8 +71,13 @@ export default function RootLayout({
         <GoogleAnalytics />
         <header className="border-b">
           <nav className="mx-auto flex max-w-5xl flex-col gap-3 p-4 text-sm sm:flex-row sm:items-center sm:justify-between">
-            <Link href="/" className="font-semibold tracking-tight">
-              Hantavirus Tracker
+            <Link
+              href="/"
+              className="flex items-center gap-2 font-semibold tracking-tight text-foreground"
+              aria-label="Hantavirus Tracker home"
+            >
+              <LogoMark className="size-8 shrink-0" />
+              <span>Hantavirus Tracker</span>
             </Link>
             <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-muted-foreground sm:justify-end">
               <li>
