@@ -23,7 +23,7 @@ export default function TravelAdvicePage() {
   const data = getOutbreak();
   const sources = getSourcesByIds([
     "src-who-speech-2026-05-12",
-    "src-ecdc-outbreak-2026-05-14",
+    "src-ecdc-outbreak-2026-05-17",
     "src-cdc-andes",
     "src-cdc-prevention",
     "src-ukhsa-cruise-2026-05-12",

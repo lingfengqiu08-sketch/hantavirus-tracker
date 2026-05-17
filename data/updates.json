@@ -1,5 +1,26 @@
 [
   {
+    "id": "2026-05-17-ecdc-12-cases",
+    "date": "2026-05-17",
+    "title": "ECDC updates MV Hondius total to 12 cases",
+    "summary": "ECDC's 17 May update lists 12 total MV Hondius-linked cases: 9 confirmed, 2 probable, 1 inconclusive, 0 suspected, and 3 deaths.",
+    "sourceIds": ["src-ecdc-outbreak-2026-05-17"]
+  },
+  {
+    "id": "2026-05-16-canada-presumptive-positive",
+    "date": "2026-05-16",
+    "title": "Canada reports one presumptive positive Andes virus case",
+    "summary": "PHAC reported one presumptive positive Andes virus case among returning Canadian passengers, with the traveller isolated in hospital and clinically stable.",
+    "sourceIds": ["src-phac-andes-2026-05-16"]
+  },
+  {
+    "id": "2026-05-15-australia-quarantine",
+    "date": "2026-05-15",
+    "title": "Australia receives six MV Hondius passengers for quarantine",
+    "summary": "Australian CDC reported that six returning passengers landed at RAAF Base Pearce and moved to the Bullsbrook Centre for National Resilience; none had tested positive at the time of the update.",
+    "sourceIds": ["src-aus-cdc-hondius-2026-05-15"]
+  },
+  {
     "id": "2026-05-15-ecdc-14-may-status-split",
     "date": "2026-05-15",
     "title": "Tracker updated to ECDC 14 May status split",

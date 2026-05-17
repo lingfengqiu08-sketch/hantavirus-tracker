@@ -24,7 +24,7 @@ export default function CaseDefinitionsPage() {
   const data = getOutbreak();
   const totalCases = getTotalCases(data);
   const sources = getSourcesByIds([
-    "src-ecdc-outbreak-2026-05-14",
+    "src-ecdc-outbreak-2026-05-17",
     "src-who-speech-2026-05-12",
     "src-who-don-2026-05-08",
     "src-cdc-clinical-overview",

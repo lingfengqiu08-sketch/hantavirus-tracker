@@ -111,6 +111,11 @@ export default function RootLayout({
                 </Link>
               </li>
               <li>
+                <Link href="/response-tracker" className="hover:text-foreground">
+                  Response
+                </Link>
+              </li>
+              <li>
                 <Link href="/methodology" className="hover:text-foreground">
                   Methodology
                 </Link>

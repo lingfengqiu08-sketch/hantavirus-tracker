@@ -47,7 +47,7 @@ export default function HantavirusOriginPage() {
     "src-cdc-andes",
     "src-cdc-prevention",
     "src-who-don-2026-05-08",
-    "src-ecdc-outbreak-2026-05-14",
+    "src-ecdc-outbreak-2026-05-17",
   ]);
 
   return (

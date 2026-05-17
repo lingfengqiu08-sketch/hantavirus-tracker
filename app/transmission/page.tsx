@@ -52,7 +52,7 @@ export default function TransmissionPage() {
     "src-cdc-andes",
     "src-who-factsheet-2026-05-06",
     "src-who-don-2026-05-08",
-    "src-ecdc-outbreak-2026-05-14",
+    "src-ecdc-outbreak-2026-05-17",
   ]);
 
   return (

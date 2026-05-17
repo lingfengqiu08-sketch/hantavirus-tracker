@@ -28,7 +28,7 @@ const faq = [
   {
     question: "How many people were infected on MV Hondius?",
     answer:
-      "As of the ECDC 14 May 2026 update, 11 total cases have been reported: 8 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
+      "As of the ECDC 17 May 2026 update, 12 total cases have been reported: 9 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
   },
   {
     question: "How many MV Hondius deaths have been reported?",
@@ -286,6 +286,11 @@ export default function MvHondiusPage() {
           <li>
             <Link className="underline underline-offset-4" href="/travel-advice">
               Travel advice and monitoring
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/response-tracker">
+              Country response tracker
             </Link>
           </li>
           <li>

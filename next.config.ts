@@ -41,6 +41,13 @@ const pathAliases = [
   ["/hantavirus-cases-uk", "/cases/uk"],
   ["/hantavirus-argentina", "/cases/argentina"],
   ["/hantavirus-chile", "/cases/chile"],
+  ["/hantavirus-australia", "/cases/australia"],
+  ["/mv-hondius-australia", "/cases/australia"],
+  ["/hantavirus-canada", "/cases/canada"],
+  ["/mv-hondius-canada", "/cases/canada"],
+  ["/mv-hondius-response", "/response-tracker"],
+  ["/mv-hondius-quarantine", "/response-tracker"],
+  ["/hantavirus-response-tracker", "/response-tracker"],
   ["/update-log", "/updates"],
   ["/outbreak-updates", "/updates"],
 ];

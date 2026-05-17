@@ -51,7 +51,7 @@ export default function IncubationPage() {
     "src-cdc-hantavirus",
     "src-cdc-andes",
     "src-who-don-2026-05-08",
-    "src-ecdc-outbreak-2026-05-14",
+    "src-ecdc-outbreak-2026-05-17",
   ]);
 
   return (

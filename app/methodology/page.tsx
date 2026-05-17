@@ -139,6 +139,10 @@ export default function MethodologyPage() {
           <a className="underline underline-offset-4" href="/data/outbreak.csv">
             /data/outbreak.csv
           </a>
+          . Country response rows are available at{" "}
+          <a className="underline underline-offset-4" href="/data/country-responses.csv">
+            /data/country-responses.csv
+          </a>
           . Update history is available at{" "}
           <a className="underline underline-offset-4" href="/data/updates.json">
             /data/updates.json

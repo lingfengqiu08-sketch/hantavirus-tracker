@@ -1,16 +1,16 @@
 {
-  "lastUpdated": "2026-05-15T13:24:00+08:00",
-  "lastVerifiedAt": "2026-05-15T13:24:00+08:00",
-  "sourceName": "ECDC Andes hantavirus outbreak update, 14 May 2026",
+  "lastUpdated": "2026-05-17T20:12:00+08:00",
+  "lastVerifiedAt": "2026-05-17T20:12:00+08:00",
+  "sourceName": "ECDC Andes hantavirus outbreak update, 17 May 2026",
   "sourceUrl": "https://www.ecdc.europa.eu/en/infectious-disease-topics/hantavirus-infection/surveillance-and-updates/andes-hantavirus-outbreak",
-  "confirmed": 8,
+  "confirmed": 9,
   "probable": 2,
   "suspected": 0,
   "inconclusive": 1,
   "deaths": 3,
   "monitoringPeriodDays": 42,
   "monitoringEndsAt": "2026-06-21",
-  "notes": "Manual tracker dataset for the MV Hondius Andes virus outbreak. Latest headline count: 11 total cases, including 8 confirmed Andes virus infections, 2 probable cases, 1 inconclusive case, 0 suspected cases, and 3 deaths. ECDC reported no new cases or deaths in its 14 May 2026 update. WHO recommends monitoring through 21 June 2026, 42 days from last exposure on 10 May 2026.",
+  "notes": "Manual tracker dataset for the MV Hondius Andes virus outbreak. Latest headline count: 12 total cases, including 9 confirmed Andes virus infections, 2 probable cases, 1 inconclusive case, 0 suspected cases, and 3 deaths. ECDC reported the updated case-status split in its 17 May 2026 update. WHO recommends monitoring through 21 June 2026, 42 days from last exposure on 10 May 2026.",
   "cases": [
     { "id": "HND-2026-001", "status": "confirmed", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "2026-04-06 to 2026-04-28", "hospital": "not publicly disclosed", "outcome": "deceased", "sources": ["src-who-speech-2026-05-12", "src-who-don-2026-05-08"] },
     { "id": "HND-2026-002", "status": "confirmed", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "2026-04-06 to 2026-04-28", "hospital": "not publicly disclosed", "outcome": "deceased", "sources": ["src-who-speech-2026-05-12", "src-who-don-2026-05-08"] },
@@ -22,7 +22,8 @@
     { "id": "HND-2026-008", "status": "confirmed", "nationality": "France", "ageRange": "not publicly disclosed", "symptomOnset": "2026-05-11", "hospital": "France, intensive care", "outcome": "critical care reported", "sources": ["src-ecdc-press-2026-05-11"] },
     { "id": "HND-2026-009", "status": "confirmed", "nationality": "Spain", "ageRange": "not publicly disclosed", "symptomOnset": "not publicly disclosed", "hospital": "Military hospital in Madrid, Spain", "outcome": "quarantined under medical supervision", "sources": ["src-who-speech-2026-05-12"] },
     { "id": "HND-2026-010", "status": "inconclusive", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "not publicly disclosed", "hospital": "not publicly disclosed", "outcome": "awaiting further laboratory investigation", "sources": ["src-ecdc-outbreak-2026-05-14"] },
-    { "id": "HND-2026-011", "status": "probable", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "not publicly disclosed", "hospital": "not publicly disclosed", "outcome": "isolated under medical supervision", "sources": ["src-who-speech-2026-05-12"] }
+    { "id": "HND-2026-011", "status": "probable", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "not publicly disclosed", "hospital": "not publicly disclosed", "outcome": "isolated under medical supervision", "sources": ["src-who-speech-2026-05-12"] },
+    { "id": "HND-2026-012", "status": "confirmed", "nationality": "Canada", "ageRange": "not publicly disclosed", "symptomOnset": "mild symptoms reported publicly", "hospital": "Canada, isolated in hospital", "outcome": "clinically stable; isolated with spouse also under care", "sources": ["src-phac-andes-2026-05-16", "src-ecdc-outbreak-2026-05-17"] }
   ],
   "ship": {
     "name": "MV Hondius",
@@ -40,7 +41,7 @@
     ]
   },
   "passengerStatus": {
-    "confirmed": 8,
+    "confirmed": 9,
     "probable": 2,
     "inconclusive": 1,
     "deaths": 3,
@@ -48,8 +49,8 @@
     "monitoring": 122,
     "crewOnboard": 25,
     "estimatedFields": ["repatriated", "monitoring", "crewOnboard"],
-    "sourceIds": ["src-who-don-2026-05-04", "src-who-speech-2026-05-12", "src-ecdc-outbreak-2026-05-14"],
-    "note": "Case totals use the ECDC 14 May 2026 daily outbreak update. Repatriated, monitoring, and crew-onboard numbers are tracker operational estimates derived from public WHO/ECDC updates and should be treated as approximate until country-level authorities publish final monitoring totals."
+    "sourceIds": ["src-who-don-2026-05-04", "src-who-speech-2026-05-12", "src-ecdc-outbreak-2026-05-17"],
+    "note": "Case totals use the ECDC 17 May 2026 daily outbreak update. Repatriated, monitoring, and crew-onboard numbers are tracker operational estimates derived from public WHO/ECDC updates and should be treated as approximate until country-level authorities publish final monitoring totals."
   },
   "timeline": [
     { "date": "2026-04-06", "title": "Earliest reported illness onset", "detail": "WHO later reported illness onset among cases occurred between 6 and 28 April 2026.", "sources": ["src-who-don-2026-05-04"] },
@@ -60,7 +61,10 @@
     { "date": "2026-05-10", "title": "MV Hondius arrives in Tenerife", "detail": "The ship arrived at the port of Granadilla, Tenerife, for disembarkation and repatriation.", "sources": ["src-ecdc-outbreak-2026-05-14"] },
     { "date": "2026-05-12", "title": "WHO reports 11 cases and 3 deaths", "detail": "WHO reported 11 cases among passengers or crew: 9 confirmed Andes virus infections, 2 probable cases, and 3 deaths.", "sources": ["src-who-speech-2026-05-12"] },
     { "date": "2026-05-14", "title": "ECDC daily update keeps total at 11 cases", "detail": "ECDC reported 11 total cases: 8 confirmed, 2 probable, 1 inconclusive, 0 suspected, and 3 deaths, with no new cases or deaths since the previous update.", "sources": ["src-ecdc-outbreak-2026-05-14"] },
-    { "date": "2026-05-15", "title": "Tracker dataset verified against ECDC update", "detail": "Hantavirus Tracker updated the case-status split to reflect the ECDC 14 May 2026 daily outbreak update while preserving the 11-case headline total and 42-day monitoring window.", "sources": ["src-ecdc-outbreak-2026-05-14", "src-who-speech-2026-05-12"] }
+    { "date": "2026-05-15", "title": "Tracker dataset verified against ECDC update", "detail": "Hantavirus Tracker updated the case-status split to reflect the ECDC 14 May 2026 daily outbreak update while preserving the 11-case headline total and 42-day monitoring window.", "sources": ["src-ecdc-outbreak-2026-05-14", "src-who-speech-2026-05-12"] },
+    { "date": "2026-05-15", "title": "Australian passengers land for quarantine", "detail": "Australian CDC reported that six MV Hondius passengers landed at RAAF Base Pearce and moved to the Bullsbrook Centre for National Resilience; none had tested positive at the time of the update.", "sources": ["src-aus-cdc-hondius-2026-05-15"] },
+    { "date": "2026-05-16", "title": "Canada reports one presumptive positive case", "detail": "PHAC reported one presumptive positive Andes virus case among returning Canadian passengers, with the traveller isolated in hospital and clinically stable.", "sources": ["src-phac-andes-2026-05-16"] },
+    { "date": "2026-05-17", "title": "ECDC updates total to 12 cases", "detail": "ECDC reported 12 total cases: 9 confirmed, 2 probable, 1 inconclusive, 0 suspected, and 3 deaths.", "sources": ["src-ecdc-outbreak-2026-05-17"] }
   ],
   "sources": [
     { "id": "src-who-speech-2026-05-12", "name": "WHO Director-General's opening remarks at the media briefing on hantavirus – 12 May 2026", "url": "https://www.who.int/news-room/speeches/item/who-director-general-s-opening-remarks-at-the-media-briefing-on-hantavirus---12-may-2026", "publisher": "World Health Organization", "date": "2026-05-12" },
@@ -68,16 +72,20 @@
     { "id": "src-who-don-2026-05-04", "name": "Hantavirus cluster linked to cruise ship travel, Multi-country", "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599", "publisher": "World Health Organization", "date": "2026-05-04" },
     { "id": "src-who-factsheet-2026-05-06", "name": "Hantavirus fact sheet", "url": "https://www.who.int/news-room/fact-sheets/detail/hantavirus", "publisher": "World Health Organization", "date": "2026-05-06" },
     { "id": "src-ecdc-outbreak-2026-05-14", "name": "Andes hantavirus outbreak in cruise ship, 14 May 2026", "url": "https://www.ecdc.europa.eu/en/infectious-disease-topics/hantavirus-infection/surveillance-and-updates/andes-hantavirus-outbreak", "publisher": "European Centre for Disease Prevention and Control", "date": "2026-05-14" },
+    { "id": "src-ecdc-outbreak-2026-05-17", "name": "Andes hantavirus outbreak in cruise ship, 17 May 2026", "url": "https://www.ecdc.europa.eu/en/infectious-disease-topics/hantavirus-infection/surveillance-and-updates/andes-hantavirus-outbreak", "publisher": "European Centre for Disease Prevention and Control", "date": "2026-05-17" },
     { "id": "src-ecdc-press-2026-05-11", "name": "Andes hantavirus outbreak: ECDC continues working on the frontline to support EU Member States", "url": "https://www.ecdc.europa.eu/en/news-events/andes-hantavirus-outbreak-ecdc-continues-working-frontline-support-eu-member-states", "publisher": "European Centre for Disease Prevention and Control", "date": "2026-05-11" },
     { "id": "src-ecdc-facts", "name": "Factsheet on orthohantavirus infections", "url": "https://www.ecdc.europa.eu/en/hantavirus-infection/facts", "publisher": "European Centre for Disease Prevention and Control", "date": "2026-05-06" },
     { "id": "src-cdc-hantavirus", "name": "About Hantavirus", "url": "https://www.cdc.gov/hantavirus/", "publisher": "Centers for Disease Control and Prevention", "date": "2024-05-13" },
     { "id": "src-cdc-andes", "name": "About Andes Virus", "url": "https://www.cdc.gov/hantavirus/about/andesvirus.html", "publisher": "Centers for Disease Control and Prevention", "date": "2026-05-07" },
     { "id": "src-cdc-hondius-2026-05-06", "name": "Statement on the M/V Hondius Cruise Ship", "url": "https://www.cdc.gov/media/releases/2026-hantavirus-confirmed-cruise-ship.html", "publisher": "Centers for Disease Control and Prevention", "date": "2026-05-06" },
+    { "id": "src-cdc-situation-2026-05-12", "name": "Current situation: Hantavirus and Andes virus disease", "url": "https://www.cdc.gov/hantavirus/situation-summary/index.html", "publisher": "Centers for Disease Control and Prevention", "date": "2026-05-12" },
     { "id": "src-cdc-prevention", "name": "Hantavirus Prevention", "url": "https://www.cdc.gov/hantavirus/prevention/index.html", "publisher": "Centers for Disease Control and Prevention", "date": "2024-05-13" },
     { "id": "src-cdc-clinical-overview", "name": "Clinical Overview of Hantavirus", "url": "https://www.cdc.gov/hantavirus/hcp/clinical-overview/index.html", "publisher": "Centers for Disease Control and Prevention", "date": "2024-05-13" },
     { "id": "src-ukhsa-cruise-2026-05-12", "name": "What you need to know about the hantavirus outbreak linked to the Dutch cruise ship", "url": "https://ukhsa.blog.gov.uk/2026/05/12/what-you-need-to-know-about-the-hantavirus-outbreak-linked-to-the-dutch-cruise-ship/", "publisher": "UK Health Security Agency", "date": "2026-05-12" },
     { "id": "src-govuk-ukhsa-update-2026-05-12", "name": "UKHSA update on the hantavirus cruise ship outbreak", "url": "https://www.gov.uk/government/news/ukhsa-update-on-the-hantavirus-cruise-ship-outbreak", "publisher": "UK Health Security Agency", "date": "2026-05-12" },
     { "id": "src-govuk-hantaviruses", "name": "Hantaviruses", "url": "https://www.gov.uk/guidance/hantaviruses", "publisher": "Public Health England", "date": "2008-09-11" },
-    { "id": "src-nhs-hantavirus", "name": "Hantavirus", "url": "https://www.nhs.uk/conditions/hantavirus/", "publisher": "NHS", "date": "2026-05-12" }
+    { "id": "src-nhs-hantavirus", "name": "Hantavirus", "url": "https://www.nhs.uk/conditions/hantavirus/", "publisher": "NHS", "date": "2026-05-12" },
+    { "id": "src-aus-cdc-hondius-2026-05-15", "name": "MV Hondius passengers returning to Australia", "url": "https://www.cdc.gov.au/newsroom/news-and-articles/mv-hondius-passengers-land-australia", "publisher": "Australian Centre for Disease Control", "date": "2026-05-15" },
+    { "id": "src-phac-andes-2026-05-16", "name": "Media update on Andes hantavirus situation", "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation0.html", "publisher": "Public Health Agency of Canada", "date": "2026-05-16" }
   ]
 }

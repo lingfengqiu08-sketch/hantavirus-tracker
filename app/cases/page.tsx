@@ -9,7 +9,7 @@ import { canonical } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Hantavirus Cases: MV Hondius Tracker and Country Context",
   description:
-    "Current MV Hondius hantavirus case count, status split, and country-context pages for UK, Argentina, and Chile without unsupported local-spread claims.",
+    "Current MV Hondius hantavirus case count, status split, and country-context pages for Australia, Canada, UK, Argentina, and Chile without unsupported local-spread claims.",
   alternates: { canonical: canonical("/cases") },
   openGraph: {
     title: "Hantavirus Cases and MV Hondius Tracker",
@@ -21,6 +21,16 @@ export const metadata: Metadata = {
 };
 
 const countryPages = [
+  {
+    href: "/cases/australia",
+    title: "Australia quarantine",
+    description: "Six returning passengers, Bullsbrook quarantine, and Australian CDC context.",
+  },
+  {
+    href: "/cases/canada",
+    title: "Canada presumptive case",
+    description: "PHAC presumptive positive case, high-risk contacts, and public risk context.",
+  },
   {
     href: "/cases/uk",
     title: "UK cases and monitoring",
@@ -42,9 +52,10 @@ export default function CasesPage() {
   const data = getOutbreak();
   const totalCases = getTotalCases(data);
   const sources = getSourcesByIds([
-    "src-ecdc-outbreak-2026-05-14",
+    "src-ecdc-outbreak-2026-05-17",
+    "src-aus-cdc-hondius-2026-05-15",
+    "src-phac-andes-2026-05-16",
     "src-who-speech-2026-05-12",
-    "src-who-don-2026-05-08",
     "src-govuk-ukhsa-update-2026-05-12",
   ]);
 
@@ -89,6 +100,18 @@ export default function CasesPage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Country Response Table</h2>
+        <p className="text-sm leading-6 text-muted-foreground">
+          For quarantine, monitoring, public-risk statements, and official country response rows,
+          use the{" "}
+          <Link className="underline underline-offset-4" href="/response-tracker">
+            MV Hondius response tracker
+          </Link>
+          .
+        </p>
       </section>
 
       <section className="space-y-3">

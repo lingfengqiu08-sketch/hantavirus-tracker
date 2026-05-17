@@ -45,7 +45,7 @@ export default function ArgentinaCasesPage() {
   const sources = getSourcesByIds([
     "src-who-don-2026-05-08",
     "src-who-speech-2026-05-12",
-    "src-ecdc-outbreak-2026-05-14",
+    "src-ecdc-outbreak-2026-05-17",
     "src-cdc-andes",
   ]);
 

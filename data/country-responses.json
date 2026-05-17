@@ -1,0 +1,57 @@
+[
+  {
+    "country": "Australia",
+    "slug": "australia",
+    "latestUpdateDate": "2026-05-15",
+    "peopleAffected": "6 returning MV Hondius passengers",
+    "response": "Passengers landed at RAAF Base Pearce and moved to the Bullsbrook Centre for National Resilience for quarantine.",
+    "monitoring": "Australian CDC described 42 days of quarantine from disembarkation, with at least the first 3 weeks at Bullsbrook.",
+    "caseStatus": "No passenger had tested positive at the time of the Australian CDC update.",
+    "publicRisk": "Not separately quantified in the cited update; response is focused on returning passengers.",
+    "sourceIds": ["src-aus-cdc-hondius-2026-05-15"]
+  },
+  {
+    "country": "Canada",
+    "slug": "canada",
+    "latestUpdateDate": "2026-05-16",
+    "peopleAffected": "4 people identified as high-risk individuals",
+    "response": "PHAC reported one presumptive positive traveller and their spouse in hospital isolation, with a third high-risk individual transferred for assessment.",
+    "monitoring": "PHAC said authorities are monitoring and isolating exposed individuals where appropriate.",
+    "caseStatus": "One presumptive positive case was clinically stable with mild symptoms at the time of the PHAC update.",
+    "publicRisk": "PHAC said the risk to the general Canadian population remains very low.",
+    "sourceIds": ["src-phac-andes-2026-05-16", "src-ecdc-outbreak-2026-05-17"]
+  },
+  {
+    "country": "United States",
+    "slug": "united-states",
+    "latestUpdateDate": "2026-05-12",
+    "peopleAffected": "US passengers and contacts managed through public-health follow-up",
+    "response": "CDC reported that repatriated US passengers were evaluated and monitored through specialized care pathways.",
+    "monitoring": "CDC advised exposed travellers to follow public-health monitoring instructions and seek care if symptoms develop.",
+    "caseStatus": "CDC said no cases had been detected in the United States in its cited situation summary.",
+    "publicRisk": "CDC described risk to the American public as extremely low.",
+    "sourceIds": ["src-cdc-situation-2026-05-12", "src-cdc-hondius-2026-05-06"]
+  },
+  {
+    "country": "United Kingdom",
+    "slug": "uk",
+    "latestUpdateDate": "2026-05-12",
+    "peopleAffected": "Returning passengers and identified contacts",
+    "response": "UKHSA said returning passengers were transferred to Arrowe Park Hospital for clinical assessment, testing, and isolation planning.",
+    "monitoring": "UKHSA described an isolation pathway of up to 45 days for returning passengers.",
+    "caseStatus": "This tracker does not infer additional UK case counts beyond UKHSA or WHO reporting.",
+    "publicRisk": "UKHSA described risk to the wider UK population as very low.",
+    "sourceIds": ["src-govuk-ukhsa-update-2026-05-12", "src-ukhsa-cruise-2026-05-12"]
+  },
+  {
+    "country": "EU/EEA",
+    "slug": "eu-eea",
+    "latestUpdateDate": "2026-05-17",
+    "peopleAffected": "Passengers and crew from multiple countries, including EU/EEA countries",
+    "response": "ECDC continues to publish daily updates and support Member States on case finding, contact tracing, testing, isolation, and monitoring.",
+    "monitoring": "ECDC describes 42 days of follow-up after last potential exposure for identified contacts.",
+    "caseStatus": "ECDC reported 12 total cases as of 17 May: 9 confirmed, 2 probable, 1 inconclusive, 0 suspected, and 3 deaths.",
+    "publicRisk": "ECDC assessed risk to the general population as very low.",
+    "sourceIds": ["src-ecdc-outbreak-2026-05-17", "src-ecdc-press-2026-05-11"]
+  }
+]

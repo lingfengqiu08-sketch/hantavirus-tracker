@@ -86,6 +86,11 @@ export default function UpdatesPage() {
             </a>
           </li>
           <li>
+            <a className="underline underline-offset-4" href="/data/country-responses.csv">
+              Country response CSV
+            </a>
+          </li>
+          <li>
             <a className="underline underline-offset-4" href="/feed.xml">
               RSS feed
             </a>

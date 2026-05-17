@@ -79,6 +79,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.66,
     },
     {
+      url: `${SITE_URL}/cases/australia`,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 0.72,
+    },
+    {
+      url: `${SITE_URL}/cases/canada`,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 0.72,
+    },
+    {
       url: `${SITE_URL}/cases`,
       lastModified,
       changeFrequency: "daily",
@@ -125,6 +137,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 0.64,
+    },
+    {
+      url: `${SITE_URL}/response-tracker`,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 0.86,
     },
     {
       url: `${SITE_URL}/updates`,

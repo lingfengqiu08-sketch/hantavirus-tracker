@@ -6,6 +6,7 @@ import { FAQ } from "@/components/faq";
 import { SourceList } from "@/components/source-list";
 import { UpdateBanner } from "@/components/update-banner";
 import OutbreakMapLoader from "@/components/maps/outbreak-map-loader";
+import { getUpdates } from "@/lib/updates";
 import { getOutbreak, getTotalCases } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
@@ -27,7 +28,7 @@ const faq = [
   {
     question: "How many MV Hondius hantavirus cases are confirmed?",
     answer:
-      "As of the ECDC 14 May 2026 update, 11 total cases have been reported: 8 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
+      "As of the ECDC 17 May 2026 update, 12 total cases have been reported: 9 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
   },
   {
     question: "How many deaths have been reported?",
@@ -65,6 +66,7 @@ const guides = [
   { href: "/types", title: "Types", description: "Andes, Sin Nombre, Seoul, Puumala, HPS, and HFRS explained." },
   { href: "/origin", title: "Origin", description: "Where hantavirus comes from and what is known about MV Hondius exposure." },
   { href: "/cases", title: "Cases", description: "Current MV Hondius case split and country-context pages." },
+  { href: "/response-tracker", title: "Response Tracker", description: "Country quarantine, monitoring, case status, and official response table." },
   { href: "/timeline", title: "Timeline", description: "Source-linked chronology of the MV Hondius outbreak and public-health response." },
   { href: "/case-definitions", title: "Case Definitions", description: "Confirmed, probable, inconclusive, suspected, and death classifications." },
   { href: "/travel-advice", title: "Travel Advice", description: "Monitoring and exposure guidance for MV Hondius-linked readers." },
@@ -75,6 +77,7 @@ const guides = [
 export default function HomePage() {
   const data = getOutbreak();
   const totalCases = getTotalCases(data);
+  const latestUpdate = getUpdates()[0];
 
   const mapPoints = data.ship.route.map((node, idx) => ({
     id: `route-${idx}`,
@@ -170,13 +173,29 @@ export default function HomePage() {
           sourceName={data.sourceName}
           sourceUrl={data.sourceUrl}
         />
+        <div className="rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm dark:bg-amber-950/30">
+          <p className="font-medium text-foreground">Latest official update</p>
+          <p className="mt-1 leading-6 text-muted-foreground">
+            <strong className="text-foreground">{latestUpdate.date}:</strong>{" "}
+            {latestUpdate.summary}
+          </p>
+          <p className="mt-2">
+            <Link className="underline underline-offset-4" href="/updates">
+              See update log
+            </Link>{" "}
+            ·{" "}
+            <Link className="underline underline-offset-4" href="/response-tracker">
+              See country response table
+            </Link>
+          </p>
+        </div>
       </header>
 
       <section id="snapshot" className="space-y-3">
         <h2 className="text-xl font-semibold">Current Outbreak Snapshot</h2>
         <p className="text-sm text-muted-foreground">
           Cases, deaths and monitoring window. Counts use the latest official update by date,
-          with ECDC 14 May 2026 as the current status split.
+          with ECDC 17 May 2026 as the current status split.
         </p>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
           <KpiCard label="Confirmed" value={data.confirmed} description="Lab-confirmed Andes virus cases" tone="amber" />
@@ -226,7 +245,7 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold">What We Know So Far</h2>
         <div className="space-y-3 text-sm leading-6 text-muted-foreground">
           <p>
-            <strong className="text-foreground">Current count.</strong> ECDC reported on 14 May
+            <strong className="text-foreground">Current count.</strong> ECDC reported on 17 May
             2026 that the cluster involves {totalCases} total cases: {data.confirmed} confirmed
             Andes virus infections, {data.probable} probable cases, {data.inconclusive} inconclusive
             case, {data.suspected} suspected cases, and {data.deaths} deaths.

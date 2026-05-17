@@ -46,7 +46,7 @@ export default function ChileCasesPage() {
     "src-cdc-andes",
     "src-cdc-hantavirus",
     "src-who-don-2026-05-08",
-    "src-ecdc-outbreak-2026-05-14",
+    "src-ecdc-outbreak-2026-05-17",
   ]);
 
   return (
