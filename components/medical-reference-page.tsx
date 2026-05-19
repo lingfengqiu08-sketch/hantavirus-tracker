@@ -32,6 +32,7 @@ export type MedicalReferencePageProps = {
   title: string;
   description: string;
   intro: string;
+  quickAnswer?: ReactNode;
   data: OutbreakData;
   facts: ReferenceFact[];
   sections: ReferenceSection[];
@@ -53,6 +54,7 @@ export function MedicalReferencePage({
   title,
   description,
   intro,
+  quickAnswer,
   data,
   facts,
   sections,
@@ -150,6 +152,12 @@ export function MedicalReferencePage({
         <p className="text-xs uppercase tracking-wide text-muted-foreground">{eyebrow}</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{title}</h1>
         <p className="text-base text-muted-foreground">{intro}</p>
+        {quickAnswer ? (
+          <aside className="rounded-lg border border-teal-200 bg-teal-50 p-4 text-sm leading-6 dark:bg-teal-950/30">
+            <p className="font-medium text-foreground">Quick answer</p>
+            <div className="mt-1 text-muted-foreground">{quickAnswer}</div>
+          </aside>
+        ) : null}
         <UpdateBanner
           lastUpdated={data.lastUpdated}
           lastVerifiedAt={data.lastVerifiedAt}

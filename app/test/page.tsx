@@ -4,12 +4,12 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Test: PCR, Diagnosis, and How to Get Tested",
+  title: "Hantavirus PCR Test: Diagnosis, Timing, and False Negatives",
   description:
-    "Hantavirus testing and diagnosis: PCR, serology, early false negatives, MV Hondius testing, and when exposed contacts should seek medical advice.",
+    "Hantavirus PCR test and diagnosis timing: PCR, serology, early false negatives, MV Hondius screening, and when to seek medical advice.",
   alternates: { canonical: canonical("/test") },
   openGraph: {
-    title: "Hantavirus Test: PCR and Diagnosis",
+    title: "Hantavirus PCR Test and Diagnosis",
     description:
       "Testing options, early diagnosis limits, MV Hondius testing, and when to contact clinicians.",
     url: canonical("/test"),
@@ -18,6 +18,11 @@ export const metadata: Metadata = {
 };
 
 const faq = [
+  {
+    question: "What is a hantavirus PCR test?",
+    answer:
+      "A hantavirus PCR test looks for viral genetic material in a clinical sample. Public-health or reference laboratories usually coordinate testing when exposure and symptoms make it appropriate.",
+  },
   {
     question: "How do you test for hantavirus?",
     answer:
@@ -58,9 +63,17 @@ export default function TestPage() {
     <MedicalReferencePage
       path="/test"
       eyebrow="Diagnosis guide"
-      title="Hantavirus Test: PCR, Diagnosis, and How to Get Tested"
+      title="Hantavirus PCR Test: Diagnosis, Timing, and False Negatives"
       description={metadata.description as string}
-      intro="Hantavirus testing is not a casual home-test workflow. It usually depends on clinical assessment, exposure history, symptom timing, and public-health laboratory confirmation."
+      intro="Hantavirus PCR testing and diagnosis usually depend on clinical assessment, exposure history, symptom timing, and public-health laboratory confirmation. A test result is most useful when interpreted with the full exposure timeline."
+      quickAnswer={
+        <p>
+          Hantavirus diagnosis can use <strong>PCR</strong> and serology, but testing
+          is usually coordinated by clinicians or public-health laboratories. Early
+          results can be hard to interpret, so exposed contacts may still need monitoring
+          even after an initial negative test.
+        </p>
+      }
       data={data}
       sources={sources}
       faq={faq}

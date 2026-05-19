@@ -4,12 +4,12 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "How Hantavirus Spreads: Contagious, Airborne, Human-to-Human",
+  title: "Is Hantavirus Airborne or Contagious? How It Spreads",
   description:
-    "How hantavirus spreads from rodents, whether it is airborne or contagious, and why Andes virus requires close-contact monitoring.",
+    "Is hantavirus airborne or contagious? Usually rodent dust exposure; Andes virus can rarely spread person-to-person after close contact.",
   alternates: { canonical: canonical("/transmission") },
   openGraph: {
-    title: "How Hantavirus Spreads",
+    title: "Is Hantavirus Airborne or Contagious?",
     description:
       "Rodent exposure, airborne dust, rare Andes virus person-to-person spread, and MV Hondius monitoring context.",
     url: canonical("/transmission"),
@@ -27,6 +27,11 @@ const faq = [
     question: "Is hantavirus airborne?",
     answer:
       "People usually become infected by breathing in particles from infected rodent urine, droppings, or saliva. This is different from casual airborne spread like measles or flu.",
+  },
+  {
+    question: "Does hantavirus spread through the air between people?",
+    answer:
+      "Routine casual airborne spread between people is not expected. In hantavirus guidance, airborne risk usually means inhaling dust contaminated by infected rodent urine, droppings, or saliva.",
   },
   {
     question: "Can Andes virus spread between people?",
@@ -59,9 +64,17 @@ export default function TransmissionPage() {
     <MedicalReferencePage
       path="/transmission"
       eyebrow="Transmission guide"
-      title="How Hantavirus Spreads: Contagious, Airborne, Human-to-Human"
+      title="Is Hantavirus Airborne or Contagious? How It Spreads"
       description={metadata.description as string}
-      intro="The most important distinction: usual hantavirus risk comes from infected rodents and contaminated dust. Andes virus is unusual because close, prolonged person-to-person spread has been documented."
+      intro="The important distinction: usual hantavirus risk comes from infected rodents and contaminated dust, not casual person-to-person airborne spread. Andes virus is unusual because close, prolonged person-to-person spread has been documented."
+      quickAnswer={
+        <p>
+          Hantavirus is usually caught by breathing dust contaminated with infected
+          rodent urine, droppings, or saliva. Most hantaviruses are not contagious
+          between people. <strong>Andes virus is the exception</strong>: rare spread
+          can happen after close, prolonged contact with a symptomatic person.
+        </p>
+      }
       data={data}
       sources={sources}
       faq={faq}

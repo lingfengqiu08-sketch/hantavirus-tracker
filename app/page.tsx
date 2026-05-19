@@ -77,6 +77,29 @@ const guides = [
   { href: "/cases/netherlands", title: "Netherlands Arrival", description: "Rotterdam arrival and MV Hondius crew status." },
 ];
 
+const mostSearched = [
+  {
+    href: "/incubation",
+    title: "Hantavirus incubation period",
+    description: "Andes virus 4-42 days, general HPS 1-8 weeks, and MV Hondius monitoring.",
+  },
+  {
+    href: "/test",
+    title: "Hantavirus PCR test",
+    description: "PCR, serology, early false negatives, and when testing is useful.",
+  },
+  {
+    href: "/transmission",
+    title: "Is hantavirus airborne?",
+    description: "Rodent dust exposure, contagious risk, and rare Andes virus close-contact spread.",
+  },
+  {
+    href: "/treatment",
+    title: "Hantavirus treatment and cure",
+    description: "No specific cure; supportive care, oxygen, ICU care, and vaccine status.",
+  },
+];
+
 export default function HomePage() {
   const data = getOutbreak();
   const totalCases = getTotalCases(data);
@@ -193,6 +216,25 @@ export default function HomePage() {
           </p>
         </div>
       </header>
+
+      <section id="most-searched-now" className="space-y-3">
+        <h2 className="text-xl font-semibold">Most Searched Now</h2>
+        <p className="text-sm text-muted-foreground">
+          Fast answers for the highest-impression search topics currently reaching this tracker.
+        </p>
+        <div className="grid gap-3 md:grid-cols-2">
+          {mostSearched.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-lg border bg-card p-4 text-sm hover:bg-muted/40"
+            >
+              <h3 className="font-medium text-foreground">{item.title}</h3>
+              <p className="mt-1 leading-6 text-muted-foreground">{item.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section id="snapshot" className="space-y-3">
         <h2 className="text-xl font-semibold">Current Outbreak Snapshot</h2>

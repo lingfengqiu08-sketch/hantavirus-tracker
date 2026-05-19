@@ -4,12 +4,12 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Treatment, Cure, Vaccine, and Supportive Care",
+  title: "Hantavirus Treatment: Cure, Vaccine, and Supportive Care",
   description:
-    "What works for hantavirus treatment in 2026: supportive care, ICU care, oxygen support, vaccine status, cure claims, and Andes virus context.",
+    "Hantavirus treatment in 2026: no specific cure for Andes virus, no routine vaccine, and supportive hospital care for severe HPS symptoms.",
   alternates: { canonical: canonical("/treatment") },
   openGraph: {
-    title: "Hantavirus Treatment, Cure, Vaccine, and Supportive Care",
+    title: "Hantavirus Treatment: Cure, Vaccine, and Supportive Care",
     description:
       "Supportive care, ICU treatment, vaccine status, cure claims, and when to seek care after exposure.",
     url: canonical("/treatment"),
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 const faq = [
   {
-    question: "Is there a cure for hantavirus?",
+    question: "Is there a hantavirus cure?",
     answer:
       "There is no specific cure for hantavirus infection. Care is supportive and focuses on breathing, circulation, hydration, and managing complications.",
   },
@@ -27,6 +27,11 @@ const faq = [
     question: "Is there a vaccine for hantavirus?",
     answer:
       "CDC states there is no specific antiviral treatment or vaccine currently available for Andes virus. Availability can vary by country and virus type, so official public-health guidance should be followed.",
+  },
+  {
+    question: "What is the main hantavirus treatment?",
+    answer:
+      "The main treatment is early supportive hospital care, including oxygen, ventilation, careful fluid management, and circulation support when needed.",
   },
   {
     question: "What treatment helps HPS?",
@@ -58,9 +63,17 @@ export default function TreatmentPage() {
     <MedicalReferencePage
       path="/treatment"
       eyebrow="Treatment guide"
-      title="Hantavirus Treatment, Cure, Vaccine, and Supportive Care"
+      title="Hantavirus Treatment: Cure, Vaccine, and Supportive Care"
       description={metadata.description as string}
-      intro="Hantavirus treatment is about early recognition and supportive medical care. There is no single cure for hantavirus infection, so the practical goal is to get severe cases into appropriate care before respiratory failure or shock progresses."
+      intro="Hantavirus treatment is about early recognition and supportive medical care. There is no specific cure for hantavirus infection, so the practical goal is to get severe cases into appropriate care before respiratory failure or shock progresses."
+      quickAnswer={
+        <p>
+          There is <strong>no specific hantavirus cure</strong> and CDC lists no
+          current Andes virus vaccine. Treatment is supportive: oxygen, ventilation,
+          careful fluids, blood pressure support, and intensive monitoring when illness
+          becomes severe.
+        </p>
+      }
       data={data}
       sources={sources}
       faq={faq}
