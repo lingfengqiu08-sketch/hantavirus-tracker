@@ -12,20 +12,39 @@ export function LogoMark({ className = "size-8" }: LogoMarkProps) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect width="64" height="64" rx="16" fill="#F8FAFC" />
+      <rect x="2" y="2" width="60" height="60" rx="14" stroke="#CCFBF1" strokeWidth="2" />
       <path
-        d="M32 6.5 50 13.4v14.2c0 13.5-7.5 24.4-18 29.8-10.5-5.4-18-16.3-18-29.8V13.4L32 6.5Z"
-        fill="#0F766E"
+        d="M32 6.8 50.5 13.9v13.8c0 13.4-7.6 24.1-18.5 29.5-10.9-5.4-18.5-16.1-18.5-29.5V13.9L32 6.8Z"
+        fill="url(#shieldGradient)"
       />
       <path
-        d="M32 12.2 44.7 17v10.4c0 9.9-5 17.9-12.7 22.3-7.7-4.4-12.7-12.4-12.7-22.3V17L32 12.2Z"
+        d="M32 12.5 45.1 17.4v9.9c0 10-5.2 17.8-13.1 22.2-7.9-4.4-13.1-12.2-13.1-22.2v-9.9L32 12.5Z"
         fill="#ECFDF5"
       />
-      <polygon points="21.5 39.8 18.5 36.2 30 26.7 33 30.3" fill="#0F766E" />
-      <polygon points="29.7 30 33.3 27 38.8 33.5 35.2 36.5" fill="#0F766E" />
-      <polygon points="38.7 36.5 35.3 33.5 43.8 24 47.2 27" fill="#0F766E" />
-      <circle cx="20" cy="38" r="3.4" fill="#D97706" stroke="#ECFDF5" strokeWidth="1.8" />
-      <circle cx="31.5" cy="28.5" r="3.4" fill="#D97706" stroke="#ECFDF5" strokeWidth="1.8" />
-      <circle cx="45.5" cy="25.5" r="3.4" fill="#D97706" stroke="#ECFDF5" strokeWidth="1.8" />
+      <path
+        d="M18.8 39.4 28.5 31.2 35.3 36.5 46 24.1"
+        stroke="#0F766E"
+        strokeWidth="4.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M22.6 43.2c3.2 3.6 6.5 6 9.4 7.5 3.1-1.6 6.7-4.2 10.1-8.3"
+        stroke="#99F6E4"
+        strokeWidth="2"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+      <circle cx="19.4" cy="39.3" r="4.4" fill="#D97706" stroke="#ECFDF5" strokeWidth="2.2" />
+      <circle cx="28.5" cy="31.2" r="4.4" fill="#D97706" stroke="#ECFDF5" strokeWidth="2.2" />
+      <circle cx="45.8" cy="24.1" r="4.4" fill="#D97706" stroke="#ECFDF5" strokeWidth="2.2" />
+      <circle cx="35.3" cy="36.5" r="2.4" fill="#0F766E" stroke="#ECFDF5" strokeWidth="1.6" />
+      <defs>
+        <linearGradient id="shieldGradient" x1="13.5" y1="6.8" x2="50.5" y2="57.2" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#0F766E" />
+          <stop offset="1" stopColor="#134E4A" />
+        </linearGradient>
+      </defs>
     </svg>
   );
 }
