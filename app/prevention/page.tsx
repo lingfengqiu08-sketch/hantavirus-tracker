@@ -152,7 +152,7 @@ export default function PreventionPage() {
       related={[
         { href: "/rodents", label: "Hantavirus in mice, rats, and rodents" },
         { href: "/transmission", label: "How hantavirus spreads" },
-        { href: "/cases/uk", label: "UK MV Hondius monitoring context" },
+        { href: "/cases/united-kingdom", label: "UK MV Hondius monitoring context" },
       ]}
     />
   );

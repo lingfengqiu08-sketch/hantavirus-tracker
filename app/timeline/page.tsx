@@ -36,6 +36,7 @@ export default function TimelinePage() {
       name: item.title,
       description: item.detail,
       datePublished: item.date,
+      url: item.href ? canonical(item.href) : undefined,
     })),
   };
 
@@ -79,7 +80,8 @@ export default function TimelinePage() {
             <Link className="underline underline-offset-4" href="/cruise/mv-hondius">
               MV Hondius outbreak page
             </Link>
-            , not older historical entries.
+            , not older historical entries. Country-specific entries link to the corresponding
+            response pages.
           </p>
         </div>
       </section>
@@ -95,6 +97,21 @@ export default function TimelinePage() {
           <li>
             <Link className="underline underline-offset-4" href="/case-definitions">
               Case definitions
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/response-tracker">
+              Country response tracker
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/cases/united-states">
+              United States monitoring
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/cases/netherlands">
+              Netherlands ship arrival
             </Link>
           </li>
           <li>

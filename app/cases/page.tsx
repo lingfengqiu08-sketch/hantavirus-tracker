@@ -9,7 +9,7 @@ import { canonical } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Hantavirus Cases: MV Hondius Tracker and Country Context",
   description:
-    "Current MV Hondius hantavirus case count, status split, and country-context pages for Australia, Canada, UK, Argentina, and Chile without unsupported local-spread claims.",
+    "Current MV Hondius hantavirus case count, status split, and country-context pages for the US, UK, EU/EEA, Netherlands, Australia, Canada, Argentina, and Chile.",
   alternates: { canonical: canonical("/cases") },
   openGraph: {
     title: "Hantavirus Cases and MV Hondius Tracker",
@@ -28,13 +28,28 @@ const countryPages = [
   },
   {
     href: "/cases/canada",
-    title: "Canada presumptive case",
-    description: "PHAC presumptive positive case, high-risk contacts, and public risk context.",
+    title: "Canada confirmed case",
+    description: "PHAC confirmed case, high-risk contacts, and public risk context.",
   },
   {
-    href: "/cases/uk",
-    title: "UK cases and monitoring",
+    href: "/cases/united-states",
+    title: "United States monitoring",
+    description: "CDC repatriation, home monitoring, and no confirmed US cases.",
+  },
+  {
+    href: "/cases/united-kingdom",
+    title: "United Kingdom monitoring",
     description: "UKHSA monitoring, Arrowe Park, and wider UK public-risk context.",
+  },
+  {
+    href: "/cases/eu-eea",
+    title: "EU/EEA response",
+    description: "ECDC daily status split, 42-day follow-up, and regional public-risk context.",
+  },
+  {
+    href: "/cases/netherlands",
+    title: "Netherlands ship arrival",
+    description: "Rotterdam arrival, 27 crew members, and Dutch-flagged vessel context.",
   },
   {
     href: "/cases/argentina",
@@ -52,9 +67,10 @@ export default function CasesPage() {
   const data = getOutbreak();
   const totalCases = getTotalCases(data);
   const sources = getSourcesByIds([
-    "src-ecdc-outbreak-2026-05-17",
+    "src-ecdc-outbreak-2026-05-18",
     "src-aus-cdc-hondius-2026-05-15",
-    "src-phac-andes-2026-05-16",
+    "src-phac-andes-2026-05-17",
+    "src-cdc-situation-2026-05-12",
     "src-who-speech-2026-05-12",
     "src-govuk-ukhsa-update-2026-05-12",
   ]);

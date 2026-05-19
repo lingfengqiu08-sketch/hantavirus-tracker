@@ -25,6 +25,7 @@ export default function ResponseTrackerPage() {
   const responses = getCountryResponses();
   const sourceIds = Array.from(new Set(responses.flatMap((entry) => entry.sourceIds)));
   const sources = getSourcesByIds(sourceIds);
+  const countryPageHref = (slug: string) => `/cases/${slug}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -83,7 +84,11 @@ export default function ResponseTrackerPage() {
             <tbody>
               {responses.map((entry) => (
                 <tr key={entry.slug} className="align-top">
-                  <td className="border-b p-3 font-medium text-foreground">{entry.country}</td>
+                  <td className="border-b p-3 font-medium text-foreground">
+                    <Link className="underline underline-offset-4" href={countryPageHref(entry.slug)}>
+                      {entry.country}
+                    </Link>
+                  </td>
                   <td className="border-b p-3 text-muted-foreground">{entry.latestUpdateDate}</td>
                   <td className="border-b p-3 text-muted-foreground">{entry.peopleAffected}</td>
                   <td className="border-b p-3 text-muted-foreground">{entry.response}</td>
@@ -132,12 +137,27 @@ export default function ResponseTrackerPage() {
           </li>
           <li>
             <Link className="underline underline-offset-4" href="/cases/canada">
-              Canada presumptive case context
+              Canada confirmed case context
             </Link>
           </li>
           <li>
-            <Link className="underline underline-offset-4" href="/cases/uk">
-              UK monitoring context
+            <Link className="underline underline-offset-4" href="/cases/united-states">
+              United States monitoring context
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/cases/united-kingdom">
+              United Kingdom monitoring context
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/cases/eu-eea">
+              EU/EEA response context
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/cases/netherlands">
+              Netherlands Rotterdam arrival context
             </Link>
           </li>
           <li>

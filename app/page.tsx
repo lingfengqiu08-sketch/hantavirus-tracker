@@ -28,7 +28,7 @@ const faq = [
   {
     question: "How many MV Hondius hantavirus cases are confirmed?",
     answer:
-      "As of the ECDC 17 May 2026 update, 12 total cases have been reported: 9 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
+      "As of the ECDC 18 May 2026 update, 12 total cases have been reported: 9 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
   },
   {
     question: "How many deaths have been reported?",
@@ -58,7 +58,7 @@ const guides = [
   { href: "/transmission", title: "Transmission", description: "Rodent exposure, airborne dust, and rare Andes virus close-contact spread." },
   { href: "/treatment", title: "Treatment", description: "Supportive care, vaccine status, and when exposed contacts should seek care." },
   { href: "/death-rate", title: "Death Rate", description: "Mortality context, MV Hondius deaths, and survival factors." },
-  { href: "/incubation", title: "Incubation", description: "General HPS timing and the Andes virus 4-42 day window." },
+  { href: "/incubation", title: "Andes Virus Incubation Period", description: "Andes virus hantavirus incubation period: 4-42 days, general HPS 1-8 weeks, and MV Hondius monitoring." },
   { href: "/test", title: "Testing", description: "PCR, serology, diagnosis timing, and MV Hondius testing context." },
   { href: "/rodents", title: "Rodents", description: "Mice, rats, deer mice, and how rodent exposure happens." },
   { href: "/prevention", title: "Prevention", description: "Rodent cleanup, home risk reduction, and Andes virus precautions." },
@@ -71,7 +71,10 @@ const guides = [
   { href: "/case-definitions", title: "Case Definitions", description: "Confirmed, probable, inconclusive, suspected, and death classifications." },
   { href: "/travel-advice", title: "Travel Advice", description: "Monitoring and exposure guidance for MV Hondius-linked readers." },
   { href: "/updates", title: "Updates", description: "Source-linked tracker update log and public data feeds." },
-  { href: "/cases/uk", title: "UK Cases", description: "UKHSA monitoring, Arrowe Park, and public risk context." },
+  { href: "/cases/united-states", title: "US Monitoring", description: "CDC repatriation, home monitoring, and no confirmed US cases." },
+  { href: "/cases/united-kingdom", title: "UK Monitoring", description: "UKHSA monitoring, Arrowe Park, and public risk context." },
+  { href: "/cases/eu-eea", title: "EU/EEA Response", description: "ECDC daily updates, 42-day follow-up, and public risk." },
+  { href: "/cases/netherlands", title: "Netherlands Arrival", description: "Rotterdam arrival and MV Hondius crew status." },
 ];
 
 export default function HomePage() {
@@ -195,7 +198,7 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold">Current Outbreak Snapshot</h2>
         <p className="text-sm text-muted-foreground">
           Cases, deaths and monitoring window. Counts use the latest official update by date,
-          with ECDC 17 May 2026 as the current status split.
+          with ECDC 18 May 2026 as the current status split.
         </p>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
           <KpiCard label="Confirmed" value={data.confirmed} description="Lab-confirmed Andes virus cases" tone="amber" />
@@ -245,7 +248,7 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold">What We Know So Far</h2>
         <div className="space-y-3 text-sm leading-6 text-muted-foreground">
           <p>
-            <strong className="text-foreground">Current count.</strong> ECDC reported on 17 May
+            <strong className="text-foreground">Current count.</strong> ECDC reported on 18 May
             2026 that the cluster involves {totalCases} total cases: {data.confirmed} confirmed
             Andes virus infections, {data.probable} probable cases, {data.inconclusive} inconclusive
             case, {data.suspected} suspected cases, and {data.deaths} deaths.
@@ -256,9 +259,13 @@ export default function HomePage() {
             in cases of close and prolonged contact.
           </p>
           <p>
-            <strong className="text-foreground">Why monitoring lasts 42 days.</strong> WHO
-            recommends a 42-day monitoring window from last possible exposure. The window for
-            this cluster ends on 21 June 2026.
+            <strong className="text-foreground">Why monitoring lasts 42 days.</strong> CDC lists
+            the{" "}
+            <Link className="underline underline-offset-4" href="/incubation">
+              Andes virus incubation period
+            </Link>{" "}
+            as 4 to 42 days after exposure. WHO recommends a 42-day monitoring window from last
+            possible exposure. The window for this cluster ends on {data.monitoringEndsAt}.
           </p>
           <p>
             <strong className="text-foreground">Risk to the general public.</strong> WHO, ECDC

@@ -5,14 +5,14 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Canada: MV Hondius Presumptive Andes Virus Case",
+  title: "Hantavirus Canada: MV Hondius Confirmed Andes Virus Case",
   description:
-    "Canada context for the MV Hondius Andes hantavirus outbreak: presumptive positive case, high-risk contacts, isolation, public risk, and official sources.",
+    "Canada context for the MV Hondius Andes hantavirus outbreak: confirmed case, high-risk contacts, isolation, public risk, and official sources.",
   alternates: { canonical: canonical("/cases/canada") },
   openGraph: {
-    title: "Hantavirus Canada: MV Hondius Presumptive Case",
+    title: "Hantavirus Canada: MV Hondius Confirmed Case",
     description:
-      "PHAC update on the MV Hondius-related presumptive Andes virus case, contacts, isolation, and public risk.",
+      "PHAC update on the MV Hondius-related confirmed Andes virus case, contacts, isolation, and public risk.",
     url: canonical("/cases/canada"),
     type: "article",
   },
@@ -22,12 +22,12 @@ const faq = [
   {
     question: "Has Canada reported an MV Hondius-linked case?",
     answer:
-      "PHAC reported one presumptive positive Andes virus case among returning Canadian passengers on 16 May 2026.",
+      "PHAC confirmed one MV Hondius passenger positive for hantavirus through laboratory testing in its 17 May 2026 update.",
   },
   {
-    question: "Is the Canadian case stable?",
+    question: "Were more Canadian cases identified?",
     answer:
-      "PHAC said the presumptive positive individual had mild symptoms and was clinically stable at the time of the update.",
+      "PHAC said the travelling partner of the confirmed case tested negative and no further Canadian cases had been identified at the time of the 17 May update.",
   },
   {
     question: "How many high-risk individuals were identified in Canada?",
@@ -45,8 +45,8 @@ export default function CanadaCasesPage() {
   const data = getOutbreak();
   const response = getCountryResponse("canada");
   const sources = getSourcesByIds([
-    "src-phac-andes-2026-05-16",
-    "src-ecdc-outbreak-2026-05-17",
+    "src-phac-andes-2026-05-17",
+    "src-ecdc-outbreak-2026-05-18",
     "src-cdc-andes",
   ]);
 
@@ -54,17 +54,17 @@ export default function CanadaCasesPage() {
     <MedicalReferencePage
       path="/cases/canada"
       eyebrow="Country response"
-      title="Hantavirus Canada: MV Hondius Presumptive Andes Virus Case"
+      title="Hantavirus Canada: MV Hondius Confirmed Andes Virus Case"
       description={metadata.description as string}
-      intro="Canada is now part of the current MV Hondius case update because PHAC reported one presumptive positive Andes virus case among returning passengers."
+      intro="Canada is part of the current MV Hondius confirmed-case count because PHAC confirmed one returning passenger positive through laboratory testing."
       data={data}
       sources={sources}
       faq={faq}
       facts={[
         {
-          label: "Presumptive",
+          label: "Confirmed",
           value: "1",
-          description: "PHAC-reported positive case",
+          description: "PHAC laboratory-confirmed case",
           tone: "amber",
         },
         {
@@ -81,7 +81,7 @@ export default function CanadaCasesPage() {
         {
           label: "Tracker total",
           value: `${data.confirmed + data.probable + data.inconclusive + data.suspected}`,
-          description: "ECDC 17 May total",
+          description: "ECDC 18 May total",
         },
       ]}
       condition={{
@@ -96,7 +96,7 @@ export default function CanadaCasesPage() {
         {
           id: "official-update",
           title: "Official Canada Update",
-          subtitle: "One Presumptive Positive Case",
+          subtitle: "One Laboratory-Confirmed Case",
           children: (
             <p>
               {response?.response} {response?.caseStatus}
@@ -120,8 +120,9 @@ export default function CanadaCasesPage() {
           subtitle: "PHAC and ECDC",
           children: (
             <p>
-              PHAC reported the presumptive case on 16 May. ECDC listed 9 confirmed
-              cases, 2 probable cases, 1 inconclusive case, and 3 deaths across the cluster.
+              PHAC confirmed the Canadian case on 17 May after national laboratory testing. ECDC
+              lists 9 confirmed cases, 2 probable cases, 1 inconclusive case, and 3 deaths across
+              the cluster in its 18 May update.
             </p>
           ),
         },

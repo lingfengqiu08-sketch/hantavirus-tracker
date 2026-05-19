@@ -28,7 +28,7 @@ const faq = [
   {
     question: "How many people were infected on MV Hondius?",
     answer:
-      "As of the ECDC 17 May 2026 update, 12 total cases have been reported: 9 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
+      "As of the ECDC 18 May 2026 update, 12 total cases have been reported: 9 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
   },
   {
     question: "How many MV Hondius deaths have been reported?",
@@ -37,7 +37,7 @@ const faq = [
   {
     question: "Where is MV Hondius now?",
     answer:
-      "Passengers disembarked at the Port of Granadilla, Tenerife, between 10 and 11 May 2026. WHO stated on 12 May 2026 that the ship was on its way to the Netherlands.",
+      "Passengers disembarked at the Port of Granadilla, Tenerife, between 10 and 11 May 2026. ECDC reported that MV Hondius arrived in Rotterdam on 18 May 2026 with 27 crew members on board.",
   },
   {
     question: "What route did MV Hondius take?",
@@ -291,6 +291,16 @@ export default function MvHondiusPage() {
           <li>
             <Link className="underline underline-offset-4" href="/response-tracker">
               Country response tracker
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/cases/united-states">
+              United States monitoring
+            </Link>
+          </li>
+          <li>
+            <Link className="underline underline-offset-4" href="/cases/netherlands">
+              Netherlands Rotterdam arrival
             </Link>
           </li>
           <li>

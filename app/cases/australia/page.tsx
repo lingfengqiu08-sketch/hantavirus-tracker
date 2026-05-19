@@ -46,7 +46,7 @@ export default function AustraliaCasesPage() {
   const response = getCountryResponse("australia");
   const sources = getSourcesByIds([
     "src-aus-cdc-hondius-2026-05-15",
-    "src-ecdc-outbreak-2026-05-17",
+    "src-ecdc-outbreak-2026-05-18",
     "src-who-speech-2026-05-12",
   ]);
 

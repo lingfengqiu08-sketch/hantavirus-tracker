@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/incubation`,
       lastModified,
       changeFrequency: "weekly",
-      priority: 0.72,
+      priority: 0.88,
     },
     {
       url: `${SITE_URL}/prevention`,
@@ -73,13 +73,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.68,
     },
     {
-      url: `${SITE_URL}/cases/uk`,
+      url: `${SITE_URL}/cases/united-states`,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 0.74,
+    },
+    {
+      url: `${SITE_URL}/cases/united-kingdom`,
       lastModified,
       changeFrequency: "weekly",
-      priority: 0.66,
+      priority: 0.72,
     },
     {
       url: `${SITE_URL}/cases/australia`,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 0.72,
+    },
+    {
+      url: `${SITE_URL}/cases/eu-eea`,
+      lastModified,
+      changeFrequency: "daily",
+      priority: 0.74,
+    },
+    {
+      url: `${SITE_URL}/cases/netherlands`,
       lastModified,
       changeFrequency: "daily",
       priority: 0.72,

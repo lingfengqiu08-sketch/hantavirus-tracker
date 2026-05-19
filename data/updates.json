@@ -1,5 +1,19 @@
 [
   {
+    "id": "2026-05-18-ecdc-rotterdam-12-cases",
+    "date": "2026-05-18",
+    "title": "ECDC keeps total at 12 cases and reports Rotterdam arrival",
+    "summary": "ECDC's 18 May update keeps the MV Hondius-linked total at 12 cases and 3 deaths, and reports that the ship arrived in Rotterdam with 27 crew members on board.",
+    "sourceIds": ["src-ecdc-outbreak-2026-05-18"]
+  },
+  {
+    "id": "2026-05-17-canada-lab-confirmed",
+    "date": "2026-05-17",
+    "title": "Canada confirms one MV Hondius-linked Andes virus case",
+    "summary": "PHAC confirmed one Canadian MV Hondius passenger positive through laboratory testing; a travelling partner tested negative and no further Canadian cases had been identified.",
+    "sourceIds": ["src-phac-andes-2026-05-17"]
+  },
+  {
     "id": "2026-05-17-ecdc-12-cases",
     "date": "2026-05-17",
     "title": "ECDC updates MV Hondius total to 12 cases",

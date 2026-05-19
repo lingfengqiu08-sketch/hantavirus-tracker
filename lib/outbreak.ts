@@ -49,6 +49,7 @@ export type TimelineItem = {
   title: string;
   detail: string;
   sources: string[];
+  href?: string;
 };
 
 export type Source = {
