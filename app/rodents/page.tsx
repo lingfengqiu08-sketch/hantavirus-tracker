@@ -4,14 +4,14 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus in Mice, Rats, Deer Mice, and Rodents",
+  title: "Andes Virus Reservoir Rodents: Mice, Rats & Hantavirus",
   description:
-    "Which rodents carry hantavirus, how mouse and rat droppings create exposure risk, deer mouse and Seoul virus context, and safer cleanup basics.",
+    "Andes virus reservoir rodent species are South American rodents. Compare deer mice, rats, Seoul virus, droppings risk, and safer cleanup basics.",
   alternates: { canonical: canonical("/rodents") },
   openGraph: {
-    title: "Hantavirus in Mice, Rats, and Rodents",
+    title: "Andes Virus Reservoir Rodents: Mice, Rats & Hantavirus",
     description:
-      "Rodent hosts, droppings exposure, deer mice, rats, and prevention basics.",
+      "South American Andes virus rodent context, plus deer mice, rats, Seoul virus, droppings exposure, and prevention basics.",
     url: canonical("/rodents"),
     type: "article",
   },
@@ -39,6 +39,11 @@ const faq = [
       "UKHSA states Andes virus is associated with South American rodent species and has not been seen in the UK rodent population.",
   },
   {
+    question: "What are the Andes virus reservoir rodent species?",
+    answer:
+      "Public-health sources used here describe Andes virus as associated with South American rodent species. This page does not name a specific species unless an official source names it; the practical distinction is that Andes virus rodents are not the same as UK rats or North American deer mice.",
+  },
+  {
     question: "What is the safest prevention step?",
     answer:
       "Avoid contact with rodent urine, droppings, saliva, and nesting materials, and follow public-health cleanup guidance instead of sweeping dry debris.",
@@ -58,9 +63,17 @@ export default function RodentsPage() {
     <MedicalReferencePage
       path="/rodents"
       eyebrow="Rodent guide"
-      title="Hantavirus in Mice, Rats, Deer Mice, and Rodents"
+      title="Andes Virus Reservoir Rodents: Mice, Rats & Hantavirus"
       description={metadata.description as string}
-      intro="Hantaviruses are linked to specific rodent hosts. This page explains the practical difference between deer mice, rats, pet rodents, and the South American rodents associated with Andes virus."
+      intro="Andes virus reservoir rodent searches often mix several different animals. This page separates the South American rodents associated with Andes virus from North American deer mice, UK rats, pet rats, and the cleanup risks from rodent urine, droppings, saliva, or nesting material."
+      quickAnswer={
+        <p>
+          Andes virus is associated with <strong>South American rodent species</strong>,
+          and UKHSA states those species are not found in the UK. Deer mice are
+          mainly discussed for Sin Nombre virus in North America; rats can carry
+          Seoul virus. Avoid disturbing dry rodent waste from any species.
+        </p>
+      }
       data={data}
       sources={sources}
       faq={faq}
@@ -71,15 +84,15 @@ export default function RodentsPage() {
           description: "Urine, feces, saliva, and contaminated dust",
         },
         {
-          label: "US HPS",
-          value: "Deer mouse",
-          description: "Main Sin Nombre virus reservoir in the US",
+          label: "Andes reservoir",
+          value: "South America",
+          description: "Associated rodent species are not found in the UK per UKHSA",
+          tone: "amber",
         },
         {
           label: "Rats",
           value: "Seoul",
           description: "Seoul virus can be carried by rats",
-          tone: "amber",
         },
         {
           label: "Prevention",
@@ -99,18 +112,23 @@ export default function RodentsPage() {
       sections={[
         {
           id: "hosts",
-          title: "Rodent Hosts",
-          subtitle: "Different Viruses Have Different Reservoirs",
+          title: "Andes Virus Reservoir Rodents",
+          subtitle: "Different Hantaviruses Have Different Reservoirs",
           children: (
             <>
               <p>
-                Each hantavirus is associated with particular rodent hosts. In North America, deer
-                mice are important for Sin Nombre virus. In Europe and Asia, other hantaviruses are
-                associated with voles, rats, and field mice.
+                Each hantavirus is associated with particular rodent hosts. For Andes virus,
+                the public-health sources used on this tracker describe the reservoir context as
+                South American rodent species, not UK rats or North American deer mice.
               </p>
               <p>
                 Andes virus is associated with South American rodents. UKHSA states that the South
                 American rodent species linked to Andes virus are not found in the UK.
+              </p>
+              <p>
+                In North America, deer mice are important for Sin Nombre virus. In Europe and Asia,
+                other hantaviruses are associated with voles, rats, and field mice. That is why the
+                exact virus name matters when comparing rodent risks.
               </p>
             </>
           ),

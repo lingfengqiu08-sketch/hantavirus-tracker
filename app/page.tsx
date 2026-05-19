@@ -58,9 +58,9 @@ const guides = [
   { href: "/transmission", title: "Transmission", description: "Rodent exposure, airborne dust, and rare Andes virus close-contact spread." },
   { href: "/treatment", title: "Treatment", description: "Supportive care, vaccine status, and when exposed contacts should seek care." },
   { href: "/death-rate", title: "Death Rate", description: "Mortality context, MV Hondius deaths, and survival factors." },
-  { href: "/incubation", title: "Andes Virus Incubation Period", description: "Andes virus hantavirus incubation period: 4-42 days, general HPS 1-8 weeks, and MV Hondius monitoring." },
+  { href: "/incubation", title: "Andes Hantavirus Incubation Period", description: "CDC 4-42 day Andes virus timing, general HPS 1-8 weeks, and MV Hondius monitoring." },
   { href: "/test", title: "Testing", description: "PCR, serology, diagnosis timing, and MV Hondius testing context." },
-  { href: "/rodents", title: "Rodents", description: "Mice, rats, deer mice, and how rodent exposure happens." },
+  { href: "/rodents", title: "Andes Virus Reservoir Rodents", description: "South American Andes virus rodent context, deer mice, rats, and safer cleanup basics." },
   { href: "/prevention", title: "Prevention", description: "Rodent cleanup, home risk reduction, and Andes virus precautions." },
   { href: "/andes-virus", title: "Andes Virus", description: "The person-to-person hantavirus strain linked to MV Hondius." },
   { href: "/types", title: "Types", description: "Andes, Sin Nombre, Seoul, Puumala, HPS, and HFRS explained." },
@@ -80,8 +80,8 @@ const guides = [
 const mostSearched = [
   {
     href: "/incubation",
-    title: "Hantavirus incubation period",
-    description: "Andes virus 4-42 days, general HPS 1-8 weeks, and MV Hondius monitoring.",
+    title: "Andes hantavirus incubation period",
+    description: "CDC 4-42 day Andes virus timing, general HPS 1-8 weeks, and MV Hondius monitoring.",
   },
   {
     href: "/test",

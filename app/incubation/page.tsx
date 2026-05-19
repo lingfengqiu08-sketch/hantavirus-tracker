@@ -4,14 +4,14 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Incubation Period: Andes Virus 4-42 Days",
+  title: "Andes Hantavirus Incubation Period: 4-42 Days",
   description:
-    "Hantavirus incubation period: Andes virus symptoms can appear 4-42 days after exposure; general HPS is usually 1-8 weeks. MV Hondius uses 42-day monitoring.",
+    "Andes hantavirus incubation period: CDC lists HPS symptoms 4-42 days after exposure; general HPS usually starts 1-8 weeks after rodent contact.",
   alternates: { canonical: canonical("/incubation") },
   openGraph: {
-    title: "Hantavirus Incubation Period: Andes Virus 4-42 Days",
+    title: "Andes Hantavirus Incubation Period: 4-42 Days",
     description:
-      "Quick answer: Andes virus 4-42 days, general HPS 1-8 weeks, and MV Hondius 42-day monitoring context.",
+      "CDC timing for Andes virus HPS: 4-42 days after exposure, plus general HPS 1-8 week context and MV Hondius monitoring dates.",
     url: canonical("/incubation"),
     type: "article",
   },
@@ -37,6 +37,11 @@ const faq = [
     question: "What is the general hantavirus HPS incubation period?",
     answer:
       "For HPS in general, CDC describes symptoms as usually starting 1 to 8 weeks after contact with an infected rodent.",
+  },
+  {
+    question: "Is the Andes virus incubation period the same as the contagious period?",
+    answer:
+      "No. Incubation period means the time from exposure to symptoms. Andes virus is unusual because person-to-person spread has been reported, but this page does not estimate an infectious period; exposed contacts should follow public-health instructions.",
   },
   {
     question: "Why are MV Hondius contacts monitored for 42 days?",
@@ -73,15 +78,16 @@ export default function IncubationPage() {
     <MedicalReferencePage
       path="/incubation"
       eyebrow="Quick answer guide"
-      title="Hantavirus Incubation Period: Andes Virus 4-42 Days"
+      title="Andes Hantavirus Incubation Period: 4-42 Days"
       description={metadata.description as string}
-      intro={`For people searching the hantavirus incubation period after MV Hondius or Andes virus exposure, the practical answer is the 42-day monitoring window. Andes virus symptoms can appear 4-42 days after exposure; general hantavirus pulmonary syndrome is usually described as 1-8 weeks after infected rodent contact.`}
+      intro={`For people searching the Andes hantavirus incubation period after MV Hondius or another known exposure, the practical answer is the 42-day monitoring window. CDC lists HPS due to Andes virus as 4-42 days after exposure; general hantavirus pulmonary syndrome is usually described as 1-8 weeks after infected rodent contact.`}
       quickAnswer={
         <p>
-          The Andes virus hantavirus incubation period is <strong>4-42 days</strong>{" "}
-          after exposure. General hantavirus pulmonary syndrome symptoms usually start{" "}
-          <strong>1-8 weeks</strong> after infected rodent contact. MV Hondius monitoring
-          runs through <strong>{data.monitoringEndsAt}</strong>.
+          The Andes hantavirus incubation period used for public-health monitoring is{" "}
+          <strong>4-42 days after exposure</strong>. General hantavirus pulmonary
+          syndrome symptoms usually start <strong>1-8 weeks</strong> after infected
+          rodent contact. MV Hondius monitoring runs through{" "}
+          <strong>{data.monitoringEndsAt}</strong>.
         </p>
       }
       data={data}
@@ -119,7 +125,7 @@ export default function IncubationPage() {
       sections={[
         {
           id: "andes-virus",
-          title: "Andes Virus Incubation Period",
+          title: "CDC Andes Virus Incubation Period",
           subtitle: "4-42 Days After Exposure",
           children: (
             <>
@@ -131,6 +137,26 @@ export default function IncubationPage() {
               <p>
                 A person can be well during part of that window. Monitoring is meant to catch
                 symptoms early if they develop; it does not mean every monitored contact is sick.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "contagious-period",
+          title: "Incubation Period vs. Contagious Period",
+          subtitle: "Two Different Public-Health Questions",
+          children: (
+            <>
+              <p>
+                The incubation period is the time from exposure to first symptoms. It is
+                not the same as the contagious period or the period when another person
+                might be exposed.
+              </p>
+              <p>
+                Andes virus is the hantavirus type most associated with reported
+                person-to-person spread, so exposed contacts should follow the monitoring,
+                isolation, and testing instructions from their public-health team rather
+                than using a symptom-free day count to decide they are clear.
               </p>
             </>
           ),
