@@ -6,12 +6,12 @@ export const contentType = ogContentType;
 export default function Image() {
   return renderOg({
     eyebrow: "TESTING",
-    title: "Hantavirus Test and Diagnosis",
-    subtitle: "PCR, serology, early timing, and MV Hondius testing context",
+    title: "Hantavirus PCR Test Timing Checker",
+    subtitle: "When to test after exposure, PCR vs IgM/IgG, and early negative results",
     stats: [
-      { value: "PCR", label: "Testing" },
-      { value: "Labs", label: "Confirmation" },
-      { value: "Timing", label: "Matters" },
+      { value: "PCR", label: "RNA" },
+      { value: "IgM", label: "Recent" },
+      { value: "72h", label: "Repeat?" },
     ],
   });
 }
