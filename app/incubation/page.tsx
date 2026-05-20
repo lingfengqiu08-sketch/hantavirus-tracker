@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
+import { IncubationWindowCalculator } from "@/components/incubation-window-calculator";
 import { MedicalReferencePage } from "@/components/medical-reference-page";
 import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Andes Hantavirus Incubation Period: 4-42 Days",
+  title: "Andes Hantavirus Incubation Calculator: 4-42 Days",
   description:
-    "Andes hantavirus incubation period: CDC lists HPS symptoms 4-42 days after exposure; general HPS usually starts 1-8 weeks after rodent contact.",
+    "Andes hantavirus incubation calculator: enter an exposure date to estimate the 4-42 day window, general HPS 1-8 weeks, and MV Hondius monitoring dates.",
   alternates: { canonical: canonical("/incubation") },
   openGraph: {
-    title: "Andes Hantavirus Incubation Period: 4-42 Days",
+    title: "Andes Hantavirus Incubation Calculator: 4-42 Days",
     description:
-      "CDC timing for Andes virus HPS: 4-42 days after exposure, plus general HPS 1-8 week context and MV Hondius monitoring dates.",
+      "Enter an exposure date to estimate Andes virus 4-42 day timing, general HPS 1-8 week context, and MV Hondius monitoring dates.",
     url: canonical("/incubation"),
     type: "article",
   },
@@ -78,9 +79,9 @@ export default function IncubationPage() {
     <MedicalReferencePage
       path="/incubation"
       eyebrow="Quick answer guide"
-      title="Andes Hantavirus Incubation Period: 4-42 Days"
+      title="Andes Hantavirus Incubation Calculator: 4-42 Days"
       description={metadata.description as string}
-      intro={`For people searching the Andes hantavirus incubation period after MV Hondius or another known exposure, the practical answer is the 42-day monitoring window. CDC lists HPS due to Andes virus as 4-42 days after exposure; general hantavirus pulmonary syndrome is usually described as 1-8 weeks after infected rodent contact.`}
+      intro={`For people searching the Andes hantavirus incubation period after MV Hondius or another known exposure, the practical answer is the 42-day monitoring window. Use the calculator below to estimate the monitoring dates from a last possible exposure date, then compare it with the general HPS 1-8 week range.`}
       quickAnswer={
         <p>
           The Andes hantavirus incubation period used for public-health monitoring is{" "}
@@ -123,6 +124,49 @@ export default function IncubationPage() {
         signOrSymptom: ["Fever", "Fatigue", "Muscle aches", "Cough", "Shortness of breath"],
       }}
       sections={[
+        {
+          id: "calculator",
+          title: "Hantavirus Incubation Period Calculator",
+          subtitle: "Estimate the Andes Virus 4-42 Day Window",
+          children: <IncubationWindowCalculator defaultExposureDate="2026-05-10" />,
+        },
+        {
+          id: "examples",
+          title: "MV Hondius Monitoring Examples",
+          subtitle: "Same Rule, Different Exposure Dates",
+          children: (
+            <>
+              <p>
+                The exact monitoring window depends on the last possible exposure date assigned
+                by public-health authorities. The table below shows how the Andes virus 4-42 day
+                rule changes when the exposure date changes.
+              </p>
+              <div className="grid gap-3 md:grid-cols-3">
+                <div className="rounded-md border p-3">
+                  <h3 className="font-medium text-foreground">May 6, 2026</h3>
+                  <p className="mt-1">
+                    Possible symptom window: May 10 - June 17, 2026. This is useful for
+                    understanding the Cabo Verde evacuation timing.
+                  </p>
+                </div>
+                <div className="rounded-md border border-amber-300 bg-amber-50 p-3 dark:bg-amber-950/30">
+                  <h3 className="font-medium text-foreground">May 10, 2026</h3>
+                  <p className="mt-1">
+                    Possible symptom window: May 14 - June 21, 2026. This is this tracker&apos;s
+                    MV Hondius reference window.
+                  </p>
+                </div>
+                <div className="rounded-md border p-3">
+                  <h3 className="font-medium text-foreground">May 12, 2026</h3>
+                  <p className="mt-1">
+                    Possible symptom window: May 16 - June 23, 2026. Later contact dates extend
+                    the monitoring endpoint.
+                  </p>
+                </div>
+              </div>
+            </>
+          ),
+        },
         {
           id: "andes-virus",
           title: "CDC Andes Virus Incubation Period",
