@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MedicalReferencePage } from "@/components/medical-reference-page";
+import { TreatmentCareChecker } from "@/components/treatment-care-checker";
 import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Treatment: Cure, Vaccine, and Supportive Care",
+  title: "Hantavirus Treatment Guide: Cure, ICU Care, When to Seek Help",
   description:
-    "Hantavirus treatment in 2026: no specific cure for Andes virus, no routine vaccine, and supportive hospital care for severe HPS symptoms.",
+    "Hantavirus treatment guide: check when to seek medical help, compare cure claims, supportive care, ICU care, ECMO, vaccine status, and early warning signs.",
   alternates: { canonical: canonical("/treatment") },
   openGraph: {
-    title: "Hantavirus Treatment: Cure, Vaccine, and Supportive Care",
+    title: "Hantavirus Treatment Guide",
     description:
-      "Supportive care, ICU treatment, vaccine status, cure claims, and when to seek care after exposure.",
+      "Education-only care pathway for supportive treatment, ICU care, vaccine status, cure claims, and when to seek help after exposure.",
     url: canonical("/treatment"),
     type: "article",
   },
@@ -19,34 +21,77 @@ export const metadata: Metadata = {
 
 const faq = [
   {
-    question: "Is there a hantavirus cure?",
+    question: "Is there a hantavirus treatment or cure?",
     answer:
-      "There is no specific cure for hantavirus infection. Care is supportive and focuses on breathing, circulation, hydration, and managing complications.",
+      "There is no specific cure for hantavirus infection. Treatment is supportive and focuses on breathing, circulation, hydration, and complications while medical teams monitor the illness.",
   },
   {
-    question: "Is there a vaccine for hantavirus?",
+    question: "What is supportive care for hantavirus?",
     answer:
-      "CDC states there is no specific antiviral treatment or vaccine currently available for Andes virus. Availability can vary by country and virus type, so official public-health guidance should be followed.",
+      "Supportive care can include oxygen, ventilatory support, careful fluids, blood-pressure support, fever control, and intensive monitoring when illness is severe.",
   },
   {
-    question: "What is the main hantavirus treatment?",
+    question: "Can early treatment improve the outcome?",
     answer:
-      "The main treatment is early supportive hospital care, including oxygen, ventilation, careful fluid management, and circulation support when needed.",
+      "Early recognition and hospital evaluation can help clinicians support breathing and circulation before severe respiratory failure or shock progresses. It is not a guaranteed cure.",
   },
   {
-    question: "What treatment helps HPS?",
+    question: "Is there a vaccine or antiviral for Andes virus?",
     answer:
-      "Early hospital care can include oxygen, intubation, ventilatory support, blood pressure support, and intensive monitoring.",
+      "CDC states there is no specific antiviral treatment or vaccine currently available for Andes virus. Follow official public-health guidance for the country managing the exposure.",
   },
   {
-    question: "Should exposed MV Hondius contacts wait for severe symptoms?",
+    question: "When should someone seek emergency care?",
     answer:
-      "No. Contacts should follow public-health monitoring instructions and seek medical advice promptly if fever, gastrointestinal symptoms, cough, or breathing changes appear.",
+      "Seek urgent medical care for shortness of breath, chest tightness, blue lips, fainting, confusion, severe weakness, or rapidly worsening symptoms, especially after possible rodent or Andes virus exposure.",
+  },
+  {
+    question: "Can ECMO treat hantavirus?",
+    answer:
+      "ECMO is an advanced ICU support option that may be considered for selected severe cardiopulmonary failure cases. It is not a cure, is not available everywhere, and must be decided by specialists.",
   },
   {
     question: "Do antibiotics treat hantavirus?",
     answer:
       "Antibiotics do not treat viruses. Clinicians may use them only if another bacterial infection is suspected.",
+  },
+  {
+    question: "What should I tell a doctor after possible exposure?",
+    answer:
+      "Mention rodent exposure, South America travel, MV Hondius contact, contact with a known case, symptom onset date, breathing symptoms, and any monitoring instructions already received.",
+  },
+];
+
+const treatmentRows = [
+  {
+    option: "Specific cure",
+    role: "No proven cure",
+    note: "Avoid pages promising a quick cure, supplement, or home remedy.",
+  },
+  {
+    option: "Supportive hospital care",
+    role: "Main treatment model",
+    note: "Oxygen, ventilatory support, fluids, blood-pressure support, and monitoring.",
+  },
+  {
+    option: "ICU care",
+    role: "For severe HPS",
+    note: "Used when breathing or circulation becomes unstable.",
+  },
+  {
+    option: "ECMO",
+    role: "Specialist rescue support",
+    note: "May be considered for selected severe cardiopulmonary failure cases.",
+  },
+  {
+    option: "Vaccine or antiviral",
+    role: "No routine Andes option",
+    note: "CDC lists no current Andes virus vaccine or specific antiviral treatment.",
+  },
+  {
+    option: "Antibiotics",
+    role: "Not antiviral treatment",
+    note: "May be used only when clinicians suspect another bacterial infection.",
   },
 ];
 
@@ -54,7 +99,9 @@ export default function TreatmentPage() {
   const data = getOutbreak();
   const sources = getSourcesByIds([
     "src-cdc-hantavirus",
+    "src-cdc-clinical-overview",
     "src-cdc-andes",
+    "src-cdc-andes-interim-guidance-2026-05-14",
     "src-who-factsheet-2026-05-06",
     "src-ecdc-facts",
   ]);
@@ -63,15 +110,15 @@ export default function TreatmentPage() {
     <MedicalReferencePage
       path="/treatment"
       eyebrow="Treatment guide"
-      title="Hantavirus Treatment: Cure, Vaccine, and Supportive Care"
+      title="Hantavirus Treatment Guide: Cure, ICU Care, and When to Seek Help"
       description={metadata.description as string}
-      intro="Hantavirus treatment is about early recognition and supportive medical care. There is no specific cure for hantavirus infection, so the practical goal is to get severe cases into appropriate care before respiratory failure or shock progresses."
+      intro="Hantavirus treatment is not a home cure question. The practical goal is early recognition, fast clinical contact after a credible exposure, and supportive hospital care before respiratory failure or shock progresses."
       quickAnswer={
         <p>
-          There is <strong>no specific hantavirus cure</strong> and CDC lists no
-          current Andes virus vaccine. Treatment is supportive: oxygen, ventilation,
-          careful fluids, blood pressure support, and intensive monitoring when illness
-          becomes severe.
+          There is <strong>no specific hantavirus cure</strong>. Treatment is
+          supportive: oxygen, ventilation, careful fluids, blood-pressure support,
+          intensive monitoring, and specialist ICU support when illness becomes severe.
+          Do not wait for breathing symptoms to become severe before seeking care.
         </p>
       }
       data={data}
@@ -79,27 +126,27 @@ export default function TreatmentPage() {
       faq={faq}
       facts={[
         {
-          label: "Specific cure",
+          label: "Proven cure",
           value: "No",
           description: "No specific cure for hantavirus infection",
           tone: "red",
         },
         {
-          label: "Care model",
+          label: "Main care",
           value: "Supportive",
           description: "Oxygen, ventilation, fluids, and circulation support",
           tone: "green",
         },
         {
-          label: "Andes vaccine",
-          value: "None",
-          description: "CDC lists no current Andes virus vaccine",
+          label: "Severe HPS",
+          value: "ICU",
+          description: "Advanced respiratory and circulatory support may be needed",
           tone: "amber",
         },
         {
-          label: "Best action",
-          value: "Early care",
-          description: "Tell clinicians about rodent or MV Hondius exposure",
+          label: "Best next step",
+          value: "Call early",
+          description: "Tell clinicians about rodent, Andes, or MV Hondius exposure",
         },
       ]}
       condition={{
@@ -109,36 +156,69 @@ export default function TreatmentPage() {
       }}
       sections={[
         {
-          id: "supportive-care",
-          title: "What Treatment Means",
-          subtitle: "Support the Body While the Illness Runs Its Course",
+          id: "care-checker",
+          title: "Hantavirus Treatment Care Pathway Checker",
+          subtitle: "Education-Only Guidance for When to Seek Help",
+          children: <TreatmentCareChecker />,
+        },
+        {
+          id: "treatment-options",
+          title: "Hantavirus Treatment Options: What Helps and What Does Not",
+          subtitle: "Cure Claims vs Supportive Care",
           children: (
             <>
               <p>
-                Supportive care can include oxygen, breathing support, blood pressure support,
-                careful fluid management, fever control, and treatment of complications.
+                Hantavirus care is supportive, not a single medicine that clears the infection.
+                The table below separates useful medical support from claims that should not be
+                treated as a cure.
               </p>
-              <p>
-                Severe HPS cases may need intensive care because the lungs can fill with fluid and
-                circulation can become unstable quickly.
-              </p>
+              <div className="space-y-2 sm:hidden">
+                {treatmentRows.map((row) => (
+                  <div key={row.option} className="rounded-md border p-3">
+                    <p className="font-medium text-foreground">{row.option}</p>
+                    <p className="mt-1">Role: {row.role}</p>
+                    <p className="mt-1">{row.note}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="hidden overflow-x-auto rounded-md border sm:block">
+                <table className="w-full text-left text-sm">
+                  <thead className="border-b bg-muted/40 text-foreground">
+                    <tr>
+                      <th className="px-3 py-2 font-medium">Option</th>
+                      <th className="px-3 py-2 font-medium">Role</th>
+                      <th className="px-3 py-2 font-medium">What it means</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {treatmentRows.map((row) => (
+                      <tr key={row.option} className="border-b last:border-b-0">
+                        <td className="px-3 py-2 font-medium text-foreground">{row.option}</td>
+                        <td className="px-3 py-2">{row.role}</td>
+                        <td className="px-3 py-2">{row.note}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </>
           ),
         },
         {
-          id: "vaccine",
-          title: "Vaccine and Antiviral Status",
-          subtitle: "No Routine Cure Claim Should Be Trusted",
+          id: "early-care",
+          title: "Why Early Medical Care Matters",
+          subtitle: "Support Breathing and Circulation Before Severe Decline",
           children: (
             <>
               <p>
-                CDC states there is no specific antiviral treatment or vaccine currently available
-                for Andes virus. That makes source quality important: avoid pages promising a quick
-                cure, supplement, or home remedy.
+                Severe hantavirus pulmonary syndrome can worsen quickly once respiratory symptoms
+                appear. Early clinical evaluation gives medical teams time to monitor oxygen levels,
+                fluid balance, and blood pressure before the illness becomes harder to support.
               </p>
               <p>
-                Official guidance may differ by country and virus type, but for MV Hondius contacts
-                the safest action is to follow assigned public-health monitoring instructions.
+                Early care does not mean a guaranteed cure. It means the right people know the
+                exposure history, the symptom timeline, and whether public-health testing or hospital
+                observation is needed.
               </p>
             </>
           ),
@@ -151,7 +231,8 @@ export default function TreatmentPage() {
             <>
               <p>
                 Known exposed contacts should seek clinical advice as soon as fever,
-                gastrointestinal symptoms, cough, shortness of breath, or chest tightness appear.
+                gastrointestinal symptoms, cough, shortness of breath, chest tightness, fainting,
+                confusion, or severe weakness appears.
               </p>
               <p>
                 The exposure history matters. Tell the clinician about rodent exposure, South
@@ -160,8 +241,50 @@ export default function TreatmentPage() {
             </>
           ),
         },
+        {
+          id: "workflow",
+          title: "Exposure to Treatment Workflow",
+          subtitle: "Use the Right Page for the Right Question",
+          children: (
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  href: "/incubation",
+                  label: "Incubation",
+                  text: "Estimate the 4-42 day Andes virus monitoring window.",
+                },
+                {
+                  href: "/symptoms",
+                  label: "Symptoms",
+                  text: "Check early symptoms and respiratory warning signs.",
+                },
+                {
+                  href: "/test",
+                  label: "Testing",
+                  text: "Compare PCR and serology timing questions.",
+                },
+                {
+                  href: "/hps",
+                  label: "HPS",
+                  text: "Understand severe respiratory and circulatory illness.",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-md border bg-card p-3 hover:bg-muted/40"
+                >
+                  <h3 className="font-medium text-foreground">{item.label}</h3>
+                  <p className="mt-1">{item.text}</p>
+                </Link>
+              ))}
+            </div>
+          ),
+        },
       ]}
       related={[
+        { href: "/test", label: "Hantavirus PCR test timing checker" },
+        { href: "/incubation", label: "Andes virus incubation calculator" },
         { href: "/symptoms", label: "Hantavirus symptoms and warning signs" },
         { href: "/hps", label: "Hantavirus pulmonary syndrome stages" },
         { href: "/death-rate", label: "Hantavirus mortality and survival" },

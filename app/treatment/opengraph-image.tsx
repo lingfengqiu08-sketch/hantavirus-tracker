@@ -6,8 +6,8 @@ export const contentType = ogContentType;
 export default function Image() {
   return renderOg({
     eyebrow: "TREATMENT",
-    title: "Hantavirus Treatment",
-    subtitle: "Supportive care, vaccine status, and when to seek urgent help",
+    title: "Hantavirus Treatment Guide",
+    subtitle: "Cure claims, ICU care, and when to seek urgent help",
     stats: [
       { value: "No", label: "Specific cure" },
       { value: "ICU", label: "Severe care" },
