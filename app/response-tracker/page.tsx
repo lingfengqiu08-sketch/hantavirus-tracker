@@ -20,9 +20,21 @@ export const metadata: Metadata = {
   },
 };
 
+const priorityResponseSlugs = [
+  "canada",
+  "australia",
+  "united-states",
+  "united-kingdom",
+  "eu-eea",
+  "netherlands",
+];
+
 export default function ResponseTrackerPage() {
   const data = getOutbreak();
   const responses = getCountryResponses();
+  const priorityResponses = priorityResponseSlugs
+    .map((slug) => responses.find((entry) => entry.slug === slug))
+    .filter((entry): entry is (typeof responses)[number] => Boolean(entry));
   const sourceIds = Array.from(new Set(responses.flatMap((entry) => entry.sourceIds)));
   const sources = getSourcesByIds(sourceIds);
   const countryPageHref = (slug: string) => `/cases/${slug}`;
@@ -65,6 +77,31 @@ export default function ResponseTrackerPage() {
           sourceUrl={data.sourceUrl}
         />
       </header>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Latest Country Response Summary</h2>
+        <p className="text-sm leading-6 text-muted-foreground">
+          Start here if you need the current quarantine, monitoring, and public-risk picture before
+          reading the full table. Each card links to the country or regional context page used by
+          the table row.
+        </p>
+        <div className="grid gap-3 md:grid-cols-2">
+          {priorityResponses.map((entry) => (
+            <Link
+              key={entry.slug}
+              href={countryPageHref(entry.slug)}
+              className="rounded-lg border bg-card p-4 text-sm hover:bg-muted/40"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="font-medium text-foreground">{entry.country}</h3>
+                <span className="text-xs text-muted-foreground">{entry.latestUpdateDate}</span>
+              </div>
+              <p className="mt-2 leading-6 text-muted-foreground">{entry.peopleAffected}</p>
+              <p className="mt-2 leading-6 text-muted-foreground">{entry.caseStatus}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">Country Response Table</h2>
@@ -118,6 +155,21 @@ export default function ResponseTrackerPage() {
           <p>
             Counts and response details can change as confirmatory testing, repatriation, and
             quarantine decisions progress. Use the linked source date before quoting any row.
+          </p>
+          <p>
+            The highest-value companion pages for search and citation are the{" "}
+            <Link className="underline underline-offset-4" href="/timeline">
+              official-source outbreak timeline
+            </Link>
+            , the{" "}
+            <Link className="underline underline-offset-4" href="/cases">
+              country case context hub
+            </Link>
+            , and the{" "}
+            <Link className="underline underline-offset-4" href="/cruise/mv-hondius">
+              MV Hondius outbreak page
+            </Link>
+            .
           </p>
         </div>
       </section>

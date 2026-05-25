@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(outbreak.lastUpdated);
   const transmissionContentLastModified = new Date("2026-05-25T00:00:00Z");
   const treatmentContentLastModified = new Date("2026-05-25T00:00:00Z");
+  const responseTrackerContentLastModified = new Date("2026-05-25T00:00:00Z");
   return [
     { url: `${SITE_URL}/`, lastModified, changeFrequency: "daily", priority: 1 },
     {
@@ -160,7 +161,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/response-tracker`,
-      lastModified,
+      lastModified: responseTrackerContentLastModified,
       changeFrequency: "daily",
       priority: 0.86,
     },
@@ -187,30 +188,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.45,
-    },
-    {
-      url: `${SITE_URL}/editorial-policy`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.4,
-    },
-    {
-      url: `${SITE_URL}/medical-disclaimer`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.35,
-    },
-    {
-      url: `${SITE_URL}/corrections`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.35,
-    },
-    {
-      url: `${SITE_URL}/privacy`,
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.3,
     },
   ];
 }
