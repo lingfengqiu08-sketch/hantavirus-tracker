@@ -6,8 +6,8 @@ export const contentType = ogContentType;
 export default function Image() {
   return renderOg({
     eyebrow: "TRANSMISSION",
-    title: "How Hantavirus Spreads",
-    subtitle: "Rodents, contaminated dust, and rare Andes virus close-contact spread",
+    title: "Airborne or Contagious?",
+    subtitle: "Rodent dust, surfaces, and rare Andes virus close-contact spread",
     stats: [
       { value: "Rodents", label: "Main route" },
       { value: "Rare", label: "Person spread" },

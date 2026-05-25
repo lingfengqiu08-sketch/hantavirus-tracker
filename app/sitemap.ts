@@ -4,6 +4,7 @@ import { outbreak } from "@/lib/outbreak";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(outbreak.lastUpdated);
+  const transmissionContentLastModified = new Date("2026-05-25T00:00:00Z");
   const treatmentContentLastModified = new Date("2026-05-25T00:00:00Z");
   return [
     { url: `${SITE_URL}/`, lastModified, changeFrequency: "daily", priority: 1 },
@@ -27,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/transmission`,
-      lastModified,
+      lastModified: transmissionContentLastModified,
       changeFrequency: "weekly",
       priority: 0.8,
     },
