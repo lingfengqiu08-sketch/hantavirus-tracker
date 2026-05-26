@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { AndesExposureChecker } from "@/components/andes-exposure-checker";
 import { MedicalReferencePage } from "@/components/medical-reference-page";
 import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Andes Virus: The Hantavirus Strain That Can Spread Person-to-Person",
+  title: "Andes Virus: Person-to-Person Spread and Exposure Checker",
   description:
-    "Andes virus explained: symptoms, incubation, transmission, person-to-person risk, South America context, and MV Hondius outbreak relevance.",
+    "Andes virus exposure checker: person-to-person spread, 4-42 day incubation timing, symptoms, MV Hondius relevance, and when to contact public health.",
   alternates: { canonical: canonical("/andes-virus") },
   openGraph: {
-    title: "Andes Virus: Person-to-Person Hantavirus Strain",
+    title: "Andes Virus: Person-to-Person Spread and Exposure Checker",
     description:
-      "Andes virus symptoms, incubation, transmission, South America context, and MV Hondius relevance.",
+      "Education-only checker for Andes virus close-contact risk, incubation timing, symptoms, and MV Hondius monitoring.",
     url: canonical("/andes-virus"),
     type: "article",
   },
@@ -27,6 +29,11 @@ const faq = [
     question: "Can Andes virus spread between people?",
     answer:
       "Yes, rarely. CDC says Andes virus is the only hantavirus known to spread person to person, usually after close contact with a sick person.",
+  },
+  {
+    question: "What contact counts as higher concern for Andes virus?",
+    answer:
+      "Close, prolonged contact with a symptomatic person, direct physical contact, or body-fluid exposure is more relevant than casual same-room contact.",
   },
   {
     question: "Where is Andes virus found?",
@@ -58,9 +65,17 @@ export default function AndesVirusPage() {
     <MedicalReferencePage
       path="/andes-virus"
       eyebrow="Virus strain guide"
-      title="Andes Virus: The Hantavirus Strain That Can Spread Person-to-Person"
+      title="Andes Virus: Person-to-Person Spread and Exposure Checker"
       description={metadata.description as string}
-      intro="Andes virus is the reason the MV Hondius outbreak is unusual. It is a South American hantavirus that can cause HPS and is the only hantavirus with documented limited person-to-person spread."
+      intro="Andes virus is the reason the MV Hondius outbreak needs close-contact monitoring. Use this education-only page to separate rare person-to-person spread from routine rodent exposure and casual public contact."
+      quickAnswer={
+        <p>
+          <strong>Andes virus can rarely spread person to person</strong>, but the
+          scenario of concern is close contact with a symptomatic person, direct
+          physical contact, body-fluid exposure, or public-health monitoring
+          instructions. Casual same-room contact alone is not the usual risk pattern.
+        </p>
+      }
       data={data}
       sources={sources}
       faq={faq}
@@ -106,9 +121,15 @@ export default function AndesVirusPage() {
       }}
       sections={[
         {
+          id: "checker",
+          title: "Andes Virus Exposure Checker",
+          subtitle: "Close Contact, Rodent Exposure, or Casual Contact?",
+          children: <AndesExposureChecker defaultExposureDate="2026-05-10" />,
+        },
+        {
           id: "definition",
-          title: "What Makes Andes Virus Different",
-          subtitle: "A Hantavirus With Rare Person-to-Person Spread",
+          title: "What Makes Andes Virus Different?",
+          subtitle: "The Hantavirus Person-to-Person Exception",
           children: (
             <>
               <p>
@@ -120,6 +141,69 @@ export default function AndesVirusPage() {
                 That difference changes public-health operations: contact tracing, isolation, and
                 monitoring are more important than they would be for most hantaviruses.
               </p>
+              <div className="space-y-2 sm:hidden">
+                {[
+                  {
+                    scenario: "Close contact with symptomatic Andes virus case",
+                    meaning: "Higher concern",
+                    action: "Follow monitoring and testing instructions.",
+                  },
+                  {
+                    scenario: "Rodent-contaminated dust or waste",
+                    meaning: "Usual hantavirus route",
+                    action: "Use prevention and cleanup guidance.",
+                  },
+                  {
+                    scenario: "Casual same-room or public-space contact",
+                    meaning: "Lower context alone",
+                    action: "Check for other risk details or official instructions.",
+                  },
+                ].map((row) => (
+                  <div key={row.scenario} className="rounded-md border p-3">
+                    <p className="font-medium text-foreground">{row.scenario}</p>
+                    <p className="mt-1">Meaning: {row.meaning}</p>
+                    <p className="mt-1">{row.action}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="hidden overflow-x-auto rounded-md border sm:block">
+                <table className="w-full text-left text-sm">
+                  <thead className="border-b bg-muted/40 text-foreground">
+                    <tr>
+                      <th className="px-3 py-2 font-medium">Scenario</th>
+                      <th className="px-3 py-2 font-medium">Meaning</th>
+                      <th className="px-3 py-2 font-medium">What to do</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b">
+                      <td className="px-3 py-2 font-medium text-foreground">
+                        Close contact with symptomatic Andes virus case
+                      </td>
+                      <td className="px-3 py-2">Higher concern</td>
+                      <td className="px-3 py-2">
+                        Follow monitoring and testing instructions.
+                      </td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="px-3 py-2 font-medium text-foreground">
+                        Rodent-contaminated dust or waste
+                      </td>
+                      <td className="px-3 py-2">Usual hantavirus route</td>
+                      <td className="px-3 py-2">Use prevention and cleanup guidance.</td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-2 font-medium text-foreground">
+                        Casual same-room or public-space contact
+                      </td>
+                      <td className="px-3 py-2">Lower context alone</td>
+                      <td className="px-3 py-2">
+                        Check for other risk details or official instructions.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </>
           ),
         },
@@ -142,27 +226,70 @@ export default function AndesVirusPage() {
           ),
         },
         {
-          id: "risk",
-          title: "Public Risk",
-          subtitle: "Low for People Not Linked to the Outbreak",
+          id: "incubation",
+          title: "Andes Virus Incubation and Monitoring Window",
+          subtitle: "Why 42 Days Matters",
           children: (
             <>
               <p>
-                Public-health agencies have described the wider public risk as low. The main focus
-                is on people with direct MV Hondius exposure, close contact with cases, or relevant
-                travel and rodent exposure history.
+                CDC lists signs and symptoms of HPS due to Andes virus as appearing 4 to 42 days
+                after exposure. That is why MV Hondius contacts can remain under monitoring even
+                when they feel well at first.
               </p>
               <p>
-                For everyone else, standard rodent-exposure prevention remains the relevant
-                practical advice.
+                If symptoms appear during that window, the practical next step is not to use this
+                page for self-triage. Contact the clinician or public-health authority managing
+                the exposure.
               </p>
             </>
           ),
         },
+        {
+          id: "workflow",
+          title: "Exposure to Care Workflow",
+          subtitle: "Move From Exposure Question to the Right Next Page",
+          children: (
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  href: "/transmission",
+                  label: "Transmission",
+                  text: "Compare rodent dust, surface, and close-contact routes.",
+                },
+                {
+                  href: "/incubation",
+                  label: "Incubation",
+                  text: "Calculate the 4-42 day Andes virus monitoring window.",
+                },
+                {
+                  href: "/test",
+                  label: "Testing",
+                  text: "Understand PCR and serology timing limits.",
+                },
+                {
+                  href: "/prevention",
+                  label: "Prevention",
+                  text: "Reduce rodent exposure and close-contact risk.",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-md border bg-card p-3 hover:bg-muted/40"
+                >
+                  <h3 className="font-medium text-foreground">{item.label}</h3>
+                  <p className="mt-1">{item.text}</p>
+                </Link>
+              ))}
+            </div>
+          ),
+        },
       ]}
       related={[
-        { href: "/transmission", label: "How Andes virus can spread" },
-        { href: "/incubation", label: "Andes virus incubation period" },
+        { href: "/transmission", label: "Is hantavirus airborne or contagious?" },
+        { href: "/incubation", label: "Andes virus incubation calculator" },
+        { href: "/test", label: "Hantavirus PCR test timing checker" },
+        { href: "/prevention", label: "Hantavirus prevention steps" },
         { href: "/cruise/mv-hondius", label: "MV Hondius outbreak details" },
       ]}
     />

@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const transmissionContentLastModified = new Date("2026-05-25T00:00:00Z");
   const treatmentContentLastModified = new Date("2026-05-25T00:00:00Z");
   const responseTrackerContentLastModified = new Date("2026-05-25T00:00:00Z");
+  const andesVirusContentLastModified = new Date("2026-05-26T00:00:00Z");
   return [
     { url: `${SITE_URL}/`, lastModified, changeFrequency: "daily", priority: 1 },
     {
@@ -71,9 +72,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/andes-virus`,
-      lastModified,
+      lastModified: andesVirusContentLastModified,
       changeFrequency: "weekly",
-      priority: 0.68,
+      priority: 0.79,
     },
     {
       url: `${SITE_URL}/cases/united-states`,
