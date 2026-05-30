@@ -6,14 +6,14 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Andes Virus: Person-to-Person Spread and Exposure Checker",
+  title: "Andes Virus: Person-to-Person Spread, Symptoms & Reservoir",
   description:
-    "Andes virus exposure checker: person-to-person spread, 4-42 day incubation timing, symptoms, MV Hondius relevance, and when to contact public health.",
+    "Andes virus is the only hantavirus that spreads person to person. Symptoms, 4-42 day incubation, reservoir rodents, transmission, and MV Hondius relevance.",
   alternates: { canonical: canonical("/andes-virus") },
   openGraph: {
-    title: "Andes Virus: Person-to-Person Spread and Exposure Checker",
+    title: "Andes Virus: Person-to-Person Spread, Symptoms & Reservoir",
     description:
-      "Education-only checker for Andes virus close-contact risk, incubation timing, symptoms, and MV Hondius monitoring.",
+      "The only hantavirus that spreads person to person: symptoms, incubation, reservoir rodents, transmission, and MV Hondius relevance.",
     url: canonical("/andes-virus"),
     type: "article",
   },
@@ -65,7 +65,7 @@ export default function AndesVirusPage() {
     <MedicalReferencePage
       path="/andes-virus"
       eyebrow="Virus strain guide"
-      title="Andes Virus: Person-to-Person Spread and Exposure Checker"
+      title="Andes Virus: Person-to-Person Spread, Symptoms & Reservoir"
       description={metadata.description as string}
       intro="Andes virus is the reason the MV Hondius outbreak needs close-contact monitoring. Use this education-only page to separate rare person-to-person spread from routine rodent exposure and casual public contact."
       quickAnswer={
@@ -204,6 +204,78 @@ export default function AndesVirusPage() {
                   </tbody>
                 </table>
               </div>
+            </>
+          ),
+        },
+        {
+          id: "reservoir",
+          title: "Andes Virus Reservoir: Which Rodents Carry It",
+          subtitle: "The Long-Tailed Pygmy Rice Rat",
+          children: (
+            <>
+              <p>
+                The primary natural reservoir of Andes virus is the long-tailed pygmy rice rat
+                (Oligoryzomys longicaudatus), a wild rodent of southern South America — chiefly
+                Argentina and Chile. People are usually infected by inhaling virus from infected
+                rodent urine, droppings, or saliva.
+              </p>
+              <p>
+                This differs from North American hantavirus, where the deer mouse (Peromyscus
+                maniculatus) carries Sin Nombre virus. UKHSA has noted that the South American
+                rodents linked to Andes virus are not found in the UK, which is part of why the
+                general-population risk outside the cluster is low.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "vs-sin-nombre",
+          title: "Andes Virus vs Sin Nombre Virus",
+          subtitle: "Two New World Hantaviruses Compared",
+          children: (
+            <>
+              <p>
+                Andes virus and Sin Nombre virus both cause hantavirus pulmonary syndrome (HPS),
+                but they differ in important ways.
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="text-left">
+                      <th className="border-b p-2">Feature</th>
+                      <th className="border-b p-2">Andes virus</th>
+                      <th className="border-b p-2">Sin Nombre virus</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted-foreground">
+                    <tr>
+                      <td className="border-b p-2 font-medium text-foreground">Region</td>
+                      <td className="border-b p-2">Southern South America</td>
+                      <td className="border-b p-2">North America</td>
+                    </tr>
+                    <tr>
+                      <td className="border-b p-2 font-medium text-foreground">Reservoir rodent</td>
+                      <td className="border-b p-2">Long-tailed pygmy rice rat</td>
+                      <td className="border-b p-2">Deer mouse</td>
+                    </tr>
+                    <tr>
+                      <td className="border-b p-2 font-medium text-foreground">Person-to-person spread</td>
+                      <td className="border-b p-2">Documented (rare)</td>
+                      <td className="border-b p-2">Not documented</td>
+                    </tr>
+                    <tr>
+                      <td className="border-b p-2 font-medium text-foreground">Syndrome</td>
+                      <td className="border-b p-2">HPS / HCPS</td>
+                      <td className="border-b p-2">HPS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                The person-to-person row is the key distinction: Andes virus is the only hantavirus
+                with documented human-to-human transmission, which is why the MV Hondius cluster is
+                monitored so closely.
+              </p>
             </>
           ),
         },
