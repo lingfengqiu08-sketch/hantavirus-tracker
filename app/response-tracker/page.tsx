@@ -145,6 +145,28 @@ export default function ResponseTrackerPage() {
         </p>
       </section>
 
+      <section id="embed" className="space-y-3">
+        <h2 className="text-xl font-semibold">Embed This Tracker</h2>
+        <p className="text-sm text-muted-foreground">
+          Add the live country response table to your own site or article. The widget pulls the
+          latest figures from this tracker and updates automatically — no maintenance needed.
+          Attribution links back here.
+        </p>
+        <pre className="overflow-x-auto rounded-lg border bg-muted/40 p-3 text-xs leading-6">
+          <code>{`<iframe src="https://hantavirustracker.fyi/embed/response-tracker" width="100%" height="520" style="border:0" title="MV Hondius Andes virus outbreak — country response" loading="lazy"></iframe>`}</code>
+        </pre>
+        <p className="text-sm">
+          <a
+            className="underline underline-offset-4"
+            href="/embed/response-tracker"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Preview the widget →
+          </a>
+        </p>
+      </section>
+
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">How to Use This Table</h2>
         <div className="space-y-3 text-sm leading-6 text-muted-foreground">
