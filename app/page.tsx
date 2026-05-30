@@ -52,6 +52,9 @@ const faq = [
   },
 ];
 
+// Guides link only to indexable pages. The 6 noindexed thin pages
+// (/prevention /types /origin /case-definitions /travel-advice /cases/eu-eea)
+// are intentionally excluded so home-page link equity flows to ranking pages.
 const guides = [
   { href: "/symptoms", title: "Symptoms", description: "Early signs, respiratory warning signs, and monitoring guidance." },
   { href: "/hps", title: "HPS", description: "Hantavirus pulmonary syndrome stages and survival factors." },
@@ -61,19 +64,13 @@ const guides = [
   { href: "/incubation", title: "Andes Hantavirus Incubation Period", description: "CDC 4-42 day Andes virus timing, general HPS 1-8 weeks, and MV Hondius monitoring." },
   { href: "/test", title: "Testing", description: "PCR, serology, diagnosis timing, and MV Hondius testing context." },
   { href: "/rodents", title: "Andes Virus Reservoir Rodents", description: "South American Andes virus rodent context, deer mice, rats, and safer cleanup basics." },
-  { href: "/prevention", title: "Prevention", description: "Rodent cleanup, home risk reduction, and Andes virus precautions." },
   { href: "/andes-virus", title: "Andes Virus", description: "The person-to-person hantavirus strain linked to MV Hondius." },
-  { href: "/types", title: "Types", description: "Andes, Sin Nombre, Seoul, Puumala, HPS, and HFRS explained." },
-  { href: "/origin", title: "Origin", description: "Where hantavirus comes from and what is known about MV Hondius exposure." },
   { href: "/cases", title: "Cases", description: "Current MV Hondius case split and country-context pages." },
   { href: "/response-tracker", title: "Response Tracker", description: "Country quarantine, monitoring, case status, and official response table." },
   { href: "/timeline", title: "Timeline", description: "Source-linked chronology of the MV Hondius outbreak and public-health response." },
-  { href: "/case-definitions", title: "Case Definitions", description: "Confirmed, probable, inconclusive, suspected, and death classifications." },
-  { href: "/travel-advice", title: "Travel Advice", description: "Monitoring and exposure guidance for MV Hondius-linked readers." },
   { href: "/updates", title: "Updates", description: "Source-linked tracker update log and public data feeds." },
   { href: "/cases/united-states", title: "US Monitoring", description: "CDC repatriation, home monitoring, and no confirmed US cases." },
   { href: "/cases/united-kingdom", title: "UK Monitoring", description: "UKHSA monitoring, Arrowe Park, and public risk context." },
-  { href: "/cases/eu-eea", title: "EU/EEA Response", description: "ECDC daily updates, 42-day follow-up, and public risk." },
   { href: "/cases/netherlands", title: "Netherlands Arrival", description: "Rotterdam arrival and MV Hondius crew status." },
 ];
 
