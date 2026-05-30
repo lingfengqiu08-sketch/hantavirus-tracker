@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import { MedicalReferencePage } from "@/components/medical-reference-page";
-import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
+import { getOutbreak, getSourcesByIds, getTotalCases } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "How Deadly Is Hantavirus? Mortality, Fatality, and Survival",
   description:
-    "Hantavirus death rate, HPS fatality, survival factors, MV Hondius deaths, and why reported rates differ by syndrome and virus type.",
+    "Hantavirus pulmonary syndrome has a case fatality rate around 38%. See MV Hondius deaths, survival factors, and how fatality differs by virus type and syndrome.",
   alternates: { canonical: canonical("/death-rate") },
   openGraph: {
     title: "How Deadly Is Hantavirus?",
     description:
-      "Hantavirus mortality, HPS fatality, survival factors, and MV Hondius death count context.",
+      "HPS case fatality ~38%, MV Hondius death count, survival factors, and how rates differ by virus type and syndrome.",
     url: canonical("/death-rate"),
     type: "article",
   },
@@ -47,6 +47,8 @@ const faq = [
 
 export default function DeathRatePage() {
   const data = getOutbreak();
+  const totalCases = getTotalCases(data);
+  const cfr = totalCases > 0 ? Math.round((data.deaths / totalCases) * 100) : 0;
   const sources = getSourcesByIds([
     "src-cdc-hantavirus",
     "src-cdc-andes",
@@ -61,7 +63,15 @@ export default function DeathRatePage() {
       eyebrow="Risk explainer"
       title="How Deadly Is Hantavirus? Mortality, Fatality, and Survival"
       description={metadata.description as string}
-      intro="Hantavirus fatality depends on the syndrome, virus type, severity, and access to early supportive care. This page separates general HPS mortality from the current MV Hondius death count."
+      intro="About 38% of people who develop hantavirus pulmonary syndrome (HPS) respiratory symptoms die, according to CDC — but fatality varies widely by virus type, syndrome, and how quickly supportive care begins. This page gives the general HPS death rate and the current MV Hondius case fatality."
+      quickAnswer={
+        <p>
+          General hantavirus pulmonary syndrome (HPS) has a case fatality rate of about{" "}
+          <strong>38%</strong> (CDC). In the MV Hondius cluster, <strong>{data.deaths} deaths</strong>{" "}
+          have been reported among <strong>{totalCases} cases</strong> (about {cfr}% as currently
+          reported). Survival is possible — early supportive hospital care significantly improves the odds.
+        </p>
+      }
       data={data}
       sources={sources}
       faq={faq}
@@ -99,6 +109,57 @@ export default function DeathRatePage() {
       }}
       sections={[
         {
+          id: "cfr-table",
+          title: "Hantavirus Death Rate by Virus and Syndrome",
+          subtitle: "Reported Case Fatality Ranges",
+          children: (
+            <>
+              <p>
+                &quot;How deadly is hantavirus&quot; has no single answer — it depends on the virus
+                and syndrome. The table below shows reported case fatality ranges. Always confirm
+                against official sources before quoting a number.
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="text-left">
+                      <th className="border-b p-2">Virus / syndrome</th>
+                      <th className="border-b p-2">Reported case fatality</th>
+                      <th className="border-b p-2">Region</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted-foreground">
+                    <tr>
+                      <td className="border-b p-2 font-medium text-foreground">HPS — Sin Nombre virus</td>
+                      <td className="border-b p-2">~38%</td>
+                      <td className="border-b p-2">North America</td>
+                    </tr>
+                    <tr>
+                      <td className="border-b p-2 font-medium text-foreground">HPS — Andes virus</td>
+                      <td className="border-b p-2">High; reported ~25-40%</td>
+                      <td className="border-b p-2">South America</td>
+                    </tr>
+                    <tr>
+                      <td className="border-b p-2 font-medium text-foreground">HFRS — Hantaan virus (severe)</td>
+                      <td className="border-b p-2">~5-15%</td>
+                      <td className="border-b p-2">East Asia</td>
+                    </tr>
+                    <tr>
+                      <td className="border-b p-2 font-medium text-foreground">HFRS — Puumala virus (mild)</td>
+                      <td className="border-b p-2">Below ~1%</td>
+                      <td className="border-b p-2">Northern Europe</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                The MV Hondius cluster involves <strong>Andes virus</strong>, the South American
+                strain in the higher-fatality HPS group.
+              </p>
+            </>
+          ),
+        },
+        {
           id: "mortality",
           title: "Why Hantavirus Fatality Numbers Differ",
           subtitle: "Compare Like With Like",
@@ -127,6 +188,12 @@ export default function DeathRatePage() {
                 The current dataset reports {data.deaths} deaths, {data.confirmed} confirmed
                 infections, {data.probable} probable cases, and {data.inconclusive} inconclusive
                 case in the MV Hondius-linked cluster.
+              </p>
+              <p>
+                That is a provisional case fatality ratio of about <strong>{cfr}%</strong>{" "}
+                ({data.deaths} deaths ÷ {totalCases} reported cases). Outbreak fatality ratios change
+                as more cases are confirmed or as patients recover, so this is provisional and not a
+                final mortality rate.
               </p>
               <p>
                 Because additional cases can appear during the monitoring window, this count should
