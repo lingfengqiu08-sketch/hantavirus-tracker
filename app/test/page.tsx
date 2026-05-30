@@ -6,12 +6,12 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus PCR Test Timing Checker: When to Test",
+  title: "Hantavirus PCR Test: Timing, PCR vs Serology, When to Test",
   description:
-    "Hantavirus PCR test timing checker: enter exposure and symptom dates, compare PCR vs IgM/IgG serology, and learn when to ask for medical testing.",
+    "Hantavirus PCR test timing: compare PCR vs IgM/IgG serology, understand early negative results, and learn when to ask for medical testing after exposure.",
   alternates: { canonical: canonical("/test") },
   openGraph: {
-    title: "Hantavirus PCR Test Timing Checker",
+    title: "Hantavirus PCR Test: Timing and Serology",
     description:
       "Education-only timing guidance for PCR, IgM/IgG serology, early negative results, and when to contact clinicians.",
     url: canonical("/test"),

@@ -10,19 +10,24 @@ import ShipRouteMapLoader from "@/components/maps/ship-route-map-loader";
 import { getOutbreak, getTotalCases } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "MV Hondius Hantavirus Outbreak Tracker",
-  description:
-    "Detailed MV Hondius Andes virus outbreak tracker with ship route map, passenger status, confirmed cases, deaths, timeline, FAQ, and sources.",
-  alternates: { canonical: canonical("/cruise/mv-hondius") },
-  openGraph: {
-    title: "MV Hondius Hantavirus Outbreak Tracker",
+export async function generateMetadata(): Promise<Metadata> {
+  const data = getOutbreak();
+  const totalCases = getTotalCases(data);
+  const title = `MV Hondius Outbreak: ${totalCases} Andes Virus Cases, ${data.deaths} Deaths`;
+  return {
+    title,
     description:
-      "Ship route map, passenger status, confirmed cases, deaths, timeline and sources for the 2026 MV Hondius Andes virus cluster.",
-    url: canonical("/cruise/mv-hondius"),
-    type: "article",
-  },
-};
+      "MV Hondius Andes virus outbreak tracker: live case count, deaths, ship route map, passenger status, timeline, and official WHO, ECDC and CDC sources.",
+    alternates: { canonical: canonical("/cruise/mv-hondius") },
+    openGraph: {
+      title,
+      description:
+        "Live case count, deaths, ship route map, passenger status, timeline and sources for the 2026 MV Hondius Andes virus cluster.",
+      url: canonical("/cruise/mv-hondius"),
+      type: "article",
+    },
+  };
+}
 
 const faq = [
   {
