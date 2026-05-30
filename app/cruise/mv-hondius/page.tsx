@@ -176,6 +176,37 @@ export default function MvHondiusPage() {
         </p>
       </section>
 
+      <section id="summary" className="space-y-3">
+        <h2 className="text-xl font-semibold">What Happened: Outbreak Summary</h2>
+        <div className="space-y-3 text-sm leading-6 text-muted-foreground">
+          <p>
+            The {data.ship.name}, a {data.ship.flag}-flagged expedition cruise ship operated by{" "}
+            {data.ship.operator}, departed Ushuaia, Argentina, on 1 April 2026 for an Antarctic and
+            South Atlantic voyage. The first illness onset was reported on 6 April; the first death
+            occurred on board on 11 April and was initially attributed to natural causes.
+          </p>
+          <p>
+            As the ship crossed the Atlantic, additional passengers and crew fell ill. WHO was
+            notified of a severe respiratory illness cluster on 2 May 2026 and published its first
+            Disease Outbreak News on 4 May. Laboratory sequencing identified the cause as Andes
+            virus — the only hantavirus with documented limited person-to-person transmission, which
+            is why contacts are monitored so closely.
+          </p>
+          <p>
+            The ship reached the Port of Granadilla, Tenerife, on 10 May for disembarkation and
+            repatriation. Passengers were flown to their home countries for 42-day monitoring, and
+            the {data.ship.name} continued to Rotterdam, arriving 18 May with{" "}
+            {data.passengerStatus.crewOnboard} crew on board.
+          </p>
+          <p>
+            <strong className="text-foreground">As currently reported:</strong> {totalCases} total
+            cases ({data.confirmed} confirmed, {data.probable} probable, {data.inconclusive}{" "}
+            inconclusive), {data.deaths} deaths, with contacts monitored through{" "}
+            {data.monitoringEndsAt}.
+          </p>
+        </div>
+      </section>
+
       <section id="route" className="space-y-3">
         <h2 className="text-xl font-semibold">Ship Route Map</h2>
         <p className="text-sm text-muted-foreground">
