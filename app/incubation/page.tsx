@@ -5,14 +5,14 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Andes Hantavirus Incubation Calculator: 4-42 Days",
+  title: "Andes Hantavirus Incubation Period: 4-42 Days (MV Hondius)",
   description:
-    "Andes hantavirus incubation calculator: enter an exposure date to estimate the 4-42 day window, general HPS 1-8 weeks, and MV Hondius monitoring dates.",
+    "The Andes hantavirus incubation period is 4 to 42 days after exposure. Compare CDC and WHO ranges and the MV Hondius 42-day monitoring window.",
   alternates: { canonical: canonical("/incubation") },
   openGraph: {
-    title: "Andes Hantavirus Incubation Calculator: 4-42 Days",
+    title: "Andes Hantavirus Incubation Period: 4-42 Days",
     description:
-      "Enter an exposure date to estimate Andes virus 4-42 day timing, general HPS 1-8 week context, and MV Hondius monitoring dates.",
+      "The Andes hantavirus incubation period is 4 to 42 days after exposure. CDC vs WHO ranges and the MV Hondius 42-day monitoring window explained.",
     url: canonical("/incubation"),
     type: "article",
   },
@@ -23,6 +23,36 @@ const faq = [
     question: "What is the Andes virus incubation period?",
     answer:
       "CDC lists signs and symptoms of HPS due to Andes virus as appearing 4 to 42 days after exposure.",
+  },
+  {
+    question: "What is the exact Andes hantavirus incubation period range?",
+    answer:
+      "The exact range is 4 to 42 days after exposure for HPS due to Andes virus. The minimum reported is about 4 days and the maximum used for contact monitoring is 42 days.",
+  },
+  {
+    question: "What is the minimum and maximum hantavirus incubation period?",
+    answer:
+      "For Andes virus, the minimum is about 4 days and the maximum is 42 days. For hantavirus pulmonary syndrome in general, CDC describes a wider 1 to 8 week range.",
+  },
+  {
+    question: "Is the Andes virus incubation period up to 6 weeks?",
+    answer:
+      "Yes. 42 days is six weeks, which is the upper end of the 4 to 42 day window CDC describes for HPS due to Andes virus. General hantavirus HPS can extend to about 8 weeks.",
+  },
+  {
+    question: "Do CDC and WHO use the same Andes virus incubation period?",
+    answer:
+      "This tracker follows the CDC-described 4 to 42 day window for HPS due to Andes virus and the WHO/ECDC 42-day monitoring guidance applied to MV Hondius contacts. Both point to a full 42-day monitoring window after last possible exposure.",
+  },
+  {
+    question: "What is the average hantavirus incubation period for Andes virus?",
+    answer:
+      "Public-health sources give a 4 to 42 day range rather than a single average. Symptoms can appear at any point in that window, so the full 42 days is used for monitoring instead of an average.",
+  },
+  {
+    question: "Is Andes virus contagious before symptoms appear during incubation?",
+    answer:
+      "This page does not estimate an infectious period. Andes virus is the hantavirus most associated with reported person-to-person spread, so exposed contacts should follow public-health isolation and testing instructions rather than assuming they are not infectious during incubation.",
   },
   {
     question: "What is the hantavirus incubation period for Andes virus?",
@@ -78,10 +108,10 @@ export default function IncubationPage() {
   return (
     <MedicalReferencePage
       path="/incubation"
-      eyebrow="Quick answer guide"
-      title="Andes Hantavirus Incubation Calculator: 4-42 Days"
+      eyebrow="Incubation period · Quick answer"
+      title="Andes Hantavirus Incubation Period: 4 to 42 Days After Exposure"
       description={metadata.description as string}
-      intro={`For people searching the Andes hantavirus incubation period after MV Hondius or another known exposure, the practical answer is the 42-day monitoring window. Use the calculator below to estimate the monitoring dates from a last possible exposure date, then compare it with the general HPS 1-8 week range.`}
+      intro={`The Andes hantavirus incubation period is 4 to 42 days after exposure, based on CDC's description of when hantavirus pulmonary syndrome (HPS) symptoms due to Andes virus appear. General hantavirus HPS symptoms usually start 1 to 8 weeks after infected-rodent contact. For MV Hondius contacts, public-health teams use a 42-day monitoring window from the last possible exposure on 10 May 2026, running through ${data.monitoringEndsAt}.`}
       quickAnswer={
         <p>
           The Andes hantavirus incubation period used for public-health monitoring is{" "}
