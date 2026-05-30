@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Argentina hantavirus context for the MV Hondius outbreak: Ushuaia departure, Andes virus, South America context, and limits of public case-count data.",
   alternates: { canonical: canonical("/cases/argentina") },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Hantavirus Argentina Context",
     description:

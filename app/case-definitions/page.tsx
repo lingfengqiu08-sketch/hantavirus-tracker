@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description:
     "Plain-language case definitions used by Hantavirus Tracker for the MV Hondius Andes virus outbreak: confirmed, probable, inconclusive, suspected, and deaths.",
   alternates: { canonical: canonical("/case-definitions") },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Hantavirus Case Definitions",
     description:

@@ -2,6 +2,13 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { outbreak } from "@/lib/outbreak";
 
+// NOTE: The following paths are intentionally excluded from the sitemap and
+// carry `robots: { index: false, follow: true }` in their page metadata
+// (thin / duplicative content as of 2026-05-21 GSC review):
+//   /prevention, /origin, /types, /travel-advice, /case-definitions,
+//   /cases/argentina, /cases/chile, /cases/eu-eea
+// Re-add here only after a page is rebuilt with original, ranking-worthy content.
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(outbreak.lastUpdated);
   const transmissionContentLastModified = new Date("2026-05-25T00:00:00Z");
@@ -15,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "daily",
       priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/incubation`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.92,
     },
     {
       url: `${SITE_URL}/symptoms`,
@@ -59,18 +72,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.74,
     },
     {
-      url: `${SITE_URL}/incubation`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.88,
-    },
-    {
-      url: `${SITE_URL}/prevention`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
-    {
       url: `${SITE_URL}/andes-virus`,
       lastModified: andesVirusContentLastModified,
       changeFrequency: "weekly",
@@ -95,12 +96,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.72,
     },
     {
-      url: `${SITE_URL}/cases/eu-eea`,
-      lastModified,
-      changeFrequency: "daily",
-      priority: 0.74,
-    },
-    {
       url: `${SITE_URL}/cases/netherlands`,
       lastModified,
       changeFrequency: "daily",
@@ -119,46 +114,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.82,
     },
     {
-      url: `${SITE_URL}/cases/argentina`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.58,
-    },
-    {
-      url: `${SITE_URL}/cases/chile`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.56,
-    },
-    {
-      url: `${SITE_URL}/types`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.69,
-    },
-    {
-      url: `${SITE_URL}/origin`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.67,
-    },
-    {
       url: `${SITE_URL}/timeline`,
       lastModified,
       changeFrequency: "daily",
       priority: 0.84,
-    },
-    {
-      url: `${SITE_URL}/case-definitions`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.62,
-    },
-    {
-      url: `${SITE_URL}/travel-advice`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 0.64,
     },
     {
       url: `${SITE_URL}/response-tracker`,

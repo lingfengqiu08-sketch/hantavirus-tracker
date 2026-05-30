@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Hantavirus origin explained: rodent reservoirs, contaminated dust, Andes virus in South America, and what is known about the MV Hondius exposure context.",
   alternates: { canonical: canonical("/origin") },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Where Does Hantavirus Come From?",
     description:

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Types of hantavirus explained: Andes virus, Sin Nombre virus, Seoul virus, Puumala virus, HPS, HFRS, severity, and MV Hondius relevance.",
   alternates: { canonical: canonical("/types") },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Types of Hantavirus",
     description:

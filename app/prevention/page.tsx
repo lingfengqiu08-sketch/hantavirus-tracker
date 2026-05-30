@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Hantavirus prevention steps: avoid rodent exposure, clean safely, reduce home risk, and understand Andes virus close-contact precautions.",
   alternates: { canonical: canonical("/prevention") },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Hantavirus Prevention",
     description:

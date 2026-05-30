@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "EU/EEA context for the MV Hondius Andes hantavirus outbreak: ECDC daily updates, country coordination, 42-day monitoring, public risk, and official sources.",
   alternates: { canonical: canonical("/cases/eu-eea") },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Hantavirus EU/EEA: MV Hondius Response",
     description:

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Chile hantavirus context for readers searching the MV Hondius Andes virus outbreak, including Andes virus background and limits of public case-count data.",
   alternates: { canonical: canonical("/cases/chile") },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Hantavirus Chile Context",
     description:

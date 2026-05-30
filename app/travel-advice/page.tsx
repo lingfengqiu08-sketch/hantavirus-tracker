@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Plain-language travel and contact-monitoring guidance for people looking up the MV Hondius Andes virus outbreak, with official-source links.",
   alternates: { canonical: canonical("/travel-advice") },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "MV Hondius Hantavirus Travel Advice",
     description:
