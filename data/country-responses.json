@@ -46,23 +46,23 @@
   {
     "country": "EU/EEA",
     "slug": "eu-eea",
-    "latestUpdateDate": "2026-05-18",
+    "latestUpdateDate": "2026-05-28",
     "peopleAffected": "Passengers and crew from multiple countries, including EU/EEA countries",
     "response": "ECDC continues to publish daily updates and support Member States on case finding, contact tracing, testing, isolation, and monitoring.",
     "monitoring": "ECDC describes 42 days of follow-up after last potential exposure for identified contacts.",
-    "caseStatus": "ECDC reported 12 total cases as of 18 May: 9 confirmed, 2 probable, 1 inconclusive, 0 suspected, and 3 deaths.",
+    "caseStatus": "WHO DON604 reported 13 total cases as of 27 May: 11 confirmed, 2 probable, 0 inconclusive, and 3 deaths (case fatality ratio 23%). More than 600 contacts are monitored across 32 countries.",
     "publicRisk": "ECDC assessed risk to the general population as very low.",
-    "sourceIds": ["src-ecdc-outbreak-2026-05-18", "src-ecdc-press-2026-05-11"]
+    "sourceIds": ["src-who-don-2026-05-28", "src-ecdc-outbreak-2026-05-18", "src-ecdc-press-2026-05-11"]
   },
   {
     "country": "Netherlands",
     "slug": "netherlands",
-    "latestUpdateDate": "2026-05-18",
-    "peopleAffected": "27 crew members on MV Hondius after arrival in Rotterdam",
+    "latestUpdateDate": "2026-05-28",
+    "peopleAffected": "27 crew members on MV Hondius after arrival in Rotterdam; one additional confirmed case reported",
     "response": "ECDC reported that MV Hondius arrived in Rotterdam on 18 May with 27 crew members on board after passenger disembarkation and repatriation.",
     "monitoring": "This row tracks vessel and crew status; country-level monitoring details should be quoted from Dutch authorities if published.",
-    "caseStatus": "This tracker does not infer Netherlands case counts beyond official WHO/ECDC or national-authority reporting.",
+    "caseStatus": "WHO DON604 (28 May) reported one additional confirmed Andes virus case in the Netherlands, identified through routine weekly testing of high-risk contacts during follow-up.",
     "publicRisk": "ECDC assessed risk to the EU/EEA general population as very low.",
-    "sourceIds": ["src-ecdc-outbreak-2026-05-18"]
+    "sourceIds": ["src-who-don-2026-05-28", "src-ecdc-outbreak-2026-05-18"]
   }
 ]

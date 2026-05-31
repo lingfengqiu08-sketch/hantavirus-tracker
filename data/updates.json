@@ -1,5 +1,12 @@
 [
   {
+    "id": "2026-05-28-who-don604-13-cases",
+    "date": "2026-05-28",
+    "title": "WHO DON604: 13 cases, 3 deaths, declining transmission (Rt 0.7)",
+    "summary": "WHO's fourth Disease Outbreak News reports 13 total cases as of 27 May (11 confirmed Andes virus, 2 probable) and 3 deaths (case fatality ratio 23%). Three new confirmed cases since 13 May — one each from Canada, the Netherlands, and Spain — were found through contact follow-up and routine testing; a previously inconclusive U.S. case tested negative and was removed. Over 600 contacts are monitored across 32 countries, and the effective reproduction number was 0.7 as of 22 May, indicating declining transmission.",
+    "sourceIds": ["src-who-don-2026-05-28"]
+  },
+  {
     "id": "2026-05-18-ecdc-rotterdam-12-cases",
     "date": "2026-05-18",
     "title": "ECDC keeps total at 12 cases and reports Rotterdam arrival",

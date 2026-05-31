@@ -1,16 +1,16 @@
 {
-  "lastUpdated": "2026-05-19T10:49:12+08:00",
-  "lastVerifiedAt": "2026-05-19T10:49:12+08:00",
-  "sourceName": "ECDC Andes hantavirus outbreak update, 18 May 2026",
-  "sourceUrl": "https://www.ecdc.europa.eu/en/infectious-disease-topics/hantavirus-infection/surveillance-and-updates/andes-hantavirus-outbreak",
-  "confirmed": 9,
+  "lastUpdated": "2026-05-30T22:00:00+08:00",
+  "lastVerifiedAt": "2026-05-30T22:00:00+08:00",
+  "sourceName": "WHO Disease Outbreak News (DON604), 28 May 2026",
+  "sourceUrl": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON604",
+  "confirmed": 11,
   "probable": 2,
   "suspected": 0,
-  "inconclusive": 1,
+  "inconclusive": 0,
   "deaths": 3,
   "monitoringPeriodDays": 42,
   "monitoringEndsAt": "2026-06-21",
-  "notes": "Manual tracker dataset for the MV Hondius Andes virus outbreak. Latest headline count: 12 total cases, including 9 confirmed Andes virus infections, 2 probable cases, 1 inconclusive case, 0 suspected cases, and 3 deaths. ECDC reported the same case-status split in its 18 May 2026 update and said no new deaths had been reported since the previous update. WHO recommends monitoring through 21 June 2026, 42 days from last exposure on 10 May 2026.",
+  "notes": "Manual tracker dataset for the MV Hondius Andes virus outbreak. Latest headline count from WHO DON604 (data as of 27 May 2026): 13 total cases, including 11 laboratory-confirmed Andes virus infections and 2 probable cases, with 3 deaths (case fatality ratio 23%). Since the 13 May WHO update, three additional confirmed cases were reported (one each from Canada, the Netherlands, and Spain); a previously inconclusive U.S. case tested negative on 15 May and was removed from the count. More than 600 contacts (53% high-risk, 47% low-risk) are monitored across 32 countries, territories and areas. The effective reproduction number (Rt) was estimated at 0.7 as of 22 May 2026, indicating declining transmission. WHO recommends monitoring through 21 June 2026.",
   "cases": [
     { "id": "HND-2026-001", "status": "confirmed", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "2026-04-06 to 2026-04-28", "hospital": "not publicly disclosed", "outcome": "deceased", "sources": ["src-who-speech-2026-05-12", "src-who-don-2026-05-08"] },
     { "id": "HND-2026-002", "status": "confirmed", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "2026-04-06 to 2026-04-28", "hospital": "not publicly disclosed", "outcome": "deceased", "sources": ["src-who-speech-2026-05-12", "src-who-don-2026-05-08"] },
@@ -21,9 +21,10 @@
     { "id": "HND-2026-007", "status": "confirmed", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "not publicly disclosed", "hospital": "not publicly disclosed", "outcome": "isolated under medical supervision", "sources": ["src-who-speech-2026-05-12"] },
     { "id": "HND-2026-008", "status": "confirmed", "nationality": "France", "ageRange": "not publicly disclosed", "symptomOnset": "2026-05-11", "hospital": "France, intensive care", "outcome": "critical care reported", "sources": ["src-ecdc-press-2026-05-11"] },
     { "id": "HND-2026-009", "status": "confirmed", "nationality": "Spain", "ageRange": "not publicly disclosed", "symptomOnset": "not publicly disclosed", "hospital": "Military hospital in Madrid, Spain", "outcome": "quarantined under medical supervision", "sources": ["src-who-speech-2026-05-12"] },
-    { "id": "HND-2026-010", "status": "inconclusive", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "not publicly disclosed", "hospital": "not publicly disclosed", "outcome": "awaiting further laboratory investigation", "sources": ["src-ecdc-outbreak-2026-05-14"] },
     { "id": "HND-2026-011", "status": "probable", "nationality": "not publicly disclosed", "ageRange": "not publicly disclosed", "symptomOnset": "not publicly disclosed", "hospital": "not publicly disclosed", "outcome": "isolated under medical supervision", "sources": ["src-who-speech-2026-05-12"] },
-    { "id": "HND-2026-012", "status": "confirmed", "nationality": "Canada", "ageRange": "not publicly disclosed", "symptomOnset": "mild symptoms reported publicly", "hospital": "Canada, isolated in hospital", "outcome": "laboratory-confirmed by PHAC; no further Canadian cases identified as of 17 May", "sources": ["src-phac-andes-2026-05-17", "src-ecdc-outbreak-2026-05-18"] }
+    { "id": "HND-2026-012", "status": "confirmed", "nationality": "Canada", "ageRange": "not publicly disclosed", "symptomOnset": "mild symptoms reported publicly", "hospital": "Canada, isolated in hospital", "outcome": "laboratory-confirmed by PHAC; no further Canadian cases identified as of 17 May", "sources": ["src-phac-andes-2026-05-17", "src-ecdc-outbreak-2026-05-18"] },
+    { "id": "HND-2026-013", "status": "confirmed", "nationality": "Netherlands", "ageRange": "not publicly disclosed", "symptomOnset": "identified during contact follow-up", "hospital": "not publicly disclosed", "outcome": "confirmed by routine weekly testing of high-risk contacts (WHO DON604, 28 May)", "sources": ["src-who-don-2026-05-28"] },
+    { "id": "HND-2026-014", "status": "confirmed", "nationality": "Spain", "ageRange": "not publicly disclosed", "symptomOnset": "identified during contact follow-up", "hospital": "not publicly disclosed", "outcome": "confirmed by routine weekly testing of high-risk contacts (WHO DON604, 28 May)", "sources": ["src-who-don-2026-05-28"] }
   ],
   "ship": {
     "name": "MV Hondius",
@@ -42,16 +43,16 @@
     ]
   },
   "passengerStatus": {
-    "confirmed": 9,
+    "confirmed": 11,
     "probable": 2,
-    "inconclusive": 1,
+    "inconclusive": 0,
     "deaths": 3,
     "repatriated": 122,
     "monitoring": 122,
     "crewOnboard": 27,
     "estimatedFields": ["repatriated", "monitoring"],
-    "sourceIds": ["src-who-don-2026-05-04", "src-who-speech-2026-05-12", "src-ecdc-outbreak-2026-05-18"],
-    "note": "Case totals use the ECDC 18 May 2026 daily outbreak update. Repatriated and monitoring numbers are tracker operational estimates derived from public WHO/ECDC updates and should be treated as approximate until country-level authorities publish final monitoring totals. Crew-onboard status follows ECDC's 18 May Rotterdam arrival update."
+    "sourceIds": ["src-who-don-2026-05-28", "src-who-speech-2026-05-12", "src-ecdc-outbreak-2026-05-18"],
+    "note": "Case totals use WHO DON604 (data as of 27 May 2026): 13 total cases, 11 confirmed, 2 probable, 3 deaths. More than 600 contacts (53% high-risk, 47% low-risk) are monitored across 32 countries, territories and areas. Repatriated and monitoring numbers are tracker operational estimates from public WHO/ECDC updates."
   },
   "timeline": [
     { "date": "2026-04-06", "title": "Earliest reported illness onset", "detail": "WHO later reported illness onset among cases occurred between 6 and 28 April 2026.", "sources": ["src-who-don-2026-05-04"], "href": "/incubation" },
@@ -66,7 +67,8 @@
     { "date": "2026-05-16", "title": "Canada reports one presumptive positive case", "detail": "PHAC reported one presumptive positive Andes virus case among returning Canadian passengers, with the traveller isolated in hospital and clinically stable.", "sources": ["src-phac-andes-2026-05-16"], "href": "/cases/canada" },
     { "date": "2026-05-17", "title": "Canada confirms the MV Hondius-linked case", "detail": "PHAC confirmed one Canadian MV Hondius passenger positive through laboratory testing; a travelling partner tested negative and no further Canadian cases had been identified.", "sources": ["src-phac-andes-2026-05-17"], "href": "/cases/canada" },
     { "date": "2026-05-18", "title": "ECDC keeps total at 12 cases", "detail": "ECDC reported 12 total cases: 9 confirmed, 2 probable, 1 inconclusive, 0 suspected, and 3 deaths, with no new deaths since the previous update.", "sources": ["src-ecdc-outbreak-2026-05-18"], "href": "/response-tracker" },
-    { "date": "2026-05-18", "title": "MV Hondius arrives in Rotterdam", "detail": "ECDC reported that MV Hondius arrived in Rotterdam with 27 crew members on board after passenger disembarkation and repatriation.", "sources": ["src-ecdc-outbreak-2026-05-18"], "href": "/cases/netherlands" }
+    { "date": "2026-05-18", "title": "MV Hondius arrives in Rotterdam", "detail": "ECDC reported that MV Hondius arrived in Rotterdam with 27 crew members on board after passenger disembarkation and repatriation.", "sources": ["src-ecdc-outbreak-2026-05-18"], "href": "/cases/netherlands" },
+    { "date": "2026-05-28", "title": "WHO DON604: 13 cases, 3 deaths, Rt 0.7", "detail": "WHO published its fourth Disease Outbreak News. As of 27 May 2026, 13 total cases (11 laboratory-confirmed Andes virus, 2 probable) and 3 deaths (case fatality ratio 23%) were reported. Three additional confirmed cases since 13 May (one each from Canada, the Netherlands, and Spain, identified through contact follow-up and routine weekly testing); a previously inconclusive U.S. case tested negative on 15 May and was removed from the count. More than 600 contacts (53% high-risk) are monitored across 32 countries, territories and areas. The effective reproduction number was estimated at 0.7 as of 22 May, indicating declining transmission.", "sources": ["src-who-don-2026-05-28"], "href": "/cruise/mv-hondius" }
   ],
   "sources": [
     { "id": "src-who-speech-2026-05-12", "name": "WHO Director-General's opening remarks at the media briefing on hantavirus – 12 May 2026", "url": "https://www.who.int/news-room/speeches/item/who-director-general-s-opening-remarks-at-the-media-briefing-on-hantavirus---12-may-2026", "publisher": "World Health Organization", "date": "2026-05-12" },
@@ -91,6 +93,7 @@
     { "id": "src-nhs-hantavirus", "name": "Hantavirus", "url": "https://www.nhs.uk/conditions/hantavirus/", "publisher": "NHS", "date": "2026-05-12" },
     { "id": "src-aus-cdc-hondius-2026-05-15", "name": "MV Hondius passengers returning to Australia", "url": "https://www.cdc.gov.au/newsroom/news-and-articles/mv-hondius-passengers-land-australia", "publisher": "Australian Centre for Disease Control", "date": "2026-05-15" },
     { "id": "src-phac-andes-2026-05-16", "name": "Media update on Andes hantavirus situation", "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation0.html", "publisher": "Public Health Agency of Canada", "date": "2026-05-16" },
-    { "id": "src-phac-andes-2026-05-17", "name": "Media update on Andes hantavirus situation", "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation1.html", "publisher": "Public Health Agency of Canada", "date": "2026-05-17" }
+    { "id": "src-phac-andes-2026-05-17", "name": "Media update on Andes hantavirus situation", "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation1.html", "publisher": "Public Health Agency of Canada", "date": "2026-05-17" },
+    { "id": "src-who-don-2026-05-28", "name": "Hantavirus outbreak linked to cruise ship travel, Multi-locations (DON604)", "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON604", "publisher": "World Health Organization", "date": "2026-05-28" }
   ]
 }
