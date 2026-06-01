@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hantavirus Tracker
 
-## Getting Started
+Independent public-source tracker for the 2026 MV Hondius Andes virus outbreak.
 
-First, run the development server:
+The site keeps a source-linked outbreak dataset, case timeline, ship-route context,
+response tracker, and plain-language hantavirus reference pages. It is designed for
+readers who need a compact view of public updates from WHO, ECDC, CDC, UKHSA, and
+other official public-health sources.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+Live site: https://hantavirustracker.fyi
+
+## What this project tracks
+
+- Latest public case counts for the MV Hondius Andes virus outbreak.
+- Confirmed, probable, suspected, and inconclusive case status where public sources
+  provide those classifications.
+- Deaths, monitoring period, and response status.
+- Timeline of official updates.
+- Machine-readable outbreak data and update history.
+- Reference pages for symptoms, transmission, incubation, prevention, testing,
+  treatment, and case definitions.
+
+This project does not provide medical advice and does not publish private
+identifying information about individual cases.
+
+## Data and methodology
+
+The primary dataset lives in `data/outbreak.json`. Runtime helpers are in
+`lib/outbreak.ts`.
+
+The public site also exposes:
+
+- `/data/outbreak.json`
+- `/data/outbreak.csv`
+- `/data/country-responses.csv`
+- `/data/updates.json`
+- `/feed.xml`
+
+Source priority:
+
+1. WHO briefings and Disease Outbreak News.
+2. ECDC outbreak updates.
+3. CDC clinical and transmission guidance.
+4. National public-health authorities.
+5. Reputable news or wire reports only for corroborating already-public details.
+
+See `/methodology`, `/editorial-policy`, and `/corrections` on the live site for
+the full update and correction policy.
+
+## Tech stack
+
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Leaflet / React Leaflet for maps
+- Tailwind CSS
+
+## Local development
+
+```sh
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+pnpm lint
+pnpm build
+```
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Issues and pull requests are welcome, especially for:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Correcting source links.
+- Updating official public-health source references.
+- Improving data validation.
+- Improving accessibility or mobile layout.
+- Clarifying medical-reference pages without changing source meaning.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Please include source URLs for any proposed data change. For medical or outbreak
+figures, prefer official public-health sources over secondary summaries.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT. See `LICENSE`.
