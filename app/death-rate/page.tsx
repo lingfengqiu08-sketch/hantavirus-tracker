@@ -6,12 +6,12 @@ import { canonical } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "How Deadly Is Hantavirus? Mortality, Fatality, and Survival",
   description:
-    "Hantavirus pulmonary syndrome has a case fatality rate around 38%. See MV Hondius deaths, survival factors, and how fatality differs by virus type and syndrome.",
+    "Hantavirus death rate: CDC ~38%, WHO up to 50%, MV Hondius 23%. A 38% fatality rate also means about 62% survive. See why the three numbers differ and what improves survival.",
   alternates: { canonical: canonical("/death-rate") },
   openGraph: {
     title: "How Deadly Is Hantavirus?",
     description:
-      "HPS case fatality ~38%, MV Hondius death count, survival factors, and how rates differ by virus type and syndrome.",
+      "CDC ~38%, WHO up to 50%, MV Hondius 23% — why hantavirus death rates differ, and why a 38% fatality rate means about 62% survive.",
     url: canonical("/death-rate"),
     type: "article",
   },
@@ -43,6 +43,16 @@ const faq = [
     answer:
       "Some numbers refer to HPS respiratory cases, while others refer to HFRS or specific hantavirus strains. Always compare the syndrome and virus type before comparing rates.",
   },
+  {
+    question: "What is the survival rate for hantavirus?",
+    answer:
+      "If the case fatality rate for HPS is about 38%, the survival rate is roughly 62% of diagnosed people. Survival improves with early recognition and intensive supportive care, and is higher for milder hantavirus types.",
+  },
+  {
+    question: "Why does CDC say about 38% but WHO says up to 50%?",
+    answer:
+      "CDC's ~36-38% figure is for US hantavirus pulmonary syndrome (mainly Sin Nombre virus). WHO's up to 50% (commonly 20-40%) covers HCPS across the Americas, including Andes virus over many outbreaks. They measure different populations, so both can be correct.",
+  },
 ];
 
 export default function DeathRatePage() {
@@ -63,13 +73,16 @@ export default function DeathRatePage() {
       eyebrow="Risk explainer"
       title="How Deadly Is Hantavirus? Mortality, Fatality, and Survival"
       description={metadata.description as string}
-      intro="About 38% of people who develop hantavirus pulmonary syndrome (HPS) respiratory symptoms die, according to CDC — but fatality varies widely by virus type, syndrome, and how quickly supportive care begins. This page gives the general HPS death rate and the current MV Hondius case fatality."
+      intro="The hantavirus death rate depends on which number you mean: CDC reports about 36-38% case fatality for hantavirus pulmonary syndrome (HPS), WHO reports up to 50% (commonly 20-40%) for HCPS in the Americas, and the MV Hondius Andes virus cluster currently shows a provisional figure near 23%. A 38% fatality rate also means roughly 62% of diagnosed people survive. This page explains why the three numbers differ and what improves survival."
       quickAnswer={
         <p>
-          General hantavirus pulmonary syndrome (HPS) has a case fatality rate of about{" "}
-          <strong>38%</strong> (CDC). In the MV Hondius cluster, <strong>{data.deaths} deaths</strong>{" "}
-          have been reported among <strong>{totalCases} cases</strong> (about {cfr}% as currently
-          reported). Survival is possible — early supportive hospital care significantly improves the odds.
+          Hantavirus pulmonary syndrome (HPS) case fatality is reported as{" "}
+          <strong>~36-38% by CDC</strong> and <strong>up to 50% (commonly 20-40%) by WHO</strong>{" "}
+          for the Americas. The MV Hondius Andes virus cluster currently shows{" "}
+          <strong>{data.deaths} deaths among {totalCases} cases</strong> — a provisional{" "}
+          <strong>~{cfr}%</strong>. Crucially, a 38% death rate also means about{" "}
+          <strong>62% of diagnosed people survive</strong>, and early supportive hospital care
+          improves those odds.
         </p>
       }
       data={data}
@@ -96,8 +109,8 @@ export default function DeathRatePage() {
         },
         {
           label: "Survival",
-          value: "Possible",
-          description: "Early supportive care improves chances",
+          value: "~62%",
+          description: "Implied by a ~38% HPS case fatality rate",
           tone: "green",
         },
       ]}
@@ -108,6 +121,51 @@ export default function DeathRatePage() {
         possibleTreatment: "Supportive intensive care",
       }}
       sections={[
+        {
+          id: "three-numbers",
+          title: "Why You See 38%, 50%, and 23% for Hantavirus",
+          subtitle: "Three Different Numbers, Three Different Questions",
+          children: (
+            <>
+              <p>
+                If you search the hantavirus death rate you will find several numbers. They are not
+                contradictions — they answer different questions.
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="text-left">
+                      <th className="border-b p-2">Number</th>
+                      <th className="border-b p-2">Source</th>
+                      <th className="border-b p-2">What it actually measures</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted-foreground">
+                    <tr>
+                      <td className="border-b p-2 font-semibold text-foreground">~36-38%</td>
+                      <td className="border-b p-2">CDC</td>
+                      <td className="border-b p-2">US HPS (mainly Sin Nombre virus) among people who develop respiratory symptoms</td>
+                    </tr>
+                    <tr>
+                      <td className="border-b p-2 font-semibold text-foreground">Up to 50% (commonly 20-40%)</td>
+                      <td className="border-b p-2">WHO</td>
+                      <td className="border-b p-2">HCPS across the Americas, including Andes virus, over many outbreaks</td>
+                    </tr>
+                    <tr>
+                      <td className="border-b p-2 font-semibold text-foreground">~{cfr}%</td>
+                      <td className="border-b p-2">This tracker</td>
+                      <td className="border-b p-2">MV Hondius cluster only: {data.deaths} deaths ÷ {totalCases} reported cases, provisional and still changing</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                So the &quot;right&quot; number depends on whether you mean US HPS (CDC), all-Americas
+                HCPS (WHO), or this specific cruise-ship cluster (provisional).
+              </p>
+            </>
+          ),
+        },
         {
           id: "cfr-table",
           title: "Hantavirus Death Rate by Virus and Syndrome",
@@ -155,6 +213,27 @@ export default function DeathRatePage() {
               <p>
                 The MV Hondius cluster involves <strong>Andes virus</strong>, the South American
                 strain in the higher-fatality HPS group.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "cfr-vs-survival",
+          title: "Death Rate vs Survival Rate",
+          subtitle: "A 38% Death Rate Means About 62% Survive",
+          children: (
+            <>
+              <p>
+                Case fatality rate (CFR) and survival rate are two sides of the same statistic. If
+                the CFR for HPS is about 38%, then roughly <strong>62% of diagnosed people
+                survive</strong>. People searching &quot;how deadly is hantavirus&quot; often want
+                the survival side of that number.
+              </p>
+              <p>
+                Two cautions. First, CFR counts people sick enough to be diagnosed, so it does not
+                describe mild or undetected infections. Second, survival is not fixed: it improves
+                substantially with early recognition and intensive supportive care, and it varies by
+                virus type — Andes and Sin Nombre HPS are more severe than mild HFRS.
               </p>
             </>
           ),
