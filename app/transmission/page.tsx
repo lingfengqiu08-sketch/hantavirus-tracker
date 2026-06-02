@@ -6,12 +6,12 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Is Hantavirus Airborne or Contagious? Transmission Checker",
+  title: "Is Hantavirus Airborne or Contagious? How It Spreads",
   description:
-    "Hantavirus transmission checker: learn if a scenario fits airborne rodent dust, contagious person-to-person Andes virus risk, surfaces, or low-risk casual contact.",
+    "How hantavirus spreads: airborne rodent dust, rare contagious person-to-person Andes virus risk, contaminated surfaces, and low-risk casual contact explained.",
   alternates: { canonical: canonical("/transmission") },
   openGraph: {
-    title: "Is Hantavirus Airborne or Contagious? Transmission Checker",
+    title: "Is Hantavirus Airborne or Contagious? How It Spreads",
     description:
       "Scenario-based guide to airborne rodent dust, rare Andes virus close-contact spread, surfaces, and MV Hondius monitoring context.",
     url: canonical("/transmission"),
@@ -104,7 +104,7 @@ export default function TransmissionPage() {
     <MedicalReferencePage
       path="/transmission"
       eyebrow="Transmission guide"
-      title="Is Hantavirus Airborne or Contagious? Transmission Checker"
+      title="Is Hantavirus Airborne or Contagious? How It Spreads"
       description={metadata.description as string}
       intro="Use this education-only checker to separate the common hantavirus route, airborne rodent dust, from the rare Andes virus person-to-person exception. The goal is to understand exposure context, not to self-diagnose or self-clear."
       quickAnswer={
