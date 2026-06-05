@@ -207,6 +207,23 @@ export default function TransmissionPage() {
           subtitle: "Usually Yes for Rodent Dust, No for Casual Person-to-Person Air",
           children: (
             <>
+              <div className="rounded-md border bg-muted/30 p-4">
+                <p className="font-medium text-foreground">
+                  &ldquo;Airborne&rdquo; has two very different meanings here:
+                </p>
+                <ul className="mt-2 space-y-1">
+                  <li>
+                    <strong className="text-foreground">Rodent dust &mdash; yes.</strong> Dried urine,
+                    droppings, or saliva can become inhalable dust. This is the main way people catch
+                    hantavirus.
+                  </li>
+                  <li>
+                    <strong className="text-foreground">Person-to-person air &mdash; no, not casually.</strong>{" "}
+                    Hantavirus does not drift between people like flu or measles. Andes virus can
+                    spread only rarely, through close, prolonged contact with a symptomatic person.
+                  </li>
+                </ul>
+              </div>
               <p>
                 Hantavirus can be airborne in the sense that contaminated rodent waste can dry,
                 become dust, and be inhaled. This is why cleanup method matters: dry sweeping or

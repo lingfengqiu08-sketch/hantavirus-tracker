@@ -6,12 +6,12 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Treatment: Andes Virus Cure, Vaccine & ICU Care",
+  title: "Hantavirus Treatment: No Cure, Supportive Care & Vaccine",
   description:
     "Hantavirus treatment for Andes virus: no specific antiviral cure or routine vaccine. Supportive care, ICU support, ECMO, and when to seek help after exposure.",
   alternates: { canonical: canonical("/treatment") },
   openGraph: {
-    title: "Hantavirus Treatment: Andes Virus Cure & Care",
+    title: "Hantavirus Treatment: No Cure, Supportive Care & Vaccine",
     description:
       "Education-only care pathway for supportive treatment, ICU care, vaccine status, cure claims, and when to seek help after exposure.",
     url: canonical("/treatment"),
