@@ -13,16 +13,16 @@ import { canonical } from "@/lib/seo";
 export async function generateMetadata(): Promise<Metadata> {
   const data = getOutbreak();
   const totalCases = getTotalCases(data);
-  const title = `MV Hondius Outbreak: ${totalCases} Andes Virus Cases, ${data.deaths} Deaths`;
+  const title = `MV Hondius Current Status: ${totalCases} Cases, ${data.deaths} Deaths`;
   return {
     title,
     description:
-      "MV Hondius Andes virus outbreak tracker: live case count, deaths, ship route map, passenger status, timeline, and official WHO, ECDC and CDC sources.",
+      "MV Hondius current status and latest hantavirus update: live case count, deaths, monitoring window, ship status, timeline, and official WHO/ECDC/CDC sources.",
     alternates: { canonical: canonical("/cruise/mv-hondius") },
     openGraph: {
       title,
       description:
-        "Live case count, deaths, ship route map, passenger status, timeline and sources for the 2026 MV Hondius Andes virus cluster.",
+        "MV Hondius current status: live case count, deaths, ship status, latest official update, and sources for the 2026 Andes virus cluster.",
       url: canonical("/cruise/mv-hondius"),
       type: "article",
     },
@@ -145,11 +145,11 @@ export default function MvHondiusPage() {
       <header className="space-y-3">
         <p className="text-xs uppercase tracking-wide text-muted-foreground">Outbreak page</p>
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-          MV Hondius Andes Virus Outbreak Tracker
+          MV Hondius Current Status and Latest Hantavirus Update
         </h1>
         <p className="text-base text-muted-foreground">
-          Snapshot, ship route map, passenger status and full timeline for the 2026 MV Hondius
-          Andes hantavirus cluster. Compiled from WHO, ECDC and CDC public updates.
+          Current status, latest official update, ship status, passenger numbers and full timeline
+          for the 2026 MV Hondius Andes virus cluster. Compiled from WHO, ECDC and CDC.
         </p>
         <UpdateBanner
           lastUpdated={data.lastUpdated}
@@ -158,6 +158,25 @@ export default function MvHondiusPage() {
           sourceUrl={data.sourceUrl}
         />
       </header>
+
+      <section id="current-status" className="space-y-3">
+        <div className="rounded-lg border border-teal-200 bg-teal-50 p-4 text-sm leading-6 dark:bg-teal-950/30">
+          <p className="font-medium text-foreground">
+            Current Status — verified {data.lastVerifiedAt.slice(0, 10)}
+          </p>
+          <p className="mt-1 text-muted-foreground">
+            Per {data.sourceName}, the MV Hondius cluster stands at{" "}
+            <strong className="text-foreground">{totalCases} total cases</strong>{" "}
+            ({data.confirmed} confirmed Andes virus, {data.probable} probable) and{" "}
+            <strong className="text-foreground">{data.deaths} deaths</strong>. Contacts are monitored
+            through {data.monitoringEndsAt}. {data.ship.lastKnownStatus}
+          </p>
+          <p className="mt-2 text-muted-foreground">
+            <strong className="text-foreground">Latest update:</strong>{" "}
+            {data.timeline[data.timeline.length - 1].date} — {data.timeline[data.timeline.length - 1].title}.
+          </p>
+        </div>
+      </section>
 
       <section id="snapshot" className="space-y-3">
         <h2 className="text-xl font-semibold">Outbreak Snapshot</h2>
