@@ -11,14 +11,14 @@ import { getOutbreak, getTotalCases } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus Tracker | MV Hondius Andes Virus Map",
+  title: "Hantavirus Tracker | MV Hondius Current Status",
   description:
-    "Track the 2026 MV Hondius Andes virus outbreak with case counts, deaths, route map, passenger status, timeline, methodology, and official sources.",
+    "Live status of the 2026 MV Hondius Andes virus outbreak: current case count, deaths, monitoring window, route map, timeline, and official WHO/ECDC/CDC sources.",
   alternates: { canonical: canonical("/") },
   openGraph: {
-    title: "Hantavirus Tracker | MV Hondius Andes Virus Map",
+    title: "Hantavirus Tracker | MV Hondius Current Status",
     description:
-      "2026 MV Hondius Andes virus outbreak map, case count, deaths, timeline, and sources.",
+      "Live MV Hondius Andes virus outbreak status: current case count, deaths, monitoring window, timeline, and official sources.",
     url: canonical("/"),
     type: "website",
   },
@@ -28,7 +28,7 @@ const faq = [
   {
     question: "How many MV Hondius hantavirus cases are confirmed?",
     answer:
-      "As of the ECDC 18 May 2026 update, 12 total cases have been reported: 9 confirmed Andes virus infections, 2 probable cases, and 1 inconclusive case.",
+      "As of the latest WHO update (DON604, 28 May 2026), the MV Hondius cluster has 13 total cases: 11 laboratory-confirmed Andes virus infections and 2 probable cases, with 3 deaths. See the live snapshot at the top of this page for the current count.",
   },
   {
     question: "How many deaths have been reported?",
@@ -118,8 +118,8 @@ export default function HomePage() {
         "@type": "MedicalWebPage",
         "@id": `${canonical("/")}#webpage`,
         url: canonical("/"),
-        name: "Hantavirus Tracker — 2026 MV Hondius Andes Virus Outbreak Map",
-        headline: "Hantavirus Tracker — 2026 MV Hondius Andes Virus Outbreak Map",
+        name: "Hantavirus Tracker: MV Hondius Current Status",
+        headline: "Hantavirus Tracker: MV Hondius Current Status",
         description:
           "Track the 2026 MV Hondius Andes virus outbreak with case counts, deaths, route map, passenger status, timeline, methodology, and official sources.",
         datePublished: "2026-05-13",
@@ -183,7 +183,7 @@ export default function HomePage() {
       />
       <header className="space-y-3">
         <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-          Hantavirus Tracker — 2026 MV Hondius Andes Virus Outbreak Map
+          Hantavirus Tracker: MV Hondius Current Status
         </h1>
         <p className="text-base text-muted-foreground">
           Verified case counts, route map, passenger status and timeline for the multi-country
@@ -234,10 +234,10 @@ export default function HomePage() {
       </section>
 
       <section id="snapshot" className="space-y-3">
-        <h2 className="text-xl font-semibold">Current Outbreak Snapshot</h2>
+        <h2 className="text-xl font-semibold">Current Outbreak Status</h2>
         <p className="text-sm text-muted-foreground">
-          Cases, deaths and monitoring window. Counts use the latest official update by date,
-          with ECDC 18 May 2026 as the current status split.
+          Cases, deaths and monitoring window. Counts use the latest official update by date —
+          currently {data.sourceName}.
         </p>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
           <KpiCard label="Confirmed" value={data.confirmed} description="Lab-confirmed Andes virus cases" tone="amber" />
@@ -287,10 +287,10 @@ export default function HomePage() {
         <h2 className="text-xl font-semibold">What We Know So Far</h2>
         <div className="space-y-3 text-sm leading-6 text-muted-foreground">
           <p>
-            <strong className="text-foreground">Current count.</strong> ECDC reported on 18 May
-            2026 that the cluster involves {totalCases} total cases: {data.confirmed} confirmed
-            Andes virus infections, {data.probable} probable cases, {data.inconclusive} inconclusive
-            case, {data.suspected} suspected cases, and {data.deaths} deaths.
+            <strong className="text-foreground">Current count.</strong> The latest official update
+            ({data.sourceName}) reports {totalCases} total cases: {data.confirmed} confirmed Andes
+            virus infections, {data.probable} probable, {data.inconclusive} inconclusive,{" "}
+            {data.suspected} suspected, and {data.deaths} deaths.
           </p>
           <p>
             <strong className="text-foreground">Why Andes virus matters.</strong> Andes virus is
