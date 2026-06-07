@@ -94,6 +94,7 @@
     { "id": "src-aus-cdc-hondius-2026-05-15", "name": "MV Hondius passengers returning to Australia", "url": "https://www.cdc.gov.au/newsroom/news-and-articles/mv-hondius-passengers-land-australia", "publisher": "Australian Centre for Disease Control", "date": "2026-05-15" },
     { "id": "src-phac-andes-2026-05-16", "name": "Media update on Andes hantavirus situation", "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation0.html", "publisher": "Public Health Agency of Canada", "date": "2026-05-16" },
     { "id": "src-phac-andes-2026-05-17", "name": "Media update on Andes hantavirus situation", "url": "https://www.canada.ca/en/public-health/news/2026/05/media-update-on-andes-hantavirus-situation1.html", "publisher": "Public Health Agency of Canada", "date": "2026-05-17" },
-    { "id": "src-who-don-2026-05-28", "name": "Hantavirus outbreak linked to cruise ship travel, Multi-locations (DON604)", "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON604", "publisher": "World Health Organization", "date": "2026-05-28" }
+    { "id": "src-who-don-2026-05-28", "name": "Hantavirus outbreak linked to cruise ship travel, Multi-locations (DON604)", "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON604", "publisher": "World Health Organization", "date": "2026-05-28" },
+    { "id": "src-vial-2006-incubation", "name": "Incubation Period of Hantavirus Cardiopulmonary Syndrome (Vial PA, et al.)", "url": "https://wwwnc.cdc.gov/eid/article/12/8/05-1127_article", "publisher": "CDC Emerging Infectious Diseases", "date": "2006-08-01" }
   ]
 }

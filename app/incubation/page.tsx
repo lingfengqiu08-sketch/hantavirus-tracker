@@ -7,12 +7,12 @@ import { canonical } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Andes Hantavirus Incubation Period: 4-42 Days (MV Hondius)",
   description:
-    "The Andes hantavirus incubation period is 4 to 42 days after exposure. Compare CDC and WHO ranges and the MV Hondius 42-day monitoring window.",
+    "Andes hantavirus incubation period: 4-42 days after exposure, with an observed median near 18 days (range 7-39). Calculate your monitoring window and see when symptoms most likely start.",
   alternates: { canonical: canonical("/incubation") },
   openGraph: {
     title: "Andes Hantavirus Incubation Period: 4-42 Days",
     description:
-      "The Andes hantavirus incubation period is 4 to 42 days after exposure. CDC vs WHO ranges and the MV Hondius 42-day monitoring window explained.",
+      "Andes hantavirus incubation period is 4-42 days, observed median ~18 days (range 7-39, Vial 2006). Likely symptom-onset timing and the MV Hondius 42-day monitoring window.",
     url: canonical("/incubation"),
     type: "article",
   },
@@ -23,6 +23,16 @@ const faq = [
     question: "What is the Andes virus incubation period?",
     answer:
       "CDC lists signs and symptoms of HPS due to Andes virus as appearing 4 to 42 days after exposure.",
+  },
+  {
+    question: "How soon do most people get hantavirus symptoms after exposure?",
+    answer:
+      "When symptoms appear, they most often start around 2 to 3 weeks after exposure. In a CDC Emerging Infectious Diseases study of Andes virus patients with a defined exposure window (Vial et al., 2006), the observed incubation period had a median of 18 days, with most cases between 7 and 39 days. The wider 4-42 day range is still used for contact monitoring.",
+  },
+  {
+    question: "What is the median Andes virus incubation period?",
+    answer:
+      "About 18 days. A CDC study (Vial et al., 2006) found a median incubation of 18 days in Andes virus patients with a defined exposure, with a range of 7 to 39 days. A median is a typical value, not a deadline, so public-health teams still monitor the full 42 days.",
   },
   {
     question: "What is the exact Andes hantavirus incubation period range?",
@@ -101,6 +111,7 @@ export default function IncubationPage() {
   const sources = getSourcesByIds([
     "src-cdc-hantavirus",
     "src-cdc-andes",
+    "src-vial-2006-incubation",
     "src-who-don-2026-05-08",
     "src-ecdc-outbreak-2026-05-18",
   ]);
@@ -114,11 +125,14 @@ export default function IncubationPage() {
       intro={`The Andes hantavirus incubation period is 4 to 42 days after exposure, based on CDC's description of when hantavirus pulmonary syndrome (HPS) symptoms due to Andes virus appear. General hantavirus HPS symptoms usually start 1 to 8 weeks after infected-rodent contact. For MV Hondius contacts, public-health teams use a 42-day monitoring window from the last possible exposure on 10 May 2026, running through ${data.monitoringEndsAt}.`}
       quickAnswer={
         <p>
-          The Andes hantavirus incubation period used for public-health monitoring is{" "}
-          <strong>4-42 days after exposure</strong>. General hantavirus pulmonary
-          syndrome symptoms usually start <strong>1-8 weeks</strong> after infected
-          rodent contact. MV Hondius monitoring runs through{" "}
-          <strong>{data.monitoringEndsAt}</strong>.
+          The Andes hantavirus incubation period is{" "}
+          <strong>4-42 days after exposure</strong>. In a CDC study of patients with a
+          defined exposure window, the observed median was <strong>18 days</strong> (range
+          7-39), so symptoms most often appear around <strong>2 to 3 weeks</strong> in
+          &mdash; but the full 42-day window is used for monitoring because later onset is
+          still possible. General hantavirus pulmonary syndrome symptoms usually start{" "}
+          <strong>1-8 weeks</strong> after infected rodent contact. MV Hondius monitoring
+          runs through <strong>{data.monitoringEndsAt}</strong>.
         </p>
       }
       data={data}
@@ -126,26 +140,26 @@ export default function IncubationPage() {
       faq={faq}
       facts={[
         {
-          label: "General HPS",
-          value: "1-8 weeks",
-          description: "Usual CDC timing after infected rodent contact",
-        },
-        {
           label: "Andes virus",
           value: "4-42 days",
-          description: "CDC timing for HPS due to Andes virus",
+          description: "CDC monitoring range for HPS due to Andes virus",
           tone: "amber",
         },
         {
-          label: "Last exposure",
-          value: "2026-05-10",
-          description: "MV Hondius monitoring reference date",
+          label: "Median onset",
+          value: "~18 days",
+          description: "Observed median, range 7-39 days (Vial 2006, CDC EID)",
+          tone: "green",
+        },
+        {
+          label: "Most likely",
+          value: "2-3 weeks",
+          description: "When symptoms most often appear after exposure",
         },
         {
           label: "Window ends",
           value: data.monitoringEndsAt,
-          description: "Tracker monitoring endpoint",
-          tone: "green",
+          description: "MV Hondius 42-day monitoring endpoint",
         },
       ]}
       condition={{
@@ -159,6 +173,63 @@ export default function IncubationPage() {
           title: "Hantavirus Incubation Period Calculator",
           subtitle: "Estimate the Andes Virus 4-42 Day Window",
           children: <IncubationWindowCalculator defaultExposureDate="2026-05-10" />,
+        },
+        {
+          id: "onset-timing",
+          title: "How Soon Do Symptoms Usually Start? Median ~18 Days",
+          subtitle: "Monitoring Window vs Real-World Onset Timing",
+          children: (
+            <>
+              <p>
+                Most pages only quote the <strong>4-42 day</strong> monitoring range. That range is
+                deliberately wide so contact tracing catches even the latest possible case. The
+                real-world picture is more specific: in a CDC <em>Emerging Infectious Diseases</em>{" "}
+                study of Andes virus patients with a defined exposure window (Vial et al., 2006), the
+                observed incubation period had a <strong>median of 18 days</strong>, with most cases
+                falling between <strong>7 and 39 days</strong>.
+              </p>
+              <p>
+                In other words, when symptoms do appear, they most often show up around{" "}
+                <strong>2 to 3 weeks after exposure</strong> &mdash; not on day 4, and rarely as late
+                as day 42. The 42-day window is the safety margin, not the typical timing.
+              </p>
+
+              <div className="rounded-lg border bg-card p-4">
+                <p className="mb-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  Andes virus incubation timeline (days after exposure)
+                </p>
+                <div className="relative h-8">
+                  <div className="absolute inset-y-3 left-0 right-0 rounded-full bg-muted" />
+                  <div
+                    className="absolute inset-y-3 rounded-full bg-amber-300/70 dark:bg-amber-500/40"
+                    style={{ left: `${(7 / 42) * 100}%`, right: `${((42 - 39) / 42) * 100}%` }}
+                  />
+                  <div
+                    className="absolute top-0 bottom-0 flex flex-col items-center"
+                    style={{ left: `${(18 / 42) * 100}%`, transform: "translateX(-50%)" }}
+                  >
+                    <span className="h-6 w-px bg-foreground" />
+                    <span className="mt-1 whitespace-nowrap text-[11px] font-semibold text-foreground">
+                      median 18d
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-7 flex justify-between text-[11px] leading-tight text-muted-foreground">
+                  <span>Day 4<br />earliest</span>
+                  <span className="text-center">Days 7-39<br />most cases</span>
+                  <span className="text-right">Day 42<br />window ends</span>
+                </div>
+              </div>
+
+              <p className="text-sm text-muted-foreground">
+                A median is a typical value, not a deadline. Some cases appear earlier than 7 days or
+                later than 39, which is exactly why public-health teams monitor the full 42 days after
+                the last possible exposure instead of stopping at the median. Do not use a symptom-free
+                day count to decide you are in the clear &mdash; follow your public-health team&apos;s
+                instructions.
+              </p>
+            </>
+          ),
         },
         {
           id: "examples",

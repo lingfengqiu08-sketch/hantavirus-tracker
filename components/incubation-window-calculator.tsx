@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +17,15 @@ type IncubationWindowCalculatorProps = {
 };
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+// Client-only "today" (UTC midnight ms). Returns null on the server so SSR and
+// the first client render agree, then resolves to the user's date after hydration.
+// A numeric timestamp is stable within a day, satisfying useSyncExternalStore.
+function getClientTodayMs(): number {
+  const now = new Date();
+  return Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+}
+const emptySubscribe = () => () => {};
 const timingRows = [
   {
     question: "Andes virus incubation period",
@@ -72,6 +81,7 @@ export function IncubationWindowCalculator({
   defaultExposureDate,
 }: IncubationWindowCalculatorProps) {
   const [exposureDate, setExposureDate] = useState(defaultExposureDate);
+  const today = useSyncExternalStore(emptySubscribe, getClientTodayMs, () => null);
 
   const result = useMemo(() => {
     const parsed = parseIsoDate(exposureDate);
@@ -85,6 +95,12 @@ export function IncubationWindowCalculator({
       generalLatest: addDays(parsed, 56),
     };
   }, [exposureDate]);
+
+  const progress = useMemo(() => {
+    if (!result || today === null) return null;
+    const days = Math.floor((today - result.exposure.getTime()) / MS_PER_DAY);
+    return { days };
+  }, [result, today]);
 
   return (
     <div className="rounded-lg border bg-card p-4 text-sm">
@@ -172,6 +188,51 @@ export function IncubationWindowCalculator({
           Enter a valid date to calculate the window.
         </p>
       )}
+
+      {result && progress && progress.days >= 0 && progress.days <= 60 ? (
+        <div className="mt-3 rounded-md border bg-muted/30 p-3">
+          <p className="font-medium text-foreground">
+            Today is day {progress.days} after this exposure date.
+          </p>
+          <div className="relative mt-3 h-6">
+            <div className="absolute inset-y-2 left-0 right-0 rounded-full bg-muted" />
+            <div
+              className="absolute inset-y-2 rounded-full bg-amber-300/70 dark:bg-amber-500/40"
+              style={{ left: `${(7 / 42) * 100}%`, right: `${((42 - 39) / 42) * 100}%` }}
+            />
+            <div
+              className="absolute inset-y-0 w-px bg-foreground/50"
+              style={{ left: `${(18 / 42) * 100}%` }}
+              aria-hidden="true"
+            />
+            {progress.days <= 42 ? (
+              <div
+                className="absolute inset-y-0 flex flex-col items-center"
+                style={{ left: `${(progress.days / 42) * 100}%`, transform: "translateX(-50%)" }}
+                aria-hidden="true"
+              >
+                <span className="h-6 w-0.5 rounded bg-emerald-600" />
+              </div>
+            ) : null}
+          </div>
+          <div className="mt-1 flex justify-between text-[11px] text-muted-foreground">
+            <span>Day 0 (exposure)</span>
+            <span>median 18d</span>
+            <span>Day 42</span>
+          </div>
+          <p className="mt-2 leading-6 text-muted-foreground">
+            {progress.days < 4
+              ? "This is before the earliest reported Andes virus symptom onset (about day 4). Keep monitoring and watch for symptoms."
+              : progress.days <= 42
+                ? `${progress.days < 18 ? "The observed median onset is day 18." : "You are past the day-18 median, but later onset within the window is still possible."} About ${42 - progress.days} day${42 - progress.days === 1 ? "" : "s"} remain in the 42-day monitoring window.`
+                : "This date is past the 42-day monitoring window. Follow your public-health team's guidance on when monitoring ends."}
+          </p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Green line marks today. General information only, not medical advice or an all-clear.
+            Follow your public-health team&apos;s instructions.
+          </p>
+        </div>
+      ) : null}
 
       <div className="mt-4 space-y-2 sm:hidden">
         {timingRows.map((row) => (
