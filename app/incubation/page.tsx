@@ -128,9 +128,10 @@ export default function IncubationPage() {
           The Andes hantavirus incubation period is{" "}
           <strong>4-42 days after exposure</strong>. In a CDC study of patients with a
           defined exposure window, the observed median was <strong>18 days</strong> (range
-          7-39), so symptoms most often appear around <strong>2 to 3 weeks</strong> in
-          &mdash; but the full 42-day window is used for monitoring because later onset is
-          still possible. General hantavirus pulmonary syndrome symptoms usually start{" "}
+          7-39), so symptoms most often appear around{" "}
+          <strong>2 to 3 weeks</strong>{" "}&mdash; but the full 42-day window is used for
+          monitoring because later onset is still possible. General hantavirus pulmonary
+          syndrome symptoms usually start{" "}
           <strong>1-8 weeks</strong> after infected rodent contact. MV Hondius monitoring
           runs through <strong>{data.monitoringEndsAt}</strong>.
         </p>
