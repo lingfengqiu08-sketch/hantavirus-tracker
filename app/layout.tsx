@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { LogoMark } from "@/components/site-logo";
+import { SiteNav } from "@/components/site-nav";
 import { SITE_NAME, SITE_URL, canonical } from "@/lib/seo";
 import { getOutbreak } from "@/lib/outbreak";
 
@@ -76,7 +77,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <GoogleAnalytics />
         <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/65">
-          <nav className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-3.5 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <nav className="relative mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3.5 text-sm">
             <Link
               href="/"
               className="group flex items-center gap-2.5 text-foreground"
@@ -85,53 +86,7 @@ export default function RootLayout({
               <LogoMark className="size-8 shrink-0 transition-transform duration-300 group-hover:scale-105" />
               <span className="font-heading text-lg font-semibold tracking-tight">Hantavirus Tracker</span>
             </Link>
-            <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] font-medium text-muted-foreground sm:justify-end">
-              <li>
-                <Link href="/cruise/mv-hondius" className="transition-colors hover:text-primary">
-                  MV Hondius
-                </Link>
-              </li>
-              <li>
-                <Link href="/symptoms" className="transition-colors hover:text-primary">
-                  Symptoms
-                </Link>
-              </li>
-              <li>
-                <Link href="/transmission" className="transition-colors hover:text-primary">
-                  Transmission
-                </Link>
-              </li>
-              <li>
-                <Link href="/treatment" className="transition-colors hover:text-primary">
-                  Treatment
-                </Link>
-              </li>
-              <li>
-                <Link href="/what-is-hantavirus" className="transition-colors hover:text-primary">
-                  What is Hantavirus
-                </Link>
-              </li>
-              <li>
-                <Link href="/cases" className="transition-colors hover:text-primary">
-                  Cases
-                </Link>
-              </li>
-              <li>
-                <Link href="/response-tracker" className="transition-colors hover:text-primary">
-                  Response
-                </Link>
-              </li>
-              <li>
-                <Link href="/methodology" className="transition-colors hover:text-primary">
-                  Methodology
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="transition-colors hover:text-primary">
-                  About
-                </Link>
-              </li>
-            </ul>
+            <SiteNav />
           </nav>
         </header>
         <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8">{children}</main>
