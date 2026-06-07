@@ -195,32 +195,32 @@ export default function IncubationPage() {
                 as day 42. The 42-day window is the safety margin, not the typical timing.
               </p>
 
-              <div className="rounded-lg border bg-card p-4">
-                <p className="mb-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  Andes virus incubation timeline (days after exposure)
-                </p>
-                <div className="relative h-8">
-                  <div className="absolute inset-y-3 left-0 right-0 rounded-full bg-muted" />
+              <figure className="rounded-2xl border bg-gradient-to-br from-card to-secondary/30 p-5 shadow-sm">
+                <figcaption className="mb-5 text-[11px] font-semibold uppercase tracking-[0.09em] text-muted-foreground">
+                  Andes virus incubation timeline · days after exposure
+                </figcaption>
+                <div className="relative h-12">
+                  <div className="absolute inset-x-0 top-3 h-1.5 rounded-full bg-muted" />
                   <div
-                    className="absolute inset-y-3 rounded-full bg-amber-300/70 dark:bg-amber-500/40"
+                    className="absolute top-3 h-1.5 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-300 dark:from-amber-500/55 dark:via-amber-400/65 dark:to-amber-500/55"
                     style={{ left: `${(7 / 42) * 100}%`, right: `${((42 - 39) / 42) * 100}%` }}
                   />
                   <div
-                    className="absolute top-0 bottom-0 flex flex-col items-center"
-                    style={{ left: `${(18 / 42) * 100}%`, transform: "translateX(-50%)" }}
+                    className="absolute top-0 flex -translate-x-1/2 flex-col items-center"
+                    style={{ left: `${(18 / 42) * 100}%` }}
                   >
-                    <span className="h-6 w-px bg-foreground" />
-                    <span className="mt-1 whitespace-nowrap text-[11px] font-semibold text-foreground">
+                    <span className="mt-[5px] size-3.5 rounded-full bg-primary shadow-sm ring-2 ring-card" />
+                    <span className="mt-2 whitespace-nowrap rounded-full bg-primary px-2 py-0.5 text-[11px] font-semibold text-primary-foreground">
                       median 18d
                     </span>
                   </div>
                 </div>
-                <div className="mt-7 flex justify-between text-[11px] leading-tight text-muted-foreground">
-                  <span>Day 4<br />earliest</span>
-                  <span className="text-center">Days 7-39<br />most cases</span>
-                  <span className="text-right">Day 42<br />window ends</span>
+                <div className="mt-2 flex justify-between text-[11px] font-medium text-muted-foreground">
+                  <span>Day 4 · earliest</span>
+                  <span className="text-amber-600 dark:text-amber-400">Days 7&ndash;39 · most cases</span>
+                  <span>Day 42 · ends</span>
                 </div>
-              </div>
+              </figure>
 
               <p className="text-sm text-muted-foreground">
                 A median is a typical value, not a deadline. Some cases appear earlier than 7 days or

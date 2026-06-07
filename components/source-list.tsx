@@ -6,20 +6,22 @@ export type SourceListProps = {
 
 export function SourceList({ sources }: SourceListProps) {
   return (
-    <ul className="space-y-3">
+    <ul className="grid gap-2.5 sm:grid-cols-2">
       {sources.map((source) => (
-        <li key={source.id} className="rounded-lg border p-4">
+        <li key={source.id}>
           <a
-            className="font-medium underline underline-offset-4"
+            className="group flex h-full flex-col rounded-xl border bg-card p-4 transition-all hover:border-primary/30 hover:shadow-[0_2px_10px_-6px_rgba(15,118,110,0.25)]"
             href={source.url}
             target="_blank"
             rel="noreferrer"
           >
-            {source.name}
+            <span className="font-medium leading-snug text-foreground underline-offset-4 group-hover:underline">
+              {source.name}
+            </span>
+            <span className="mt-1.5 text-[13px] text-muted-foreground">
+              {source.publisher} · {source.date}
+            </span>
           </a>
-          <p className="mt-1 text-sm text-muted-foreground">
-            {source.publisher} · {source.date}
-          </p>
         </li>
       ))}
     </ul>

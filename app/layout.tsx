@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { LogoMark } from "@/components/site-logo";
@@ -15,6 +15,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -65,63 +71,63 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <GoogleAnalytics />
-        <header className="border-b">
-          <nav className="mx-auto flex max-w-5xl flex-col gap-3 p-4 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/65">
+          <nav className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-3.5 text-sm sm:flex-row sm:items-center sm:justify-between">
             <Link
               href="/"
-              className="flex items-center gap-2 font-semibold tracking-tight text-foreground"
+              className="group flex items-center gap-2.5 text-foreground"
               aria-label="Hantavirus Tracker home"
             >
-              <LogoMark className="size-8 shrink-0" />
-              <span>Hantavirus Tracker</span>
+              <LogoMark className="size-8 shrink-0 transition-transform duration-300 group-hover:scale-105" />
+              <span className="font-heading text-lg font-semibold tracking-tight">Hantavirus Tracker</span>
             </Link>
-            <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-muted-foreground sm:justify-end">
+            <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13px] font-medium text-muted-foreground sm:justify-end">
               <li>
-                <Link href="/cruise/mv-hondius" className="hover:text-foreground">
+                <Link href="/cruise/mv-hondius" className="transition-colors hover:text-primary">
                   MV Hondius
                 </Link>
               </li>
               <li>
-                <Link href="/symptoms" className="hover:text-foreground">
+                <Link href="/symptoms" className="transition-colors hover:text-primary">
                   Symptoms
                 </Link>
               </li>
               <li>
-                <Link href="/transmission" className="hover:text-foreground">
+                <Link href="/transmission" className="transition-colors hover:text-primary">
                   Transmission
                 </Link>
               </li>
               <li>
-                <Link href="/treatment" className="hover:text-foreground">
+                <Link href="/treatment" className="transition-colors hover:text-primary">
                   Treatment
                 </Link>
               </li>
               <li>
-                <Link href="/what-is-hantavirus" className="hover:text-foreground">
+                <Link href="/what-is-hantavirus" className="transition-colors hover:text-primary">
                   What is Hantavirus
                 </Link>
               </li>
               <li>
-                <Link href="/cases" className="hover:text-foreground">
+                <Link href="/cases" className="transition-colors hover:text-primary">
                   Cases
                 </Link>
               </li>
               <li>
-                <Link href="/response-tracker" className="hover:text-foreground">
+                <Link href="/response-tracker" className="transition-colors hover:text-primary">
                   Response
                 </Link>
               </li>
               <li>
-                <Link href="/methodology" className="hover:text-foreground">
+                <Link href="/methodology" className="transition-colors hover:text-primary">
                   Methodology
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-foreground">
+                <Link href="/about" className="transition-colors hover:text-primary">
                   About
                 </Link>
               </li>

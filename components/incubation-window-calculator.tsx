@@ -103,11 +103,11 @@ export function IncubationWindowCalculator({
   }, [result, today]);
 
   return (
-    <div className="rounded-lg border bg-card p-4 text-sm">
+    <div className="rounded-2xl border bg-gradient-to-br from-card to-secondary/20 p-5 text-sm shadow-sm">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="space-y-1">
           <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
-            <CalendarDays className="size-4" aria-hidden="true" />
+            <CalendarDays className="size-4 text-primary" aria-hidden="true" />
             Exposure Date Window Calculator
           </h3>
           <p className="leading-6 text-muted-foreground">
@@ -201,7 +201,7 @@ export function IncubationWindowCalculator({
               style={{ left: `${(7 / 42) * 100}%`, right: `${((42 - 39) / 42) * 100}%` }}
             />
             <div
-              className="absolute inset-y-0 w-px bg-foreground/50"
+              className="absolute inset-y-0 w-px bg-primary/50"
               style={{ left: `${(18 / 42) * 100}%` }}
               aria-hidden="true"
             />
