@@ -114,6 +114,29 @@ export default function HomePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      // Anchor "/" as the official entry point for the brand "Hantavirus Tracker"
+      // so it stops losing the brand query to /treatment, /test, /cruise, etc.
+      {
+        "@type": "WebSite",
+        "@id": `${canonical("/")}#website`,
+        url: canonical("/"),
+        name: "Hantavirus Tracker",
+        alternateName: ["Hantavirus Tracker MV Hondius", "MV Hondius Hantavirus Tracker"],
+        description:
+          "Independent tracker for the 2026 MV Hondius Andes hantavirus outbreak, compiled from WHO, ECDC and CDC public updates.",
+        inLanguage: "en",
+        publisher: { "@id": `${canonical("/")}#organization` },
+      },
+      {
+        "@type": "Organization",
+        "@id": `${canonical("/")}#organization`,
+        name: "Hantavirus Tracker",
+        url: canonical("/"),
+        logo: {
+          "@type": "ImageObject",
+          url: `${canonical("/")}icon.svg`,
+        },
+      },
       {
         "@type": "MedicalWebPage",
         "@id": `${canonical("/")}#webpage`,
@@ -121,11 +144,12 @@ export default function HomePage() {
         name: "Hantavirus Tracker: MV Hondius Current Status",
         headline: "Hantavirus Tracker: MV Hondius Current Status",
         description:
-          "Track the 2026 MV Hondius Andes virus outbreak with case counts, deaths, route map, passenger status, timeline, methodology, and official sources.",
+          "Hantavirus Tracker is an independent tracker for the 2026 MV Hondius Andes virus outbreak, with case counts, deaths, route map, passenger status, timeline, methodology, and official sources.",
         datePublished: "2026-05-13",
         dateModified: data.lastUpdated,
         inLanguage: "en",
         isAccessibleForFree: true,
+        isPartOf: { "@id": `${canonical("/")}#website` },
         medicalAudience: {
           "@type": "MedicalAudience",
           audienceType: "General public",
@@ -186,9 +210,10 @@ export default function HomePage() {
           Hantavirus Tracker: MV Hondius Current Status
         </h1>
         <p className="text-base text-muted-foreground">
-          Verified case counts, route map, passenger status and timeline for the multi-country
-          Andes hantavirus cluster linked to the MV Hondius cruise ship. Updated manually from
-          WHO, ECDC and CDC briefings.
+          <strong className="font-medium text-foreground">Hantavirus Tracker</strong> is an
+          independent tracker for the multi-country Andes hantavirus cluster linked to the MV
+          Hondius cruise ship. Verified case counts, route map, passenger status and timeline,
+          updated manually from WHO, ECDC and CDC briefings.
         </p>
         <UpdateBanner
           lastUpdated={data.lastUpdated}
