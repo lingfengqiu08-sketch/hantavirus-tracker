@@ -12,7 +12,9 @@ import { outbreak } from "@/lib/outbreak";
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(outbreak.lastUpdated);
   const transmissionContentLastModified = new Date("2026-05-25T00:00:00Z");
-  const treatmentContentLastModified = new Date("2026-05-25T00:00:00Z");
+  const incubationCtrLastModified = new Date("2026-06-17T00:00:00Z");
+  const treatmentCtrLastModified = new Date("2026-06-17T00:00:00Z");
+  const testCtrLastModified = new Date("2026-06-17T00:00:00Z");
   const responseTrackerContentLastModified = new Date("2026-05-25T00:00:00Z");
   const andesVirusContentLastModified = new Date("2026-05-26T00:00:00Z");
   return [
@@ -25,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/incubation`,
-      lastModified,
+      lastModified: incubationCtrLastModified,
       changeFrequency: "weekly",
       priority: 0.92,
     },
@@ -49,13 +51,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/treatment`,
-      lastModified: treatmentContentLastModified,
+      lastModified: treatmentCtrLastModified,
       changeFrequency: "weekly",
       priority: 0.78,
     },
     {
       url: `${SITE_URL}/test`,
-      lastModified,
+      lastModified: testCtrLastModified,
       changeFrequency: "weekly",
       priority: 0.77,
     },

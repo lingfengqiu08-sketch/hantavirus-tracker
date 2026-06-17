@@ -6,14 +6,14 @@ import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Hantavirus PCR Test: Timing, PCR vs Serology, When to Test",
+  title: "Hantavirus Test: When to Ask About PCR After Exposure",
   description:
-    "Hantavirus PCR test timing: compare PCR vs IgM/IgG serology, understand early negative results, and learn when to ask for medical testing after exposure.",
+    "Hantavirus test timing after exposure: compare PCR vs IgM/IgG serology, understand early negative results, and learn when to contact clinicians.",
   alternates: { canonical: canonical("/test") },
   openGraph: {
-    title: "Hantavirus PCR Test: Timing and Serology",
+    title: "Hantavirus Test: When to Ask About PCR After Exposure",
     description:
-      "Education-only timing guidance for PCR, IgM/IgG serology, early negative results, and when to contact clinicians.",
+      "Education-only timing guidance for PCR, IgM/IgG serology, early negative results, and when to contact clinicians after exposure.",
     url: canonical("/test"),
     type: "article",
   },

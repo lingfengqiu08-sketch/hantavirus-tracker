@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { IncubationWindowCalculator } from "@/components/incubation-window-calculator";
 import { MedicalReferencePage } from "@/components/medical-reference-page";
 import { getOutbreak, getSourcesByIds } from "@/lib/outbreak";
 import { canonical } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Andes Hantavirus Incubation Period: 4-42 Days (MV Hondius)",
+  title: "Andes Hantavirus Incubation Period Calculator + Timeline",
   description:
-    "Andes hantavirus incubation period: 4-42 days after exposure, with an observed median near 18 days (range 7-39). Calculate your monitoring window and see when symptoms most likely start.",
+    "Enter an exposure date to calculate the Andes hantavirus incubation window, compare the 4-42 day range with median 18-day onset, and see testing/care next steps.",
   alternates: { canonical: canonical("/incubation") },
   openGraph: {
-    title: "Andes Hantavirus Incubation Period: 4-42 Days",
+    title: "Andes Hantavirus Incubation Period Calculator + Timeline",
     description:
-      "Andes hantavirus incubation period is 4-42 days, observed median ~18 days (range 7-39, Vial 2006). Likely symptom-onset timing and the MV Hondius 42-day monitoring window.",
+      "Exposure-date calculator for the Andes hantavirus 4-42 day monitoring window, median 18-day onset, and MV Hondius next steps.",
     url: canonical("/incubation"),
     type: "article",
   },
@@ -124,17 +125,47 @@ export default function IncubationPage() {
       description={metadata.description as string}
       intro={`The Andes hantavirus incubation period is 4 to 42 days after exposure, based on CDC's description of when hantavirus pulmonary syndrome (HPS) symptoms due to Andes virus appear. General hantavirus HPS symptoms usually start 1 to 8 weeks after infected-rodent contact. For MV Hondius contacts, public-health teams use a 42-day monitoring window from the last possible exposure on 10 May 2026, running through ${data.monitoringEndsAt}.`}
       quickAnswer={
-        <p>
-          The Andes hantavirus incubation period is{" "}
-          <strong>4-42 days after exposure</strong>. In a CDC study of patients with a
-          defined exposure window, the observed median was <strong>18 days</strong> (range
-          7-39), so symptoms most often appear around{" "}
-          <strong>2 to 3 weeks</strong>{" "}&mdash; but the full 42-day window is used for
-          monitoring because later onset is still possible. General hantavirus pulmonary
-          syndrome symptoms usually start{" "}
-          <strong>1-8 weeks</strong> after infected rodent contact. MV Hondius monitoring
-          runs through <strong>{data.monitoringEndsAt}</strong>.
-        </p>
+        <div className="space-y-3">
+          <p>
+            The Andes hantavirus incubation period is{" "}
+            <strong>4-42 days after exposure</strong>. In a CDC study of patients with a
+            defined exposure window, the observed median was <strong>18 days</strong> (range
+            7-39), so symptoms most often appear around{" "}
+            <strong>2 to 3 weeks</strong>{" "}&mdash; but the full 42-day window is used for
+            monitoring because later onset is still possible. General hantavirus pulmonary
+            syndrome symptoms usually start{" "}
+            <strong>1-8 weeks</strong> after infected rodent contact. MV Hondius monitoring
+            runs through <strong>{data.monitoringEndsAt}</strong>.
+          </p>
+          <div className="grid gap-2 text-sm sm:grid-cols-3">
+            {[
+              {
+                href: "/test",
+                label: "When to ask about testing",
+                text: "PCR vs serology timing after exposure.",
+              },
+              {
+                href: "/transmission",
+                label: "Was this an exposure?",
+                text: "Rodent dust vs Andes close contact.",
+              },
+              {
+                href: "/cruise/mv-hondius",
+                label: "Current MV Hondius status",
+                text: "Latest case count and monitoring context.",
+              },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-lg border bg-background/70 p-3 no-underline transition hover:bg-background"
+              >
+                <span className="block font-medium text-foreground">{item.label}</span>
+                <span className="mt-1 block text-muted-foreground">{item.text}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
       }
       data={data}
       sources={sources}
@@ -174,6 +205,46 @@ export default function IncubationPage() {
           title: "Hantavirus Incubation Period Calculator",
           subtitle: "Estimate the Andes Virus 4-42 Day Window",
           children: <IncubationWindowCalculator defaultExposureDate="2026-05-10" />,
+        },
+        {
+          id: "next-steps",
+          title: "After You Calculate the Window",
+          subtitle: "Use the Right Follow-Up Page",
+          children: (
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  href: "/test",
+                  label: "Testing timing",
+                  text: "Compare PCR, IgM/IgG serology, and early negative results.",
+                },
+                {
+                  href: "/transmission",
+                  label: "Exposure route",
+                  text: "Separate rodent dust exposure from rare Andes close-contact spread.",
+                },
+                {
+                  href: "/cruise/mv-hondius",
+                  label: "MV Hondius latest",
+                  text: "Check case count, deaths, route timeline, and official sources.",
+                },
+                {
+                  href: "/treatment",
+                  label: "When to seek care",
+                  text: "Understand supportive care and symptoms that need medical advice.",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-md border bg-card p-3 hover:bg-muted/40"
+                >
+                  <h3 className="font-medium text-foreground">{item.label}</h3>
+                  <p className="mt-1">{item.text}</p>
+                </Link>
+              ))}
+            </div>
+          ),
         },
         {
           id: "onset-timing",
@@ -363,9 +434,11 @@ export default function IncubationPage() {
         },
       ]}
       related={[
+        { href: "/test", label: "Hantavirus PCR and serology timing" },
+        { href: "/transmission", label: "Hantavirus exposure and transmission checker" },
         { href: "/symptoms", label: "Hantavirus symptoms and warning timeline" },
         { href: "/hps", label: "Hantavirus pulmonary syndrome stages" },
-        { href: "/cruise/mv-hondius", label: "MV Hondius outbreak timeline" },
+        { href: "/cruise/mv-hondius", label: "MV Hondius current status and timeline" },
       ]}
     />
   );
